@@ -1,0 +1,124 @@
+package com.prism.services;
+
+import com.prism.Prism;
+import com.prism.components.definition.ConfigKey;
+import com.prism.components.definition.PrismFile;
+import com.prism.components.frames.WarningDialog;
+import com.prism.components.textarea.TextArea;
+import com.prism.managers.FileManager;
+import com.prism.services.syntaxchecker.CSyntaxChecker;
+import com.prism.utils.ResourceUtil;
+
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Paths;
+
+import static javax.swing.JOptionPane.*;
+
+public class ServiceForC extends Service {
+	private static final Prism prism = Prism.getInstance();
+
+	public ServiceForC() {
+		PrismFile pf = prism.getTextAreaTabbedPane().getCurrentFile();
+		File file = pf.getFile();
+
+		JMenuItem runCurrentFileItem = new JMenuItem("C: Build & Run");
+
+		runCurrentFileItem.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				FileManager.saveFile(pf);
+
+				runCurrentFile(file);
+			}
+		});
+
+		add(runCurrentFileItem);
+	}
+
+	@Override
+	public ImageIcon getIconOfCodeOutlineLine(String line) {
+		line = line.trim();
+
+		if (line.matches("^(typedef\\s+)?(struct|enum)(\\s+\\w+)?\\s*\\{?"))
+			return ResourceUtil.getIconFromSVG("icons/ui/symbol-type.svg", 16, 16);
+
+		if (line.matches("^(typedef\\s+)?(union)(\\s+\\w+)?\\s*\\{?"))
+			return ResourceUtil.getIconFromSVG("icons/ui/symbol-union.svg", 16, 16);
+
+		if (line.matches("^[\\w\\*\\s]+\\s+\\w+\\s*\\([^)]*\\)\\s*\\{?"))
+			return ResourceUtil.getIconFromSVG("icons/ui/symbol-function.svg", 16, 16);
+
+		if (line.matches("^[\\w\\*\\s]+\\s+\\w+(\\[\\d*\\])?\\s*(=|;).*"))
+			return ResourceUtil.getIconFromSVG("icons/ui/symbol-field.svg", 16, 16);
+
+		return ResourceUtil.getIconFromSVG("icons/ui/symbol-keyword.svg", 16, 16);
+	}
+
+	@Override
+	public boolean createNewProject(File projectDir) {
+		File mainFile = new File(projectDir, "main.c");
+
+		if (!mainFile.exists()) {
+			try {
+				mainFile.createNewFile();
+			} catch (IOException e) {
+				return false;
+			}
+		}
+
+		try (FileWriter fw = new FileWriter(mainFile)) {
+			fw.write(getSample());
+
+			return true;
+		} catch (IOException e) {
+			return false;
+		}
+	}
+
+	@Override
+	public String getSample() {
+		return """
+				#include <stdio.h>
+				
+				int main() {
+				    printf("Hello World!\\n");
+				    return 0;
+				}
+				""";
+	}
+
+	@Override
+	public void installSyntaxChecker(PrismFile pf, TextArea textArea) {
+		if (!(prism.getConfig().getBoolean(ConfigKey.ALLOW_SERVICES, true) && prism.getConfig().getBoolean(ConfigKey.ALLOW_SERVICE_SYNTAX_CHECKER, true))) {
+			return;
+		}
+
+		if (prism.getConfig().getBoolean(ConfigKey.LANGUAGE_C_GNU_GCC_COMPILER_PROVIDED_IN_PATH_ENV, true)) {
+			CSyntaxChecker.install(pf, textArea, null);
+		} else {
+			CSyntaxChecker.install(pf, textArea, Paths.get(prism.getConfig().getString(ConfigKey.LANGUAGE_C_GNU_GCC_COMPILER_PATH, "")));
+		}
+	}
+
+	private void runCurrentFile(File file) {
+		File dir = file.getParentFile();
+		String base = file.getName().replaceFirst("[.][^.]+$", "");
+
+		String cmdLine = String.format(
+				"cmd /c start \"Running %s\" cmd /k \"gcc \"%s\" -o \"%s\" && \"%s\" && pause && exit\"",
+				base, file.getName(), base, base);
+
+		try {
+			new ProcessBuilder("cmd", "/c", cmdLine)
+					.directory(dir)
+					.inheritIO()
+					.start();
+		} catch (Exception ex) {
+			new WarningDialog(prism, ex);
+		}
+	}
+}

@@ -1,0 +1,470 @@
+{
+  "autocomplete" : {
+    "Java" : {
+      "default" : [ {
+        "symbol" : "keyword",
+        "keyword" : "abstract"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "assert"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "break"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "case"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "catch"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "class"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "const"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "continue"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "default"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "do"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "else"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "enum"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "exports"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "extends"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "final"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "finally"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "for"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "goto"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "if"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "implements"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "import"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "instanceof"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "interface"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "module"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "native"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "new"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "non-sealed"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "null"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "open"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "opens"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "package"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "permits"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "private"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "protected"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "provides"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "public"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "record"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "requires"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "sealed"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "static"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "strictfp"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "super"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "switch"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "synchronized"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "this"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "throw"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "throws"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "to"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "transient"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "transitive"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "try"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "uses"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "void"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "volatile"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "while"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "with"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "yield"
+      }, {
+        "symbol" : "keyword",
+        "keyword" : "return"
+      }, {
+        "symbol" : "type",
+        "keyword" : "boolean"
+      }, {
+        "symbol" : "type",
+        "keyword" : "byte"
+      }, {
+        "symbol" : "type",
+        "keyword" : "char"
+      }, {
+        "symbol" : "type",
+        "keyword" : "double"
+      }, {
+        "symbol" : "type",
+        "keyword" : "float"
+      }, {
+        "symbol" : "type",
+        "keyword" : "int"
+      }, {
+        "symbol" : "type",
+        "keyword" : "long"
+      }, {
+        "symbol" : "type",
+        "keyword" : "short"
+      }, {
+        "symbol" : "type",
+        "keyword" : "var"
+      }, {
+        "symbol" : "type",
+        "default" : [ {
+          "symbol" : "field",
+          "default" : [ {
+            "symbol" : "function",
+            "keyword" : "println"
+          }, {
+            "symbol" : "function",
+            "keyword" : "print"
+          }, {
+            "symbol" : "function",
+            "keyword" : "printf"
+          } ],
+          "keyword" : "out"
+        }, {
+          "symbol" : "field",
+          "default" : [ {
+            "symbol" : "function",
+            "keyword" : "println"
+          }, {
+            "symbol" : "function",
+            "keyword" : "print"
+          } ],
+          "keyword" : "err"
+        }, {
+          "symbol" : "function",
+          "keyword" : "currentTimeMillis"
+        }, {
+          "symbol" : "function",
+          "keyword" : "arraycopy"
+        } ],
+        "description" : "Core system utilities (standard output and error streams).",
+        "keyword" : "System"
+      }, {
+        "symbol" : "type",
+        "default" : [ {
+          "symbol" : "function",
+          "keyword" : "length"
+        }, {
+          "symbol" : "function",
+          "keyword" : "charAt"
+        }, {
+          "symbol" : "function",
+          "keyword" : "substring"
+        }, {
+          "symbol" : "function",
+          "keyword" : "indexOf"
+        }, {
+          "symbol" : "function",
+          "keyword" : "lastIndexOf"
+        }, {
+          "symbol" : "function",
+          "keyword" : "trim"
+        }, {
+          "symbol" : "function",
+          "keyword" : "split"
+        }, {
+          "symbol" : "function",
+          "keyword" : "equals"
+        }, {
+          "symbol" : "function",
+          "keyword" : "equalsIgnoreCase"
+        }, {
+          "symbol" : "function",
+          "keyword" : "toLowerCase"
+        }, {
+          "symbol" : "function",
+          "keyword" : "toUpperCase"
+        }, {
+          "symbol" : "function",
+          "keyword" : "startsWith"
+        }, {
+          "symbol" : "function",
+          "keyword" : "endsWith"
+        }, {
+          "symbol" : "function",
+          "keyword" : "contains"
+        }, {
+          "symbol" : "function",
+          "keyword" : "format"
+        } ],
+        "description" : "Immutable character sequences and common operations.",
+        "keyword" : "String"
+      }, {
+        "symbol" : "type",
+        "default" : [ {
+          "symbol" : "function",
+          "keyword" : "abs"
+        }, {
+          "symbol" : "function",
+          "keyword" : "max"
+        }, {
+          "symbol" : "function",
+          "keyword" : "min"
+        }, {
+          "symbol" : "function",
+          "keyword" : "sin"
+        }, {
+          "symbol" : "function",
+          "keyword" : "cos"
+        }, {
+          "symbol" : "function",
+          "keyword" : "tan"
+        }, {
+          "symbol" : "function",
+          "keyword" : "sqrt"
+        }, {
+          "symbol" : "function",
+          "keyword" : "pow"
+        }, {
+          "symbol" : "function",
+          "keyword" : "random"
+        } ],
+        "description" : "Basic numeric operations and constants.",
+        "keyword" : "Math"
+      }, {
+        "symbol" : "type",
+        "default" : [ {
+          "symbol" : "function",
+          "keyword" : "parseInt"
+        }, {
+          "symbol" : "function",
+          "keyword" : "valueOf"
+        }, {
+          "symbol" : "function",
+          "keyword" : "toString"
+        }, {
+          "symbol" : "field",
+          "keyword" : "MAX_VALUE"
+        }, {
+          "symbol" : "field",
+          "keyword" : "MIN_VALUE"
+        } ],
+        "keyword" : "Integer"
+      }, {
+        "symbol" : "type",
+        "default" : [ {
+          "symbol" : "function",
+          "keyword" : "parseDouble"
+        }, {
+          "symbol" : "function",
+          "keyword" : "valueOf"
+        }, {
+          "symbol" : "function",
+          "keyword" : "isNaN"
+        } ],
+        "keyword" : "Double"
+      }, {
+        "symbol" : "type",
+        "default" : [ {
+          "symbol" : "function",
+          "keyword" : "start"
+        }, {
+          "symbol" : "function",
+          "keyword" : "join"
+        }, {
+          "symbol" : "function",
+          "keyword" : "sleep"
+        } ],
+        "keyword" : "Thread"
+      }, {
+        "symbol" : "type",
+        "default" : [ {
+          "symbol" : "function",
+          "keyword" : "getRuntime"
+        }, {
+          "symbol" : "function",
+          "keyword" : "exec"
+        }, {
+          "symbol" : "function",
+          "keyword" : "exit"
+        }, {
+          "symbol" : "function",
+          "keyword" : "availableProcessors"
+        } ],
+        "keyword" : "Runtime"
+      }, {
+        "symbol" : "type",
+        "default" : [ {
+          "symbol" : "function",
+          "keyword" : "getMessage"
+        }, {
+          "symbol" : "function",
+          "keyword" : "printStackTrace"
+        }, {
+          "symbol" : "function",
+          "keyword" : "getCause"
+        } ],
+        "keyword" : "Throwable"
+      }, {
+        "symbol" : "type",
+        "default" : [ {
+          "symbol" : "function",
+          "keyword" : "sort"
+        }, {
+          "symbol" : "function",
+          "keyword" : "binarySearch"
+        }, {
+          "symbol" : "function",
+          "keyword" : "shuffle"
+        } ],
+        "keyword" : "Collections"
+      }, {
+        "symbol" : "type",
+        "keyword" : "Appendable"
+      }, {
+        "symbol" : "type",
+        "keyword" : "AutoCloseable"
+      }, {
+        "symbol" : "type",
+        "keyword" : "CharSequence"
+      }, {
+        "symbol" : "type",
+        "keyword" : "Cloneable"
+      }, {
+        "symbol" : "type",
+        "keyword" : "Comparable"
+      }, {
+        "symbol" : "type",
+        "keyword" : "Iterable"
+      }, {
+        "symbol" : "type",
+        "keyword" : "ProcessHandle"
+      }, {
+        "symbol" : "type",
+        "keyword" : "Readable"
+      }, {
+        "symbol" : "type",
+        "keyword" : "Runnable"
+      }, {
+        "symbol" : "type",
+        "keyword" : "StringBuffer"
+      }, {
+        "symbol" : "type",
+        "keyword" : "StringBuilder"
+      }, {
+        "symbol" : "type",
+        "keyword" : "Object"
+      }, {
+        "symbol" : "type",
+        "keyword" : "Class"
+      }, {
+        "symbol" : "type",
+        "keyword" : "Exception"
+      }, {
+        "symbol" : "type",
+        "keyword" : "Error"
+      }, {
+        "symbol" : "type",
+        "keyword" : "RuntimeException"
+      }, {
+        "symbol" : "type",
+        "keyword" : "NullPointerException"
+      }, {
+        "symbol" : "type",
+        "keyword" : "IllegalArgumentException"
+      } ],
+      "shorthand" : [ ]
+    }
+  },
+  "name" : "Language Support for Java",
+  "description" : "Autocomplete for Java: keywords, common types, and standard functions.",
+  "version" : "1.0.0",
+  "enabled" : true
+}

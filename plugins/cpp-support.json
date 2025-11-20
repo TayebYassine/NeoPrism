@@ -1,0 +1,1057 @@
+{
+    "autocomplete": {
+        "C++": {
+            "default": [
+                {
+                    "symbol": "null",
+                    "keyword": "auto"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "break"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "case"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "catch"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "class"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "const"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "const_cast"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "continue"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "default"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "delete"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "do"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "dynamic_cast"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "else"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "enum"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "explicit"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "extern"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "for"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "friend"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "goto"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "if"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "inline"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "mutable"
+                },
+                {
+                    "symbol": "namespace",
+                    "keyword": "namespace"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "new"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "operator"
+                },
+                {
+                    "symbol": "global",
+                    "keyword": "private"
+                },
+                {
+                    "symbol": "global",
+                    "keyword": "protected"
+                },
+                {
+                    "symbol": "global",
+                    "keyword": "public"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "register"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "reinterpret_cast"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "sizeof"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "static"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "static_cast"
+                },
+                {
+                    "symbol": "struct",
+                    "keyword": "struct"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "switch"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "template"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "this"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "throw"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "try"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "typedef"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "typeid"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "typename"
+                },
+                {
+                    "symbol": "struct",
+                    "keyword": "union"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "using"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "virtual"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "volatile"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "while"
+                },
+                {
+                    "symbol": "null",
+                    "keyword": "return"
+                },
+                {
+                    "symbol": "enum2",
+                    "keyword": "true"
+                },
+                {
+                    "symbol": "enum2",
+                    "keyword": "false"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "char"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "div_t"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "double"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "float"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "int"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "ldiv_t"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "long"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "short"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "signed"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "size_t"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "unsigned"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "void"
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "wchar_t"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "abort"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "abs"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "acos"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "asctime"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "asin"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "assert"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "atan2"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "atan"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "atexit"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "atof"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "atoi"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "atol"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "bsearch"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "btowc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "calloc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "ceil"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "clearerr"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "clock"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "cosh"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "cos"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "ctime"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "difftime"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "div"
+                },
+                {
+                    "symbol": "field",
+                    "keyword": "errno"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "exit"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "exp"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fabs"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fclose"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "feof"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "ferror"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fflush"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fgetc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fgetpos"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fgetwc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fgets"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fgetws"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "floor"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fmod"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fopen"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fprintf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fputc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fputs"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fputwc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fputws"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fread"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "free"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "freopen"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "frexp"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fscanf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fseek"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fsetpos"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "ftell"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fwprintf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fwrite"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "fwscanf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "getchar"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "getc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "getenv"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "gets"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "getwc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "getwchar"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "gmtime"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "isalnum"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "isalpha"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "iscntrl"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "isdigit"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "isgraph"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "islower"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "isprint"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "ispunct"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "isspace"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "isupper"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "isxdigit"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "labs"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "ldexp"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "ldiv"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "localeconv"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "localtime"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "log10"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "log"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "longjmp"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "malloc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "mblen"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "mbrlen"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "mbrtowc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "mbsinit"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "mbsrtowcs"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "mbstowcs"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "mbtowc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "memchr"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "memcmp"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "memcpy"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "memmove"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "memset"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "mktime"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "modf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "offsetof"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "perror"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "pow"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "printf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "putchar"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "putc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "puts"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "putwc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "putwchar"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "qsort"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "raise"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "rand"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "realloc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "remove"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "rename"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "rewind"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "scanf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "setbuf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "setjmp"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "setlocale"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "setvbuf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "signal"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "sinh"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "sin"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "sprintf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "sqrt"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "srand"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "sscanf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strcat"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strchr"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strcmp"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strcoll"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strcpy"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strcspn"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strerror"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strftime"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strlen"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strncat"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strncmp"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strncpy"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strpbrk"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strrchr"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strspn"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strstr"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strtod"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strtok"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strtol"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strtoul"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "strxfrm"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "swprintf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "swscanf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "system"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "tanh"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "tan"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "time"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "tmpfile"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "tmpnam"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "tolower"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "toupper"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "ungetc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "ungetwc"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "va_arg"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "va_end"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "va_start"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "vfprintf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "vfwprintf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "vprintf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "vsprintf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "vswprintf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "vwprintf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcrtomb"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcscat"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcschr"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcscmp"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcscoll"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcscpy"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcscspn"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcsftime"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcslen"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcsncat"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcsncmp"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcsncpy"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcspbrk"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcsrchr"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcsrtombs"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcsspn"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcsstr"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcstod"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcstok"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcstol"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcstombs"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcstoul"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wcsxfrm"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wctob"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wctomb"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wmemchr"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wmemcmp"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wmemcpy"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wmemmove"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wmemset"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wprintf"
+                },
+                {
+                    "symbol": "function",
+                    "keyword": "wscanf"
+                }
+            ],
+            "shorthand": []
+        }
+    },
+    "name": "Language Support for C++",
+    "description": "Autocomplete for C++: keywords, common types, and standard functions.",
+    "version": "1.0.0",
+    "enabled": true
+}

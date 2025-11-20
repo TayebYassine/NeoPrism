@@ -1,0 +1,21 @@
+# Directories
+.idea/
+JRE/
+target/
+out/
+com/prism/
+src/test/
+installer/
+
+# Files
+config.properties
+*.jar
+*.exe
+*.ico
+*.bmp
+*.log
+tasks.json
+tools.json
+databases.json
+*.js
+*.class
