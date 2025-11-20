@@ -32,7 +32,7 @@ Integrated tooling:
 
 ## Installation
 
-Go to [releases](https://github.com/TFAGaming/Prism/releases/), choose which version you want to download, click on **Assets**, and then click on the installer file (like `Prism_Setup_x64_1.0.0.exe`) to download it. When the download finishes, double-click on it to install Prism.
+Go to [releases](https://github.com/TayebYassine/NeoPrism/releases/), choose which version you want to download, click on **Assets**, and then click on the installer file (like `Prism_Setup_x64_1.0.0.exe`) to download it. When the download finishes, double-click on it to install Prism.
 
 The **Java Runtime Environment** (**JRE**), SE 25, is bundled within the application's installer. There is no need to worry if you have an outdated Java version or have never installed Java before.
 
