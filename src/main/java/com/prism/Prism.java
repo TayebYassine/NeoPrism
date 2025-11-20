@@ -35,8 +35,9 @@ import java.util.List;
 import java.util.Map;
 
 public class Prism extends JFrame {
-	private static final String VERSION = "1.0.0-25w47b";
-	private static final boolean SNAPSHOT = true;
+	private static final String VERSION = "1.0.0";
+	private static final boolean SNAPSHOT = false;
+
 	private static final String WINDOW_TITLE = "Prism";
 	private static final String CONFIG_FILE = "config.properties";
 	private static final String PLUGINS_DIR = "plugins";
