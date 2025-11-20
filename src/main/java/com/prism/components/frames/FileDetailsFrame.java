@@ -49,11 +49,6 @@ public class FileDetailsFrame extends JFrame {
 		setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		SwingUtilities.invokeLater(() ->
-				new FileDetailsFrame(new File(System.getProperty("user.home"))));
-	}
-
 	private void addFileProperties(JPanel panel, GridBagConstraints gbc, File f) {
 		addRow(panel, gbc, "", "");
 		addSeparator(panel, gbc, "--- General ---");
