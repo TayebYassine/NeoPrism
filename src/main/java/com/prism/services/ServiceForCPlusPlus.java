@@ -27,14 +27,14 @@ public class ServiceForCPlusPlus extends Service {
 		PrismFile pf = prism.getTextAreaTabbedPane().getCurrentFile();
 		File file = pf.getFile();
 
-		JMenuItem buildAndRunExternalThreadItem = new JMenuItem("C: Build & Run (External Thread)");
+		JMenuItem buildAndRunExternalThreadItem = new JMenuItem("C++: Build & Run (External Thread)");
 		buildAndRunExternalThreadItem.addActionListener(e -> {
 			FileManager.saveFile(pf);
 
 			buildAndRunExternalThreadFile(file);
 		});
 
-		JMenuItem buildAndRunItem = new JMenuItem("C: Build & Run");
+		JMenuItem buildAndRunItem = new JMenuItem("C++: Build & Run");
 		buildAndRunItem.addActionListener(e -> {
 			FileManager.saveFile(pf);
 
@@ -112,7 +112,7 @@ public class ServiceForCPlusPlus extends Service {
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 
 		String cmdLine = String.format(
-				"cmd /c start \"Running %s\" cmd /k \"g++ \"%s.cpp\" -o \"%s\" && \"%s\" && pause && exit\"",
+				"cmd /c start \"Running %s\" cmd /k \"g++ \"%s\" -o \"%s\" && \"%s\" && pause && exit\"",
 				base, file.getName(), base, base);
 
 		try {
@@ -137,7 +137,7 @@ public class ServiceForCPlusPlus extends Service {
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 
 		String cmdLine = String.format(
-				"g++ \"%s.cpp\" -o \"%s\" && \"%s\"",
+				"g++ \"%s\" -o \"%s\" && \"%s\"",
 				file.getName(), base, base);
 
 		terminal.executeCommandSync(cmdLine);
