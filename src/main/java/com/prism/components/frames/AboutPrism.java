@@ -421,7 +421,7 @@ public class AboutPrism extends JFrame {
 		label.setBorder(new EmptyBorder(15, 15, 10, 0));
 
 		outer.add(label, BorderLayout.NORTH);
-		outer.add(p, BorderLayout.CENTER);
+		outer.add(new JDefaultKineticScrollPane(p), BorderLayout.CENTER);
 
 		return outer;
 	}
