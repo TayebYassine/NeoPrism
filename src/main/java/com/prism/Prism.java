@@ -93,6 +93,10 @@ public class Prism extends JFrame {
 	private JLabel sbZoom = new JLabel();
 	private JLabel sbEncoding = new JLabel();
 
+	private JProgressBar heapProgressBar;
+	private Timer heapTimer;
+	private boolean isHeapUpdateInProgress = false;
+
 	public Prism(String[] args) {
 		Prism.INSTANCE = this;
 		initializeConfiguration();
@@ -122,6 +126,7 @@ public class Prism extends JFrame {
 
 		initializeComponents();
 		setupStatusBar();
+		startHeapTimer();
 		setupSplitPanes();
 		loadDefaultResources();
 	}
@@ -407,20 +412,6 @@ public class Prism extends JFrame {
 		terminalTabbedPane.openNewTerminalIfAllTabsAreClosed();
 	}
 
-	private void addStatusLabelsToBox(JPanel box) {
-		box.add(sbLanguage);
-		box.add(Box.createHorizontalStrut(HORIZONTAL_STRUT_SIZE));
-		box.add(sbLength);
-		box.add(Box.createHorizontalStrut(HORIZONTAL_STRUT_SIZE));
-		box.add(sbLines);
-		box.add(Box.createHorizontalStrut(HORIZONTAL_STRUT_SIZE));
-		box.add(sbPosition);
-		box.add(Box.createHorizontalStrut(HORIZONTAL_STRUT_SIZE));
-		box.add(sbZoom);
-		box.add(Box.createHorizontalStrut(HORIZONTAL_STRUT_SIZE));
-		box.add(sbEncoding);
-	}
-
 	private void setupSplitPanes() {
 		secondarySplitPane.setResizeWeight(SPLIT_PANE_RESIZE_WEIGHT);
 		primarySplitPane.setResizeWeight(SPLIT_PANE_RESIZE_WEIGHT);
@@ -484,6 +475,15 @@ public class Prism extends JFrame {
 
 		/* ----  right  ---- */
 		JPanel right = createSectionPanel();
+
+		heapProgressBar = new JProgressBar(0, 100);
+		heapProgressBar.setStringPainted(true);
+		heapProgressBar.setPreferredSize(new Dimension(80, 16));
+		heapProgressBar.setMaximumSize(new Dimension(80, 16));
+		heapProgressBar.setFont(heapProgressBar.getFont().deriveFont(Font.PLAIN, 11));
+
+		right.add(heapProgressBar);
+		right.add(createSeparator());
 		right.add(factory.apply("100%", "ZOOM"));
 
 		statusBarPanel.add(left);
@@ -492,15 +492,9 @@ public class Prism extends JFrame {
 		statusBarPanel.add(Box.createHorizontalGlue());
 		statusBarPanel.add(right);
 
-		/* ----  path  ---- */
-
-		JPanel pathPanel = new JPanel(new BorderLayout());
-		pathPanel.setOpaque(false);
-
 		/* ----  assembly  ---- */
 		searchAndReplaceAndStatusBarPanel.add(searchAndReplace, BorderLayout.NORTH);
 		searchAndReplaceAndStatusBarPanel.add(statusBarPanel, BorderLayout.CENTER);
-		searchAndReplaceAndStatusBarPanel.add(pathPanel, BorderLayout.SOUTH);
 
 		add(searchAndReplaceAndStatusBarPanel, BorderLayout.SOUTH);
 	}
@@ -519,22 +513,25 @@ public class Prism extends JFrame {
 		return s;
 	}
 
-	private JLabel createStatusLabel(String text) {
-		JLabel label = new JLabel(text);
-		label.setFont(label.getFont().deriveFont(Font.PLAIN, 11));
-		label.setBorder(BorderFactory.createEmptyBorder(0, 8, 0, 8));
-		label.setOpaque(true);
-		label.setBackground(new Color(0, 0, 0, 0)); // Transparent
+	private void updateHeapProgressBar() {
+		Runtime runtime = Runtime.getRuntime();
+		long total = runtime.totalMemory();
+		long free = runtime.freeMemory();
+		long used = total - free;
+		int percent = (int) ((used * 100) / total);
 
-		return label;
+		SwingUtilities.invokeLater(() -> {
+			heapProgressBar.setValue(percent);
+			heapProgressBar.setString(used / 1024 / 1024 + "M / " + total / 1024 / 1024 + "M");
+		});
 	}
 
 	// Updated updateStatusBar method
 	public void updateStatusBar() {
-		if (statusWidgets.isEmpty()) return;          // not built yet
+		if (statusWidgets.isEmpty()) return;
 
 		PrismFile file = textAreaTabbedPane.getCurrentFile();
-		if (file == null) {                           // no file
+		if (file == null) {
 			statusWidgets.get("ENC").setText("UTF-8");
 			statusWidgets.get("EOL").setText("Windows (CR LF)");
 			statusWidgets.get("POS").setText(languageInterface.get(3, 0, 0));
@@ -606,6 +603,18 @@ public class Prism extends JFrame {
 		if (text.contains("\r")) return "Mac (CR)";
 		if (text.contains("\n")) return "Unix (LF)";
 		return "Windows (CR LF)";
+	}
+
+	private void startHeapTimer() {
+		heapTimer = new Timer(10000, e -> {
+			if (!isHeapUpdateInProgress) {
+				isHeapUpdateInProgress = true;
+				updateHeapProgressBar();
+				isHeapUpdateInProgress = false;
+			}
+		});
+
+		heapTimer.start();
 	}
 
 	public void addBackComponent(ComponentType type) {
