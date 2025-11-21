@@ -27,7 +27,7 @@ public class TextAreaManager {
 
 		if (prism.getConfig().getBoolean(ConfigKey.BOOK_MARKS, true)) {
 			gutter.setBookmarkingEnabled(true);
-			gutter.setBookmarkIcon(ResourceUtil.getIconFromSVG("icons/ui/bookmark.svg", 12, 12));
+			gutter.setBookmarkIcon(ResourceUtil.getIconFromSVG("icons/ui/bookmark2.svg", 12, 12));
 
 			gutter.addIconRowListener(new IconRowListener() {
 				@Override

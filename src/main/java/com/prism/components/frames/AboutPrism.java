@@ -390,6 +390,7 @@ public class AboutPrism extends JFrame {
 				{"Special Thanks:", "tabler.io/icons – UI Icons", ""},
 				{"", "IntelliJ IDEA – UI Icons", ""},
 				{"", "@microsoft/vscode-icons – UI Icons", ""},
+				{"", "@bobbylight/RText – Inspiration", ""},
 				{"", "@jesseweed/seti-ui – File Icons", ""},
 				{"Third-Party Libraries:", "xerial: sqlite-jdbc", "BSD-3-Clause & Apache-2.0"},
 				{"", "Fifesoft: RSyntaxTextArea", "BSD-3-Clause"},

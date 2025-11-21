@@ -181,7 +181,7 @@ public class Bookmarks extends JPanel {
 					setText(String.format("%s (Line %d)", label, (info.getLine() + 1)));
 				}
 
-				Icon icon = ResourceUtil.getIconFromSVG("icons/ui/bookmark.svg", 18, 18);
+				Icon icon = ResourceUtil.getIconFromSVG("icons/ui/bookmark2.svg", 18, 18);
 				setIcon(icon);
 			} else if (node.isRoot()) {
 				setText(String.valueOf(userObj));
