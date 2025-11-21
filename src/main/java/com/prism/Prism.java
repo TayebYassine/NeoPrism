@@ -470,17 +470,17 @@ public class Prism extends JFrame {
 		JPanel left = createSectionPanel();
 		left.add(factory.apply("UTF-8", "ENC"));
 		left.add(createSeparator());
-		left.add(factory.apply("Win (CRLF)", "EOL"));
+		left.add(factory.apply("Windows (CR LF)", "EOL"));
 		left.add(createSeparator());
 		left.add(factory.apply("UTF-8", "ENC"));
 
 		/* ----  middle  ---- */
 		JPanel mid = createSectionPanel();
-		mid.add(factory.apply("Ln 1, Col 1", "POS"));
+		mid.add(factory.apply(languageInterface.get(3, 0, 0), "POS"));
 		mid.add(createSeparator());
-		mid.add(factory.apply("Sel 0 | 0", "SEL"));
+		mid.add(factory.apply(languageInterface.get(4, 0, 0), "SEL"));
 		mid.add(createSeparator());
-		mid.add(factory.apply("Length 0", "LEN"));
+		mid.add(factory.apply(languageInterface.get(1, 0), "LEN"));
 
 		/* ----  right  ---- */
 		JPanel right = createSectionPanel();
@@ -536,21 +536,21 @@ public class Prism extends JFrame {
 		PrismFile file = textAreaTabbedPane.getCurrentFile();
 		if (file == null) {                           // no file
 			statusWidgets.get("ENC").setText("UTF-8");
-			statusWidgets.get("EOL").setText("Win (CRLF)");
-			statusWidgets.get("POS").setText("Ln 1, Col 1");
-			statusWidgets.get("SEL").setText("Sel 0 | 0");
-			statusWidgets.get("LEN").setText("Length 0");
+			statusWidgets.get("EOL").setText("Windows (CR LF)");
+			statusWidgets.get("POS").setText(languageInterface.get(3, 0, 0));
+			statusWidgets.get("SEL").setText(languageInterface.get(4, 0, 0));
+			statusWidgets.get("LEN").setText(languageInterface.get(1, 0));
 			statusWidgets.get("ZOOM").setText("100%");
 			return;
 		}
 
 		if (file.isImage()) {                         // image file
 			statusWidgets.get("ENC").setText("Image");
-			statusWidgets.get("EOL").setText("");
-			statusWidgets.get("POS").setText("");
-			statusWidgets.get("SEL").setText("");
-			statusWidgets.get("LEN").setText("");
-			statusWidgets.get("ZOOM").setText("");
+			statusWidgets.get("EOL").setText("Unknown");
+			statusWidgets.get("POS").setText(languageInterface.get(3, "?", "?"));
+			statusWidgets.get("SEL").setText(languageInterface.get(4, "?", "?"));
+			statusWidgets.get("LEN").setText(languageInterface.get(1, "?"));
+			statusWidgets.get("ZOOM").setText("?");
 			return;
 		}
 
@@ -572,9 +572,14 @@ public class Prism extends JFrame {
 
 		int selLen = ta.getSelectionEnd() - ta.getSelectionStart();
 		int selLines = 0;
-		if (selLen > 0) {
-			String selText = ta.getSelectedText();
-			selLines = selText == null ? 0 : selText.split("\n", -1).length;
+
+		try {
+			if (selLen > 0) {
+				String selText = ta.getSelectedText();
+				selLines = selText == null ? 0 : selText.split("\n", -1).length;
+			}
+		} catch (Exception _) {
+
 		}
 
 		String lang = Languages.getFullName(file.getFile());
