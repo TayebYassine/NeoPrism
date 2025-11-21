@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Prism extends JFrame {
-	private static final String VERSION = "1.0.0";
+	private static final String VERSION = "1.0.1";
 	private static final boolean SNAPSHOT = false;
 
 	private static final String WINDOW_TITLE = "Prism";
@@ -606,7 +606,7 @@ public class Prism extends JFrame {
 	}
 
 	private void startHeapTimer() {
-		heapTimer = new Timer(10000, e -> {
+		heapTimer = new Timer(3_000, e -> {
 			if (!isHeapUpdateInProgress) {
 				isHeapUpdateInProgress = true;
 				updateHeapProgressBar();
