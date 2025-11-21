@@ -15,6 +15,8 @@ import javax.swing.tree.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class CodeOutline extends JTree {
 	private static final Prism prism = Prism.getInstance();
@@ -116,6 +118,8 @@ public class CodeOutline extends JTree {
 		private final Icon nestedParentIcon = ResourceUtil.getIcon("icons/ui/symbol-yellow-square.gif");
 		private final Icon leafIcon = ResourceUtil.getIcon("icons/ui/symbol-red-square.gif");
 
+		private final Map<String, Icon> customIconCache = new ConcurrentHashMap<>();
+
 		@Override
 		public Component getTreeCellRendererComponent(
 				JTree tree, Object value,
@@ -134,7 +138,7 @@ public class CodeOutline extends JTree {
 			if (outline != null && outline.file != null && outline.file.exists()) {
 				Service svc = Languages.getService(outline.file);
 				if (svc != null) {
-					ImageIcon custom = svc.getIconOfCodeOutlineLine(fw.title);
+					Icon custom = customIconCache.computeIfAbsent(fw.title, t -> svc.getIconOfCodeOutlineLine(t));
 					if (custom != null) {
 						setIcon(custom);
 						return this;
@@ -146,6 +150,7 @@ public class CodeOutline extends JTree {
 			if (depth == 1) setIcon(mainParentIcon);
 			else if (fw.fold.getChildCount() > 0) setIcon(nestedParentIcon);
 			else setIcon(leafIcon);
+
 			return this;
 		}
 

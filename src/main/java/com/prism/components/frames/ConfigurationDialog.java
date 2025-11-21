@@ -291,7 +291,7 @@ public class ConfigurationDialog extends JFrame {
 
 		JDefaultKineticScrollPane sp = new JDefaultKineticScrollPane(tree);
 		sp.setPreferredSize(new Dimension(200, 0));
-		sp.setBorder(BorderFactory.createTitledBorder("Categories"));
+		sp.setBorder(BorderFactory.createTitledBorder(" Categories "));
 		return sp;
 	}
 
