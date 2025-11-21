@@ -43,7 +43,7 @@ public class TextDifferFrame extends JFrame {
 
 		setExtendedState(MAXIMIZED_BOTH);
 
-		setIconImage(ResourceUtil.getAppIcon());
+		setIconImages(ResourceUtil.getAppIcon());
 
 		oldTextArea = createTextArea(oldFile, oldText);
 		newTextArea = createTextArea(file, text);

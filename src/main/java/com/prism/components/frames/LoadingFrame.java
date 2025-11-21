@@ -28,7 +28,7 @@ public class LoadingFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setResizable(false);
 		setUndecorated(true);
-		setIconImage(ResourceUtil.getAppIcon());
+		setIconImages(ResourceUtil.getAppIcon());
 
 		if (Theme.isDarkTheme()) {
 			setBackground(Theme.getPrimaryColor());

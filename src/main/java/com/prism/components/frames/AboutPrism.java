@@ -213,7 +213,7 @@ public class AboutPrism extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setSize(600, 400);
 		setResizable(false);
-		setIconImage(ResourceUtil.getAppIcon());
+		setIconImages(ResourceUtil.getAppIcon());
 
 		JPanel root = new JPanel(new BorderLayout());
 		root.setBorder(new EmptyBorder(1, 1, 1, 1));

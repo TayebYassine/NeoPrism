@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class Windows {
     public static SystemTray tray = SystemTray.getSystemTray();
-    public static TrayIcon trayIcon = new TrayIcon(ResourceUtil.getAppIcon(), "Prism " + Prism.getVersion());
+    public static TrayIcon trayIcon = new TrayIcon(ResourceUtil.getSystemTrayAppIcon(), "Prism " + Prism.getVersion());
 
     static {
         trayIcon.setImageAutoSize(true);

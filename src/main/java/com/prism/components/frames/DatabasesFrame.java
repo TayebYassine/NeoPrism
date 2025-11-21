@@ -32,7 +32,7 @@ public class DatabasesFrame extends JFrame {
 
 		setResizable(true);
 
-		setIconImage(ResourceUtil.getAppIcon());
+		setIconImages(ResourceUtil.getAppIcon());
 
 		init();
 		reload();

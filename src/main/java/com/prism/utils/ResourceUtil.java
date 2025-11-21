@@ -11,11 +11,24 @@ import java.awt.image.*;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class ResourceUtil {
-	public static Image getAppIcon() {
-		return Objects.requireNonNull(ResourceUtil.getIcon("icons/Prism.png")).getImage();
+	public static List<Image> getAppIcon() {
+		//return Objects.requireNonNull(ResourceUtil.getIcon("icons/Prism-48.png")).getImage();
+		List<Image> icons = new ArrayList<>();
+
+		for (int s : new int[]{16, 32, 48, 64, 128, 256, 512}) {
+			icons.add(ResourceUtil.getIcon("icons/app/Prism-" + s + "px.png").getImage());
+		}
+
+		return icons;
+	}
+
+	public static Image getSystemTrayAppIcon() {
+		return Objects.requireNonNull(ResourceUtil.getIcon("icons/app/Prism-16px.png")).getImage();
 	}
 
 	public static ImageIcon getIcon(String resourcePath) {
@@ -37,7 +50,7 @@ public class ResourceUtil {
 	}
 
 	public static ImageIcon getIcon(String resourcePath, int size) {
-        return getIcon(resourcePath, size, size);
+		return getIcon(resourcePath, size, size);
 	}
 
 	public static ImageIcon getIcon(String resourcePath, int width, int height) {

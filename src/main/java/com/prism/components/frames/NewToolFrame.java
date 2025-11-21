@@ -24,7 +24,7 @@ public class NewToolFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setIconImage(ResourceUtil.getAppIcon());
+		setIconImages(ResourceUtil.getAppIcon());
 
 		init();
 		setVisible(true);

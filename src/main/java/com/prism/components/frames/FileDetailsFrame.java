@@ -29,7 +29,7 @@ public class FileDetailsFrame extends JFrame {
 		setSize(700, 600);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		setIconImage(ResourceUtil.getAppIcon());
+		setIconImages(ResourceUtil.getAppIcon());
 
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridBagLayout());

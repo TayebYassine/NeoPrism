@@ -36,7 +36,7 @@ public class EditToolFrame extends JFrame {
 
 		setResizable(false);
 
-		setIconImage(ResourceUtil.getAppIcon());
+		setIconImages(ResourceUtil.getAppIcon());
 
 		init();
 

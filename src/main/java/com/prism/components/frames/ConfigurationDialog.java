@@ -218,7 +218,7 @@ public class ConfigurationDialog extends JFrame {
 		setSize(900, 600);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setIconImage(ResourceUtil.getAppIcon());
+		setIconImages(ResourceUtil.getAppIcon());
 
 		JPanel content = new JPanel(new BorderLayout(10, 10));
 		content.setBorder(new EmptyBorder(5, 5, 5, 5));

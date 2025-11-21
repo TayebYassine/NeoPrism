@@ -38,7 +38,7 @@ public class WindowsFrame extends JFrame {
 		setSize(800, 600);
 		setResizable(false);
 		setLocationRelativeTo(null);
-		setIconImage(ResourceUtil.getAppIcon());
+		setIconImages(ResourceUtil.getAppIcon());
 
 		JPanel mainPanel = new JPanel(new BorderLayout(10, 10));
 		mainPanel.setBorder(new EmptyBorder(10, 10, 10, 10));

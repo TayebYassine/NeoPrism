@@ -32,7 +32,7 @@ public class CreateProjectFrame extends JFrame {
 
 		setResizable(false);
 
-		setIconImage(ResourceUtil.getAppIcon());
+		setIconImages(ResourceUtil.getAppIcon());
 
 		init();
 
