@@ -112,7 +112,7 @@ public class ServiceForCPlusPlus extends Service {
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 
 		String cmdLine = String.format(
-				"cmd /c start \"Running %s\" cmd /k \"g++ \"%s\" -o \"%s\" && \"%s\" && pause && exit\"",
+				"cmd /c start \"Running %s\" cmd /c \"(g++ \"%s\" -o \"%s\" && \"%s\") & pause & exit\"",
 				base, file.getName(), base, base);
 
 		try {
@@ -133,6 +133,8 @@ public class ServiceForCPlusPlus extends Service {
 		}
 
 		prism.getLowerSidebar().setSelectedIndex(1);
+
+		terminal.closeProcess();
 
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 

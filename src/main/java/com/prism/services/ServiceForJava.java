@@ -114,7 +114,7 @@ public class ServiceForJava extends Service {
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 
 		String cmdLine = String.format(
-				"cmd /c start \"Running %s\" cmd /k \"javac \"%s.java\" && java \"%s\" && pause && exit\"",
+				"cmd /c start \"Running %s\" cmd /c \"(javac \"%s.java\" && java \"%s\") & pause & exit\"",
 				base, base, base);
 
 		try {
@@ -135,6 +135,8 @@ public class ServiceForJava extends Service {
 		}
 
 		prism.getLowerSidebar().setSelectedIndex(1);
+
+		terminal.closeProcess();
 
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 

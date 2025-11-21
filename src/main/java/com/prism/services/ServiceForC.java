@@ -114,7 +114,7 @@ public class ServiceForC extends Service {
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 
 		String cmdLine = String.format(
-				"cmd /c start \"Running %s\" cmd /k \"gcc \"%s\" -o \"%s\" && \"%s\" && pause && exit\"",
+				"cmd /c start \"Running %s\" cmd /c \"(gcc \"%s\" -o \"%s\" && \"%s\") & pause & exit\"",
 				base, file.getName(), base, base);
 
 		try {
@@ -135,6 +135,8 @@ public class ServiceForC extends Service {
 		}
 
 		prism.getLowerSidebar().setSelectedIndex(1);
+
+		terminal.closeProcess();
 
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 

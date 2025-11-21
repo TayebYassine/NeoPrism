@@ -29,6 +29,7 @@ public class Terminal extends JPanel {
     private static final Color DEFAULT_FOREGROUND = Theme.invertColorIfDarkThemeSet(Color.BLACK); //Color.decode("#E0E0E0");
     private static final Color DEFAULT_BACKGROUND = Color.decode("#1E1E1E");
     private static final Color PROMPT_COLOR = Color.decode("#808080");
+    private static final int MAX_LINES = 8_000;
 
     private static final Pattern ANSI_PATTERN = Pattern.compile("\\x1B\\[[0-9;]*[a-zA-Z]");
     private final Prism prism = Prism.getInstance();
@@ -396,20 +397,23 @@ public class Terminal extends JPanel {
     }
 
     private void readProcessOutput() {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(currentProcess.getInputStream(), getCharset()))) {
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(currentProcess.getInputStream(), getCharset()))) {
 
-            char[] buffer = new char[8192];
-            int charsRead;
+            String line;
+            int lines = 0;
+            final String ELLIPSIS = "\n... (output truncated at " + MAX_LINES + " lines) ...\n";
 
-            while ((charsRead = reader.read(buffer)) != -1) {
-                final String output = new String(buffer, 0, charsRead);
-                SwingUtilities.invokeLater(() -> parseAndAppendAnsi(output));
+            while ((line = br.readLine()) != null) {
+                if (lines < MAX_LINES) {
+                    final String l = line + "\n";
+                    SwingUtilities.invokeLater(() -> parseAndAppendAnsi(l));
+                } else if (lines == MAX_LINES) {
+                    SwingUtilities.invokeLater(() -> parseAndAppendAnsi(ELLIPSIS));
+                }
+                lines++;
             }
-        } catch (IOException ex) {
-            if (currentProcess != null && currentProcess.isAlive()) {
-                SwingUtilities.invokeLater(() -> appendToTerminal("Error reading output: " + ex.getMessage() + "\n", Color.RED, true));
-            }
-        }
+        } catch (IOException ignored) { }
     }
 
     private void parseAndAppendAnsi(String text) {
@@ -436,6 +440,8 @@ public class Terminal extends JPanel {
         }
 
         terminalArea.setCaretPosition(doc.getLength());
+
+        trimTerminalBuffer();
     }
 
     private void processAnsiCode(String ansiCode) {
@@ -658,6 +664,18 @@ public class Terminal extends JPanel {
             } catch (BadLocationException ex) {
                 ex.printStackTrace();
             }
+        });
+    }
+
+    private void trimTerminalBuffer() {
+        SwingUtilities.invokeLater(() -> {
+            try {
+                StyledDocument doc = terminalArea.getStyledDocument();
+                int max = 10000;
+                if (doc.getLength() > max) {
+                    doc.remove(0, doc.getLength() - max);
+                }
+            } catch (BadLocationException ignored) {}
         });
     }
 
