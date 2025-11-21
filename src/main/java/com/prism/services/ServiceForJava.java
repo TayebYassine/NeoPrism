@@ -140,7 +140,7 @@ public class ServiceForJava extends Service {
 
 		String cmdLine = String.format(
 				"javac \"%s.java\" && java \"%s\"",
-				base, base, base);
+				base, base);
 
 		terminal.executeCommandSync(cmdLine);
 	}

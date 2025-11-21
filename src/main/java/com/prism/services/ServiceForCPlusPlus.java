@@ -4,6 +4,7 @@ import com.prism.Prism;
 import com.prism.components.definition.ConfigKey;
 import com.prism.components.definition.PrismFile;
 import com.prism.components.frames.WarningDialog;
+import com.prism.components.terminal.Terminal;
 import com.prism.components.textarea.TextArea;
 import com.prism.managers.FileManager;
 import com.prism.services.syntaxchecker.CPlusPlusSyntaxChecker;
@@ -26,18 +27,22 @@ public class ServiceForCPlusPlus extends Service {
 		PrismFile pf = prism.getTextAreaTabbedPane().getCurrentFile();
 		File file = pf.getFile();
 
-		JMenuItem runCurrentFileItem = new JMenuItem("C++: Build & Run");
+		JMenuItem buildAndRunExternalThreadItem = new JMenuItem("C: Build & Run (External Thread)");
+		buildAndRunExternalThreadItem.addActionListener(e -> {
+			FileManager.saveFile(pf);
 
-		runCurrentFileItem.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				FileManager.saveFile(pf);
-
-				runCurrentFile(file);
-			}
+			buildAndRunExternalThreadFile(file);
 		});
 
-		add(runCurrentFileItem);
+		JMenuItem buildAndRunItem = new JMenuItem("C: Build & Run");
+		buildAndRunItem.addActionListener(e -> {
+			FileManager.saveFile(pf);
+
+			buildAndRunInternalThreadFile(file);
+		});
+
+		add(buildAndRunExternalThreadItem);
+		add(buildAndRunItem);
 	}
 
 	@Override
@@ -102,13 +107,13 @@ public class ServiceForCPlusPlus extends Service {
 		}
 	}
 
-	private void runCurrentFile(File file) {
+	private void buildAndRunExternalThreadFile(File file) {
 		File dir = file.getParentFile();
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 
 		String cmdLine = String.format(
 				"cmd /c start \"Running %s\" cmd /k \"g++ \"%s.cpp\" -o \"%s\" && \"%s\" && pause && exit\"",
-				base, base, base, base);
+				base, file.getName(), base, base);
 
 		try {
 			new ProcessBuilder("cmd", "/c", cmdLine)
@@ -118,5 +123,23 @@ public class ServiceForCPlusPlus extends Service {
 		} catch (Exception ex) {
 			new WarningDialog(prism, ex);
 		}
+	}
+
+	private void buildAndRunInternalThreadFile(File file) {
+		Terminal terminal = prism.getTerminalTabbedPane().getCurrentTerminal();
+
+		if (terminal == null) {
+			return;
+		}
+
+		prism.getLowerSidebar().setSelectedIndex(1);
+
+		String base = file.getName().replaceFirst("[.][^.]+$", "");
+
+		String cmdLine = String.format(
+				"g++ \"%s.cpp\" -o \"%s\" && \"%s\"",
+				file.getName(), base, base);
+
+		terminal.executeCommandSync(cmdLine);
 	}
 }
