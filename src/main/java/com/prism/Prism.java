@@ -307,7 +307,7 @@ public class Prism extends JFrame {
 	private void saveComponentStates() {
 		config.set(ConfigKey.SIDEBAR_CLOSABLE_COMPONENT_CLOSED, sidebarClosableComponent.isClosed());
 		config.set(ConfigKey.LOWER_SIDEBAR_CLOSABLE_COMPONENT_CLOSED, lowerSidebarClosableComponent.isClosed());
-		config.set(ConfigKey.TERTIARY_SPLITPANE_DIVIDER_LOCATION, threadsSidebarClosableComponent.isClosed());
+		config.set(ConfigKey.THREADS_SIDEBAR_CLOSABLE_COMPONENT_CLOSED, threadsSidebarClosableComponent.isClosed());
 
 		config.set(ConfigKey.LAST_SELECTED_TEXT_AREA_TAB_INDEX, textAreaTabbedPane.getSelectedIndex());
 	}
@@ -398,6 +398,10 @@ public class Prism extends JFrame {
 
 		if (config.getBoolean(ConfigKey.SIDEBAR_CLOSABLE_COMPONENT_CLOSED, false)) {
 			sidebarClosableComponent.closeComponent();
+		}
+
+		if (config.getBoolean(ConfigKey.THREADS_SIDEBAR_CLOSABLE_COMPONENT_CLOSED, false)) {
+			threadsSidebarClosableComponent.closeComponent();
 		}
 	}
 
