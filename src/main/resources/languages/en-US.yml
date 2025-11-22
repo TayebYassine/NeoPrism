@@ -216,6 +216,8 @@
 223: "Snapshot Build"
 224: "The build version you have installed is a snapshot/under-development release. Be aware that may be there some bugs."
 225: "Go to Line"
+226: "Threads Sidebar"
+227: "Threads"
 
 10000: "Error: Incomplete arguments"
 10001: "Error: Invalid argument"

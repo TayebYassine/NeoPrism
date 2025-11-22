@@ -12,6 +12,7 @@ import com.prism.components.menus.PrismMenuBar;
 import com.prism.components.menus.SearchAndReplace;
 import com.prism.components.sidebar.LowerSidebar;
 import com.prism.components.sidebar.Sidebar;
+import com.prism.components.sidebar.ThreadsSidebar;
 import com.prism.components.sidebar.panels.*;
 import com.prism.components.terminal.TerminalTabbedPane;
 import com.prism.components.textarea.TextArea;
@@ -44,7 +45,8 @@ public class Prism extends JFrame {
 	private static final int DEFAULT_WINDOW_WIDTH = 900;
 	private static final int DEFAULT_WINDOW_HEIGHT = 600;
 	private static final int DEFAULT_PRIMARY_DIVIDER = 250;
-	private static final int DEFAULT_SECONDARY_DIVIDER = 300;
+	private static final int DEFAULT_SECONDARY_DIVIDER = 350;
+	private static final int DEFAULT_TERTIARY_DIVIDER = 600;
 	private static final int LOADING_FRAME_DELAY_MS = 3000;
 	private static final int HORIZONTAL_STRUT_SIZE = 8;
 	private static final int STATUS_BAR_BORDER = 3;
@@ -52,7 +54,9 @@ public class Prism extends JFrame {
 	private static final int DIVIDER_SIZE = 5;
 	private static final int ICON_SIZE = 16;
 	private static final int DEFAULT_TEXTAREA_ZOOM = 12;
-	private static final double SPLIT_PANE_RESIZE_WEIGHT = 0.3;
+	private static final double PRIMARY_SPLIT_PANE_RESIZE_WEIGHT = 0.3;
+	private static final double SECONDARY_SPLIT_PANE_RESIZE_WEIGHT = 0.75;
+	private static final double TERTIARY_SPLIT_PANE_RESIZE_WEIGHT = 0.8;
 	public static Prism INSTANCE;
 	public final List<JClosableComponent> REMOVED_COMPONENTS = new ArrayList<>();
 	private final LoadingFrame loadingFrame;
@@ -78,11 +82,14 @@ public class Prism extends JFrame {
 	private JLabel sidebarHeader;
 	private LowerSidebar lowerSidebar;
 	private JLabel lowerSidebarHeader;
+	private ThreadsSidebar threadsSidebar;
 	private PluginsPanel pluginsPanel;
 	private JSplitPane primarySplitPane;
 	private JSplitPane secondarySplitPane;
+	private JSplitPane tertiarySplitPane;
 	private JClosableComponent sidebarClosableComponent;
 	private JClosableComponent lowerSidebarClosableComponent;
+	private JClosableComponent threadsSidebarClosableComponent;
 	private SearchAndReplace searchAndReplace;
 	private JPanel searchAndReplaceAndStatusBarPanel;
 	private JPanel statusBarPanel;
@@ -294,11 +301,14 @@ public class Prism extends JFrame {
 	private void saveSplitPaneLocations() {
 		config.set(ConfigKey.PRIMARY_SPLITPANE_DIVIDER_LOCATION, primarySplitPane.getDividerLocation());
 		config.set(ConfigKey.SECONDARY_SPLITPANE_DIVIDER_LOCATION, secondarySplitPane.getDividerLocation());
+		config.set(ConfigKey.TERTIARY_SPLITPANE_DIVIDER_LOCATION, tertiarySplitPane.getDividerLocation());
 	}
 
 	private void saveComponentStates() {
 		config.set(ConfigKey.SIDEBAR_CLOSABLE_COMPONENT_CLOSED, sidebarClosableComponent.isClosed());
 		config.set(ConfigKey.LOWER_SIDEBAR_CLOSABLE_COMPONENT_CLOSED, lowerSidebarClosableComponent.isClosed());
+		config.set(ConfigKey.TERTIARY_SPLITPANE_DIVIDER_LOCATION, threadsSidebarClosableComponent.isClosed());
+
 		config.set(ConfigKey.LAST_SELECTED_TEXT_AREA_TAB_INDEX, textAreaTabbedPane.getSelectedIndex());
 	}
 
@@ -373,6 +383,9 @@ public class Prism extends JFrame {
 		lowerSidebar = new LowerSidebar(lowerSidebarHeader, terminalArea, bookmarksArea, tasksArea, databaseArea, problemsArea);
 		lowerSidebarClosableComponent = new JClosableComponent(ComponentType.LOWER_SIDEBAR, lowerSidebarHeader, lowerSidebar);
 
+		threadsSidebar = new ThreadsSidebar();
+		threadsSidebarClosableComponent = new JClosableComponent(ComponentType.THREADS_SIDEBAR, new JLabel(languageInterface.get(227)), threadsSidebar);
+
 		sidebarHeader = new JLabel(languageInterface.get(33));
 		sidebar = new Sidebar(sidebarHeader, fileExplorer, codeOutline, pluginsPanel);
 		sidebarClosableComponent = new JClosableComponent(ComponentType.SIDEBAR, sidebarHeader, sidebar);
@@ -391,8 +404,10 @@ public class Prism extends JFrame {
 	private void initializeSplitPaneLocations() {
 		int pri = config.getInt(ConfigKey.PRIMARY_SPLITPANE_DIVIDER_LOCATION, DEFAULT_PRIMARY_DIVIDER);
 		int sec = config.getInt(ConfigKey.SECONDARY_SPLITPANE_DIVIDER_LOCATION, DEFAULT_SECONDARY_DIVIDER);
+		int ter = config.getInt(ConfigKey.TERTIARY_SPLITPANE_DIVIDER_LOCATION, DEFAULT_TERTIARY_DIVIDER);
 		primarySplitPane.setDividerLocation(pri);
 		secondarySplitPane.setDividerLocation(sec);
+		tertiarySplitPane.setDividerLocation(ter);
 	}
 
 	private void initializeLastModifications() {
@@ -400,11 +415,14 @@ public class Prism extends JFrame {
 	}
 
 	private void initializeCentralArea() {
-		secondarySplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, textAreaTabbedPane, lowerSidebarClosableComponent);
-		secondarySplitPane.setResizeWeight(SPLIT_PANE_RESIZE_WEIGHT);
+		secondarySplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, textAreaTabbedPane, threadsSidebarClosableComponent);
+		secondarySplitPane.setResizeWeight(SECONDARY_SPLIT_PANE_RESIZE_WEIGHT);
 
-		primarySplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarClosableComponent, secondarySplitPane);
-		primarySplitPane.setResizeWeight(SPLIT_PANE_RESIZE_WEIGHT);
+		tertiarySplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, secondarySplitPane, lowerSidebarClosableComponent);
+		tertiarySplitPane.setResizeWeight(TERTIARY_SPLIT_PANE_RESIZE_WEIGHT);
+
+		primarySplitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, sidebarClosableComponent, tertiarySplitPane);
+		primarySplitPane.setResizeWeight(PRIMARY_SPLIT_PANE_RESIZE_WEIGHT);
 
 		add(primarySplitPane);
 
@@ -413,8 +431,9 @@ public class Prism extends JFrame {
 	}
 
 	private void setupSplitPanes() {
-		secondarySplitPane.setResizeWeight(SPLIT_PANE_RESIZE_WEIGHT);
-		primarySplitPane.setResizeWeight(SPLIT_PANE_RESIZE_WEIGHT);
+		secondarySplitPane.setResizeWeight(SECONDARY_SPLIT_PANE_RESIZE_WEIGHT);
+		tertiarySplitPane.setResizeWeight(TERTIARY_SPLIT_PANE_RESIZE_WEIGHT);
+		primarySplitPane.setResizeWeight(PRIMARY_SPLIT_PANE_RESIZE_WEIGHT);
 	}
 
 	private void loadDefaultResources() {
@@ -653,27 +672,38 @@ public class Prism extends JFrame {
 		switch (type) {
 			case LOWER_SIDEBAR -> restoreLowerSidebar(component);
 			case SIDEBAR -> restoreSidebar(component);
+			case THREADS_SIDEBAR -> restoreThreadsSidebar(component);
 		}
 	}
 
 	private void restoreLowerSidebar(JClosableComponent component) {
-		secondarySplitPane.add(component);
+		tertiarySplitPane.add(component, JSplitPane.BOTTOM);
+		tertiarySplitPane.revalidate();
+		tertiarySplitPane.repaint();
+		tertiarySplitPane.setDividerSize(DIVIDER_SIZE);
+		tertiarySplitPane.setDividerLocation(
+				config.getInt(ConfigKey.TERTIARY_SPLITPANE_DIVIDER_LOCATION, DEFAULT_TERTIARY_DIVIDER));
+		tertiarySplitPane.setResizeWeight(TERTIARY_SPLIT_PANE_RESIZE_WEIGHT);
+	}
+
+	private void restoreThreadsSidebar(JClosableComponent component) {
+		secondarySplitPane.add(component, JSplitPane.RIGHT);
 		secondarySplitPane.revalidate();
 		secondarySplitPane.repaint();
 		secondarySplitPane.setDividerSize(DIVIDER_SIZE);
 		secondarySplitPane.setDividerLocation(
 				config.getInt(ConfigKey.SECONDARY_SPLITPANE_DIVIDER_LOCATION, DEFAULT_SECONDARY_DIVIDER));
-		secondarySplitPane.setResizeWeight(SPLIT_PANE_RESIZE_WEIGHT);
+		secondarySplitPane.setResizeWeight(SECONDARY_SPLIT_PANE_RESIZE_WEIGHT);
 	}
 
 	private void restoreSidebar(JClosableComponent component) {
-		primarySplitPane.add(component);
+		primarySplitPane.add(component, JSplitPane.LEFT);
 		primarySplitPane.revalidate();
 		primarySplitPane.repaint();
 		primarySplitPane.setDividerSize(DIVIDER_SIZE);
 		primarySplitPane.setDividerLocation(
 				config.getInt(ConfigKey.PRIMARY_SPLITPANE_DIVIDER_LOCATION, DEFAULT_PRIMARY_DIVIDER));
-		primarySplitPane.setResizeWeight(SPLIT_PANE_RESIZE_WEIGHT);
+		primarySplitPane.setResizeWeight(PRIMARY_SPLIT_PANE_RESIZE_WEIGHT);
 	}
 
 	public void updateWindowTitle(PrismFile pf) {
@@ -749,8 +779,16 @@ public class Prism extends JFrame {
 		return secondarySplitPane;
 	}
 
+	public JSplitPane getTertiarySplitPane() {
+		return tertiarySplitPane;
+	}
+
 	public PluginLoader getPluginLoader() {
 		return pluginLoader;
+	}
+
+	public ThreadsSidebar getThreadsSidebar() {
+		return threadsSidebar;
 	}
 
 	public TerminalTabbedPane getTerminalTabbedPane() {

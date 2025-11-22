@@ -92,6 +92,10 @@ public class JClosableComponent extends JPanel {
                             prism.getPrimarySplitPane().getDividerLocation());
                     prism.getPrimarySplitPane().setDividerSize(0);
                     break;
+                case THREADS_SIDEBAR:
+                    prism.getConfig().set(ConfigKey.TERTIARY_SPLITPANE_DIVIDER_LOCATION,
+                            prism.getTertiarySplitPane().getDividerLocation());
+                    prism.getTertiarySplitPane().setDividerSize(0);
                 default:
                     break;
             }

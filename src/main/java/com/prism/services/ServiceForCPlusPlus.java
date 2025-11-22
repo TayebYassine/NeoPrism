@@ -7,6 +7,7 @@ import com.prism.components.frames.WarningDialog;
 import com.prism.components.terminal.Terminal;
 import com.prism.components.textarea.TextArea;
 import com.prism.managers.FileManager;
+import com.prism.managers.ThreadsManager;
 import com.prism.services.syntaxchecker.CPlusPlusSyntaxChecker;
 import com.prism.services.syntaxchecker.CSyntaxChecker;
 import com.prism.utils.ResourceUtil;
@@ -115,14 +116,16 @@ public class ServiceForCPlusPlus extends Service {
 				"cmd /c start \"Running %s\" cmd /c \"(g++ \"%s\" -o \"%s\" && \"%s\") & pause & exit\"",
 				base, file.getName(), base, base);
 
-		try {
-			new ProcessBuilder("cmd", "/c", cmdLine)
-					.directory(dir)
-					.inheritIO()
-					.start();
-		} catch (Exception ex) {
-			new WarningDialog(prism, ex);
-		}
+		ThreadsManager.submitAndTrackThread("C++ Build " + file.getName() , () -> {
+			try {
+				new ProcessBuilder("cmd", "/c", cmdLine)
+						.directory(dir)
+						.inheritIO()
+						.start();
+			} catch (Exception ex) {
+				new WarningDialog(prism, ex);
+			}
+		});
 	}
 
 	private void buildAndRunInternalThreadFile(File file) {

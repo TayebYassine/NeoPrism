@@ -8,6 +8,7 @@ import com.prism.components.frames.*;
 import com.prism.components.terminal.Terminal;
 import com.prism.components.textarea.TextArea;
 import com.prism.managers.FileManager;
+import com.prism.managers.ThreadsManager;
 import com.prism.managers.ToolsManager;
 
 import javax.swing.*;
@@ -48,6 +49,7 @@ public class PrismMenuBar extends JMenuBar {
 	JMenuItem menuItemOptions;
 	JMenuItem menuItemSidebar;
 	JMenuItem menuItemLowerSidebar;
+	JMenuItem menuItemThreadsSidebar;
 	JMenuItem menuItemNewTool;
 	JMenuItem menuItemHelp;
 	JMenuItem menuItemAbout;
@@ -274,8 +276,17 @@ public class PrismMenuBar extends JMenuBar {
 			updateComponent();
 		});
 
+		menuItemThreadsSidebar = createMenuItem(prism.getLanguage().get(226), null, null,
+				KeyStroke.getKeyStroke(KeyEvent.VK_T, KeyEvent.CTRL_DOWN_MASK + KeyEvent.SHIFT_DOWN_MASK));
+		menuItemThreadsSidebar.addActionListener((_) -> {
+			prism.addBackComponent(ComponentType.THREADS_SIDEBAR);
+
+			updateComponent();
+		});
+
 		viewMenu.add(menuItemSidebar);
 		viewMenu.add(menuItemLowerSidebar);
+		viewMenu.add(menuItemThreadsSidebar);
 
 		/*
 		 * Tools menu
@@ -529,7 +540,7 @@ public class PrismMenuBar extends JMenuBar {
 			toolItem.addActionListener((_) -> {
 				Terminal terminal = prism.getTerminalTabbedPane().getCurrentTerminal();
 
-				new Thread(() -> terminal.executeTool(tool)).start();
+				ThreadsManager.submitAndTrackThread("Tool Execution ID=" + tool.getId().toString(), () -> terminal.executeTool(tool));
 			});
 
 			toolsMenu.add(toolItem);
@@ -597,6 +608,7 @@ public class PrismMenuBar extends JMenuBar {
 
 		menuItemSidebar.setEnabled(prism.isComponentRemoved(ComponentType.SIDEBAR));
 		menuItemLowerSidebar.setEnabled(prism.isComponentRemoved(ComponentType.LOWER_SIDEBAR));
+		menuItemThreadsSidebar.setEnabled(prism.isComponentRemoved(ComponentType.THREADS_SIDEBAR));
 
 		menuItemSaveAs.setEnabled(prismFile.isText());
 		menuItemCloseFile.setEnabled(prismFile.isText());
