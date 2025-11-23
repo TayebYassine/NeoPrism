@@ -16,6 +16,7 @@ public class ErrorDialog extends JDialog {
 
 	public ErrorDialog(Frame parent, Throwable throwable) {
 		this(parent, "Something went terribly wrong. To avoid further damage, please restart the application.<br>If the issue still persists, re-install the application and report the issue via GitHub.", throwable);
+		setVisible(true);
 	}
 
 	public ErrorDialog(Frame parent, String message, Throwable throwable) {
@@ -86,6 +87,8 @@ public class ErrorDialog extends JDialog {
 
 		pack();
 		setLocationRelativeTo(parent);
+
+		setVisible(true);
 	}
 
 	public static void showErrorDialog(Frame parent, String message, Throwable throwable) {
