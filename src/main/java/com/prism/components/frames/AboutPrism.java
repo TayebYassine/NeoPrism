@@ -205,6 +205,7 @@ public class AboutPrism extends JFrame {
 			""";
 	private static Prism prism = Prism.getInstance();
 	private final String VERSION = Prism.getVersion();
+	private final String BUILD_INFO = Prism.getBuildInfo();
 	private final String AUTHOR = "Tayeb Yassine";
 	private final String YEAR = "2025";
 
@@ -267,7 +268,7 @@ public class AboutPrism extends JFrame {
 		logoPanel.setPreferredSize(new Dimension(80, 80));
 
 		JLabel titleLabel = new JLabel(
-				"<html><center><b>Prism</b><br><font size='-1'>" + prism.getLanguage().get(71) +  " " + VERSION + "</font></center></html>");
+				"<html><center><b>Prism</b><br><font size='-1'>" + prism.getLanguage().get(71) +  " " + VERSION + " - " + BUILD_INFO + "</font></center></html>");
 		titleLabel.setFont(new Font("SansSerif", Font.BOLD, 16));
 		titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -420,9 +421,10 @@ public class AboutPrism extends JFrame {
 		outer.setOpaque(false);
 
 		JLabel label = new JLabel(prism.getLanguage().get(7));
-		label.setBorder(new EmptyBorder(15, 15, 10, 0));
+		label.setBorder(new EmptyBorder(15, 10, 0, 0));
 
 		outer.add(label, BorderLayout.NORTH);
+
 		outer.add(new JDefaultKineticScrollPane(p), BorderLayout.CENTER);
 
 		return outer;

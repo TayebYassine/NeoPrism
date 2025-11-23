@@ -12,7 +12,6 @@ import com.prism.services.Service;
 import com.prism.utils.FileUtil;
 import com.prism.utils.Languages;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
-import org.fife.ui.rtextarea.RTextScrollPane;
 
 import javax.swing.*;
 import javax.swing.event.*;

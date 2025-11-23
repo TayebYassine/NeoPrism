@@ -160,7 +160,7 @@ public class ServiceForCPlusPlus extends Service {
 		File aStyleFile = new File("AStyle/astyle.exe");
 
 		if (aStyleFile == null || !aStyleFile.exists() || !aStyleFile.isFile()) {
-			JOptionPane.showMessageDialog(prism, prism.getLanguage().get(10002), prism.getLanguage().get(228), JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(prism, prism.getLanguage().get(228), prism.getLanguage().get(10002), JOptionPane.ERROR_MESSAGE);
 			return;
 		}
 

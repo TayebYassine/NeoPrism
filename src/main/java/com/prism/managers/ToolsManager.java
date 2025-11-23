@@ -41,8 +41,6 @@ public class ToolsManager {
 
 			prism.getPrismMenuBar().updateComponent();
 		} catch (Exception e) {
-			new ErrorDialog(prism, e);
-
 			tools = new ArrayList<>();
 		}
 	}

@@ -45,8 +45,6 @@ public class TasksManager {
 				prism.getTasksList().addRow(task);
 			}
 		} catch (Exception e) {
-			new ErrorDialog(prism, e);
-
 			tasks = new ArrayList<>();
 		}
 	}

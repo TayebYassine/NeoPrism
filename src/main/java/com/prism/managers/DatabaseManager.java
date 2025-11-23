@@ -41,8 +41,6 @@ public class DatabaseManager {
 
 			prism.getPrismMenuBar().updateComponent();
 		} catch (Exception e) {
-			new ErrorDialog(prism, e);
-
 			databases = new ArrayList<>();
 		}
 	}

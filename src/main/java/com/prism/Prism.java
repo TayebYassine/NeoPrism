@@ -36,6 +36,7 @@ import java.util.Map;
 
 public class Prism extends JFrame {
 	private static final String VERSION = "1.0.1";
+	private static final String BUILD_INFO = "November 23rd, 2025 (Java SE 25)";
 	private static final boolean SNAPSHOT = false;
 
 	private static final String WINDOW_TITLE = "Prism";
@@ -173,6 +174,10 @@ public class Prism extends JFrame {
 
 	public static String getVersion() {
 		return VERSION;
+	}
+
+	public static String getBuildInfo() {
+		return BUILD_INFO;
 	}
 
 	public static boolean isSnapshot() {
