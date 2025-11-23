@@ -3,9 +3,7 @@ package com.prism.managers;
 import com.prism.Prism;
 import com.prism.utils.ResourceUtil;
 import com.prism.utils.Symbols;
-import org.fife.ui.autocomplete.BasicCompletion;
-import org.fife.ui.autocomplete.DefaultCompletionProvider;
-import org.fife.ui.autocomplete.ShorthandCompletion;
+import org.fife.ui.autocomplete.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -44,7 +42,7 @@ public class AutocompleteManager {
         }
     }
 
-    public static List<BasicCompletion> getChildren(DefaultCompletionProvider provider, String language,
+    public static List<Completion> getChildren(DefaultCompletionProvider provider, String language,
                                                     String prefix) {
         JSONObject root = prism.getPluginLoader()
                 .getMergedAutocomplete()
@@ -78,7 +76,7 @@ public class AutocompleteManager {
             if (!found) return Collections.emptyList();
         }
 
-        List<BasicCompletion> out = new ArrayList<>();
+        List<Completion> out = new ArrayList<>();
         if (arr != null) {
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject o = arr.optJSONObject(i);
@@ -86,9 +84,28 @@ public class AutocompleteManager {
                 String kw = o.optString("keyword");
                 String sym = o.optString("symbol");
                 String desc = o.optString("description");
-                BasicCompletion bc = new BasicCompletion(provider, kw, null, desc);
-                bc.setIcon(Symbols.getSymbolIcon(sym.toLowerCase()));
-                out.add(bc);
+                /*boolean isFunction = sym != null && sym.equalsIgnoreCase("function");
+
+                if (isFunction) {
+                    String returnType = o.optString("returnType") == null ? "void" : o.optString("returnType");
+
+                    FunctionCompletion fc = new FunctionCompletion(provider, kw + "(", returnType);
+                    fc.setIcon(Symbols.getSymbolIcon("function"));
+                    fc.setShortDescription(desc);
+
+
+
+                    fc.setParams(List.of(new ParameterizedCompletion.Parameter("type", "name", true)));
+
+                    out.add(fc);
+                } else {*/
+                    BasicCompletion bc = new BasicCompletion(provider, kw, null, desc);
+
+					assert sym != null;
+					bc.setIcon(Symbols.getSymbolIcon(sym.toLowerCase()));
+
+                    out.add(bc);
+                //}
             }
         }
         return out;

@@ -9,6 +9,7 @@ import com.prism.components.textarea.TextArea;
 import com.prism.managers.FileManager;
 import com.prism.managers.ThreadsManager;
 import com.prism.services.syntaxchecker.CSyntaxChecker;
+import com.prism.utils.AStyleWrapper;
 import com.prism.utils.ResourceUtil;
 
 import javax.swing.*;
@@ -41,8 +42,15 @@ public class ServiceForC extends Service {
 			buildAndRunInternalThreadFile(file);
 		});
 
+		JMenuItem formatSourceWithAStyleItem = new JMenuItem("Format Source Code (AStyle)");
+		formatSourceWithAStyleItem.addActionListener(e -> {
+			formatSourceCodeAStyle(pf);
+		});
+
 		add(buildAndRunExternalThreadItem);
 		add(buildAndRunItem);
+		addSeparator();
+		add(formatSourceWithAStyleItem);
 	}
 
 	@Override
@@ -146,9 +154,34 @@ public class ServiceForC extends Service {
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 
 		String cmdLine = String.format(
-				"gcc \"%s\" -o \"%s\" && \"%s\"",
+				"gcc \"%s\" -o \"%s\" && start \"%s\"",
 				file.getName(), base, base);
 
 		terminal.executeCommandSync(cmdLine);
+	}
+
+	private void formatSourceCodeAStyle(PrismFile pf) {
+		File aStyleFile = new File("AStyle/astyle.exe");
+
+		if (aStyleFile == null || !aStyleFile.exists() || !aStyleFile.isFile()) {
+			JOptionPane.showMessageDialog(prism, prism.getLanguage().get(10002), prism.getLanguage().get(228), JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		AStyleWrapper.formatFileAsync(pf.getFile(), aStyleFile.getAbsolutePath(),
+				String.format("--style=kr --indent=spaces=%d",
+						prism.getConfig().getInt(ConfigKey.TAB_SIZE, 4)
+				),
+				new AStyleWrapper.Callback() {
+					@Override
+					public void onSuccess(String formattedText) {
+						pf.getTextArea().replace(formattedText);
+					}
+
+					@Override
+					public void onError(String message) {
+						new WarningDialog(prism, new Error(message));
+					}
+				});
 	}
 }

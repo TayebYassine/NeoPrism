@@ -400,7 +400,7 @@ public class Prism extends JFrame {
 			sidebarClosableComponent.closeComponent();
 		}
 
-		if (config.getBoolean(ConfigKey.THREADS_SIDEBAR_CLOSABLE_COMPONENT_CLOSED, false)) {
+		if (config.getBoolean(ConfigKey.THREADS_SIDEBAR_CLOSABLE_COMPONENT_CLOSED, true)) {
 			threadsSidebarClosableComponent.closeComponent();
 		}
 	}

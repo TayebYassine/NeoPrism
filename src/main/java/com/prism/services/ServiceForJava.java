@@ -11,15 +11,13 @@ import com.prism.components.textarea.TextArea;
 import com.prism.managers.FileManager;
 import com.prism.managers.ThreadsManager;
 import com.prism.services.syntaxchecker.JavaSyntaxChecker;
+import com.prism.utils.AStyleWrapper;
 import com.prism.utils.ResourceUtil;
 
 import javax.swing.*;
-import java.awt.event.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
-import static javax.swing.JOptionPane.*;
 
 public class ServiceForJava extends Service {
 	private static final Prism prism = Prism.getInstance();
@@ -30,27 +28,33 @@ public class ServiceForJava extends Service {
 
 		JMenuItem buildAndRunExternalThreadItem = new JMenuItem("Java: Build & Run (External Thread)");
 		buildAndRunExternalThreadItem.addActionListener(e -> {
-            FileManager.saveFile(pf);
+			FileManager.saveFile(pf);
 
-            buildAndRunExternalThreadFile(file);
-        });
+			buildAndRunExternalThreadFile(file);
+		});
 
 		JMenuItem buildAndRunItem = new JMenuItem("Java: Build & Run");
 		buildAndRunItem.addActionListener(e -> {
-            FileManager.saveFile(pf);
+			FileManager.saveFile(pf);
 
-            buildAndRunInternalThreadFile(file);
-        });
+			buildAndRunInternalThreadFile(file);
+		});
 
-		JMenuItem formatSourceItem = new JMenuItem("Format Source Code");
-		formatSourceItem.addActionListener(e -> {
-            formatSourceCode(pf);
-        });
+		JMenuItem formatSourceWithGoogleItem = new JMenuItem("Format Source Code (Google)");
+		formatSourceWithGoogleItem.addActionListener(e -> {
+			formatSourceCodeGoogle(pf);
+		});
+
+		JMenuItem formatSourceWithAStyleItem = new JMenuItem("Format Source Code (AStyle)");
+		formatSourceWithAStyleItem.addActionListener(e -> {
+			formatSourceCodeAStyle(pf);
+		});
 
 		add(buildAndRunExternalThreadItem);
 		add(buildAndRunItem);
 		addSeparator();
-		add(formatSourceItem);
+		add(formatSourceWithGoogleItem);
+		add(formatSourceWithAStyleItem);
 	}
 
 	@Override
@@ -118,7 +122,7 @@ public class ServiceForJava extends Service {
 				"cmd /c start \"Running %s\" cmd /c \"(javac \"%s.java\" && java \"%s\") & pause & exit\"",
 				base, base, base);
 
-		ThreadsManager.submitAndTrackThread("Java Build " + file.getName() , () -> {
+		ThreadsManager.submitAndTrackThread("Java Build " + file.getName(), () -> {
 			try {
 				new ProcessBuilder("cmd", "/c", cmdLine)
 						.directory(dir)
@@ -150,7 +154,32 @@ public class ServiceForJava extends Service {
 		terminal.executeCommandSync(cmdLine);
 	}
 
-	private void formatSourceCode(PrismFile pf) {
+	private void formatSourceCodeAStyle(PrismFile pf) {
+		File aStyleFile = new File("AStyle/astyle.exe");
+
+		if (aStyleFile == null || !aStyleFile.exists() || !aStyleFile.isFile()) {
+			JOptionPane.showMessageDialog(prism, prism.getLanguage().get(10002), prism.getLanguage().get(228), JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		AStyleWrapper.formatFileAsync(pf.getFile(), aStyleFile.getAbsolutePath(),
+				String.format("--style=java --indent=spaces=%d",
+						prism.getConfig().getInt(ConfigKey.TAB_SIZE, 4)
+				),
+				new AStyleWrapper.Callback() {
+					@Override
+					public void onSuccess(String formattedText) {
+						pf.getTextArea().replace(formattedText);
+					}
+
+					@Override
+					public void onError(String message) {
+						new WarningDialog(prism, new Error(message));
+					}
+				});
+	}
+
+	private void formatSourceCodeGoogle(PrismFile pf) {
 		Formatter formatter = new Formatter(
 				JavaFormatterOptions.builder()
 						.style(JavaFormatterOptions.Style.AOSP)

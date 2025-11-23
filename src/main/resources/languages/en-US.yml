@@ -218,6 +218,8 @@
 225: "Go to Line"
 226: "Threads Sidebar"
 227: "Threads"
+228: "AStyle executable file not found!"
+
 
 10000: "Error: Incomplete arguments"
 10001: "Error: Invalid argument"

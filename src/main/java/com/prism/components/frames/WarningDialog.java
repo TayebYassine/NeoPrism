@@ -16,6 +16,7 @@ public class WarningDialog extends JDialog {
 
 	public WarningDialog(Frame parent, Throwable throwable) {
 		this(parent, "Something went terribly wrong. To avoid further damage, please restart the application.<br>The issue was stopped from continuing its execution, some features may not work.", throwable);
+		setVisible(true);
 	}
 
 	public WarningDialog(Frame parent, String message, Throwable throwable) {
@@ -82,6 +83,8 @@ public class WarningDialog extends JDialog {
 
 		pack();
 		setLocationRelativeTo(parent);
+
+		setVisible(true);
 	}
 
 	public static void showWarningDialog(Frame parent, String message, Throwable throwable) {
