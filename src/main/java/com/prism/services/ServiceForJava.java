@@ -169,7 +169,7 @@ public class ServiceForJava extends Service {
 				new AStyleWrapper.Callback() {
 					@Override
 					public void onSuccess(String formattedText) {
-						pf.getTextArea().replace(formattedText);
+						pf.getTextArea().replace(formattedText, true);
 					}
 
 					@Override
@@ -195,7 +195,7 @@ public class ServiceForJava extends Service {
 		}
 
 		if (pretty != null) {
-			pf.getTextArea().replace(pretty);
+			pf.getTextArea().replace(pretty, true);
 		}
 	}
 }

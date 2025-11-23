@@ -213,4 +213,26 @@ public class TextArea extends RSyntaxTextArea {
 
         }
     }
+
+    public void replace(String newText, boolean rememberLastCaretPosition) {
+        Document doc = getDocument();
+        try {
+            final int pos = getCaretPosition();
+
+            beginAtomicEdit();
+
+            try {
+                doc.remove(0, doc.getLength());
+                doc.insertString(0, newText, null);
+
+                if (rememberLastCaretPosition) {
+                    setCaretPosition(pos);
+                }
+            } finally {
+                endAtomicEdit();
+            }
+        } catch (BadLocationException ex) {
+
+        }
+    }
 }

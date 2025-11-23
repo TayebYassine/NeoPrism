@@ -392,6 +392,7 @@ public class AboutPrism extends JFrame {
 				{"", "@microsoft/vscode-icons – UI Icons", ""},
 				{"", "@bobbylight/RText – Inspiration", ""},
 				{"", "@jesseweed/seti-ui – File Icons", ""},
+				{"Third-Party Software:", "Artistic Style (AStyle)", "MIT"},
 				{"Third-Party Libraries:", "xerial: sqlite-jdbc", "BSD-3-Clause & Apache-2.0"},
 				{"", "Fifesoft: RSyntaxTextArea", "BSD-3-Clause"},
 				{"", "Fifesoft: Autocomplete", "BSD-3-Clause"},

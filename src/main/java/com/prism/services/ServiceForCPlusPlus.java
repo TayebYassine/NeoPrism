@@ -171,7 +171,7 @@ public class ServiceForCPlusPlus extends Service {
 				new AStyleWrapper.Callback() {
 					@Override
 					public void onSuccess(String formattedText) {
-						pf.getTextArea().replace(formattedText);
+						pf.getTextArea().replace(formattedText, true);
 					}
 
 					@Override
