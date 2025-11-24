@@ -171,7 +171,7 @@ public class WindowsFrame extends JFrame {
 
 				int index = prism.getTextAreaTabbedPane().findIndexByPrismFile(selectedFile);
 
-				prism.getTextAreaTabbedPane().closeTabByIndex(index);
+				prism.getTextAreaTabbedPane().closeTabByIndex(index, true);
 
 				loadFiles();
 			}
