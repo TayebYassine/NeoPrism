@@ -19,6 +19,7 @@ public class CreateProjectFrame extends JFrame {
 	private static final String[] languages = {"Empty (no pre-set language)", "C", "C++", "Java"};
 	private final Service[] services = {null, new ServiceForC(), new ServiceForCPlusPlus(), new ServiceForJava()};
 
+	private long clickCounter = 0;
 	private JTextField projectNameField;
 	private JComboBox<String> languageCombo;
 	private JTextField parentDirField;
@@ -111,7 +112,20 @@ public class CreateProjectFrame extends JFrame {
 		add(main);
 
 		// Listeners
-		randomNameButton.addActionListener(e -> projectNameField.setText(ProjectNameGenerator.randomProjectName()));
+		randomNameButton.addActionListener(e -> {
+			projectNameField.setText(ProjectNameGenerator.randomProjectName());
+
+			clickCounter++;
+
+			if (clickCounter >= 100) {
+				JOptionPane.showMessageDialog(
+						prism,
+						prism.getLanguage().get(236),
+						"",
+						JOptionPane.PLAIN_MESSAGE
+				);
+			}
+		});
 		chooseDirButton.addActionListener(e -> onChooseDirectory());
 		cancelButton.addActionListener(e -> onCancel());
 		createButton.addActionListener(e -> onCreateProject());
