@@ -120,9 +120,17 @@ public class ServiceForCPlusPlus extends Service {
 		File dir = file.getParentFile();
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 
+		String exePath;
+
+		if (prism.getConfig().getBoolean(ConfigKey.LANGUAGE_CPP_GNU_GPP_COMPILER_PROVIDED_IN_PATH_ENV, true)) {
+			exePath = "g++";
+		} else {
+			exePath = Paths.get(prism.getConfig().getString(ConfigKey.LANGUAGE_CPP_GNU_GPP_COMPILER_PATH, "")).toAbsolutePath().toString();
+		}
+
 		String cmdLine = String.format(
-				"cmd /c start \"Running %s\" cmd /c \"(g++ \"%s\" -o \"%s\" && \"%s\") & pause & exit\"",
-				base, file.getName(), base, base);
+				"cmd /c start \"Running %s\" cmd /c \"(%s \"%s\" -o \"%s\" && \"%s\") & pause & exit\"",
+				base, exePath, file.getName(), base, base);
 
 		ThreadsManager.submitAndTrackThread("C++ Build " + file.getName() , () -> {
 			try {
@@ -149,9 +157,18 @@ public class ServiceForCPlusPlus extends Service {
 
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 
+		String exePath;
+
+		if (prism.getConfig().getBoolean(ConfigKey.LANGUAGE_CPP_GNU_GPP_COMPILER_PROVIDED_IN_PATH_ENV, true)) {
+			exePath = "g++";
+		} else {
+			exePath = Paths.get(prism.getConfig().getString(ConfigKey.LANGUAGE_CPP_GNU_GPP_COMPILER_PATH, "")).toAbsolutePath().toString();
+		}
+
 		String cmdLine = String.format(
-				"g++ \"%s\" -o \"%s\" && start \"%s\"",
-				file.getName(), base, base);
+				"cmd /c \"%s \"%s\" -o \"%s\" & start \"\" \"%s\" & pause & exit\"",
+				exePath, file.getName(), base, base
+		);
 
 		terminal.executeCommandSync(cmdLine);
 	}
