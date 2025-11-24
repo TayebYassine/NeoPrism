@@ -6,6 +6,7 @@ import com.prism.services.Service;
 import com.prism.services.ServiceForC;
 import com.prism.services.ServiceForCPlusPlus;
 import com.prism.services.ServiceForJava;
+import com.prism.utils.ProjectNameGenerator;
 import com.prism.utils.ResourceUtil;
 
 import javax.swing.*;
@@ -15,7 +16,7 @@ import java.io.File;
 public class CreateProjectFrame extends JFrame {
 	private static final Prism prism = Prism.getInstance();
 
-	private static final String[] languages = {"Empty (no pre-set language)", "The C Programming Language", "C++", "Java"};
+	private static final String[] languages = {"Empty (no pre-set language)", "C", "C++", "Java"};
 	private final Service[] services = {null, new ServiceForC(), new ServiceForCPlusPlus(), new ServiceForJava()};
 
 	private JTextField projectNameField;
@@ -54,11 +55,17 @@ public class CreateProjectFrame extends JFrame {
 		gbc.weightx = 0;
 		form.add(new JLabel(prism.getLanguage().get(9)), gbc);
 
+		JPanel projectNamePanel = new JPanel(new BorderLayout(6, 6));
 		projectNameField = new JTextField();
+		projectNameField.setText(ProjectNameGenerator.randomProjectName());
+		projectNamePanel.add(projectNameField, BorderLayout.CENTER);
+		JButton randomNameButton = new JButton(prism.getLanguage().get(235));
+		projectNamePanel.add(randomNameButton, BorderLayout.EAST);
+
 		gbc.gridx = 1;
 		gbc.gridy = 0;
 		gbc.weightx = 1.0;
-		form.add(projectNameField, gbc);
+		form.add(projectNamePanel, gbc);
 
 		// Language
 		gbc.gridx = 0;
@@ -104,6 +111,7 @@ public class CreateProjectFrame extends JFrame {
 		add(main);
 
 		// Listeners
+		randomNameButton.addActionListener(e -> projectNameField.setText(ProjectNameGenerator.randomProjectName()));
 		chooseDirButton.addActionListener(e -> onChooseDirectory());
 		cancelButton.addActionListener(e -> onCancel());
 		createButton.addActionListener(e -> onCreateProject());
