@@ -6,6 +6,7 @@ import com.prism.components.definition.PrismFile;
 import com.prism.components.extended.JKineticScrollPane;
 import com.prism.components.frames.ErrorDialog;
 import com.prism.components.frames.WarningDialog;
+import com.prism.components.textarea.Homepage;
 import com.prism.components.textarea.ImageViewer;
 import com.prism.components.textarea.TextArea;
 import com.prism.services.Service;
@@ -74,6 +75,18 @@ public class FileManager {
 		if (prism.getFileExplorer() != null) {
 			prism.getFileExplorer().setRootDirectory(directory);
 		}
+	}
+
+	public static void openHomepage() {
+		Homepage panel = new Homepage();
+
+		PrismFile pf = new PrismFile(null, panel);
+		pf.setHomepage(true);
+
+		files.add(pf);
+		prism.getTextAreaTabbedPane().addHomepageTab(pf);
+
+		prism.getTextAreaTabbedPane().redirectUserToTab(pf);
 	}
 
 	public static void openNewFile() {

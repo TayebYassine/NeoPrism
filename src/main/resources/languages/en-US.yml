@@ -220,6 +220,11 @@
 227: "Threads"
 228: "AStyle executable file not found!"
 229: "Please wait until Prism finishes updating the components..."
+230: "Create new project"
+231: "Open existing project..."
+232: "Help?"
+233: "Welcome to Prism!"
+234: "Homepage"
 
 10000: "Error: Incomplete arguments"
 10001: "Error: Invalid argument"

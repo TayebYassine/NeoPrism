@@ -2,13 +2,11 @@ package com.prism.components.textarea;
 
 import com.prism.Prism;
 import com.prism.components.definition.PrismFile;
-import com.prism.components.extended.JDefaultKineticScrollPane;
 import com.prism.components.extended.JKineticScrollPane;
 import com.prism.managers.FileManager;
 import com.prism.managers.TextAreaManager;
 import com.prism.managers.ThreadsManager;
 import com.prism.utils.Keyboard;
-import org.fife.ui.rtextarea.RTextScrollPane;
 
 import javax.swing.*;
 import javax.swing.event.*;
@@ -60,6 +58,12 @@ public class TextAreaTabbedPane extends JTabbedPane {
 		addFeaturesToTab(pf);
 	}
 
+	public void addHomepageTab(PrismFile pf) {
+		addTab(pf.getName(), pf.getCustomJPanel());
+
+		addFeaturesToTab(pf);
+	}
+
 	public void removeTextAreaTab(TextArea textArea) {
 		int index = findIndexByTextArea(textArea);
 
@@ -98,10 +102,12 @@ public class TextAreaTabbedPane extends JTabbedPane {
 				if (textArea == file.getTextArea()) {
 					return i;
 				}
-			} else {
-				ImageViewer container = (ImageViewer) componentIndex;
-
+			} else if (componentIndex instanceof ImageViewer container) {
 				if (container == file.getImageViewer()) {
+					return i;
+				}
+			} else if (componentIndex instanceof Homepage container) {
+				if (container == file.getCustomJPanel()) {
 					return i;
 				}
 			}
@@ -110,13 +116,13 @@ public class TextAreaTabbedPane extends JTabbedPane {
 		return -1;
 	}
 
-	public void redirectUserToTab(int index, boolean... openNewFileIfAllTabsAreClosed) {
+	public void redirectUserToTab(int index, boolean... openHomepageIfAllClosed) {
 		if (index < 0 || index >= getTabCount()) {
 			if (getTabCount() > 0) {
 				setSelectedIndex(0);
 			} else {
-				if (openNewFileIfAllTabsAreClosed.length == 1 && openNewFileIfAllTabsAreClosed[0]) {
-					openNewFileIfAllTabsAreClosed();
+				if (openHomepageIfAllClosed.length == 1 && openHomepageIfAllClosed[0]) {
+					openHomepageIfAllClosed();
 				}
 			}
 
@@ -134,7 +140,7 @@ public class TextAreaTabbedPane extends JTabbedPane {
 		}
 	}
 
-	public void closeTabByIndex(int index, boolean... openNewFileIfAllTabsAreClosed) {
+	public void closeTabByIndex(int index, boolean... openHomepageIfAllClosed) {
 		if (index < 0 || index >= getTabCount()) {
 			return;
 		}
@@ -157,8 +163,8 @@ public class TextAreaTabbedPane extends JTabbedPane {
 
 		FileManager.files.remove(index);
 
-		if (openNewFileIfAllTabsAreClosed.length == 1 && openNewFileIfAllTabsAreClosed[0]) {
-			openNewFileIfAllTabsAreClosed();
+		if (openHomepageIfAllClosed.length == 1 && openHomepageIfAllClosed[0]) {
+			openHomepageIfAllClosed();
 		}
 
 		if (getTabCount() > 0) {
@@ -234,9 +240,9 @@ public class TextAreaTabbedPane extends JTabbedPane {
 		});
 	}
 
-	public void openNewFileIfAllTabsAreClosed() {
+	public void openHomepageIfAllClosed() {
 		if (getTabCount() == 0) {
-			FileManager.openNewFile();
+			FileManager.openHomepage();
 		}
 	}
 

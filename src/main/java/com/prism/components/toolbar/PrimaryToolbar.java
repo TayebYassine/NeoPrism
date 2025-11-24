@@ -237,14 +237,14 @@ public class PrimaryToolbar extends JToolBar {
             buttonSave.setEnabled(!prismFile.isSaved());
         }
 
+        File file = prismFile.getFile();
+
         buttonCut.setEnabled(prismFile.isText());
         buttonCopy.setEnabled(prismFile.isText());
         buttonPaste.setEnabled(prismFile.isText());
         buttonZoomIn.setEnabled(prismFile.isText());
         buttonZoomOut.setEnabled(prismFile.isText());
-        buttonTextDiff.setEnabled(prismFile.isText());
-
-        File file = prismFile.getFile();
+        buttonTextDiff.setEnabled(prismFile.isText() && file != null);
 
         if (prismFile.isText() && file != null) {
             Service service = Languages.getService(file);

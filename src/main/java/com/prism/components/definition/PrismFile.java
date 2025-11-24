@@ -5,6 +5,7 @@ import com.prism.components.textarea.ImageViewer;
 import com.prism.components.textarea.TextArea;
 import com.prism.managers.TextAreaManager;
 import com.prism.utils.Languages;
+import com.prism.utils.ResourceUtil;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
 import javax.swing.*;
@@ -17,9 +18,11 @@ public class PrismFile {
 
     private TextArea textArea;
     private ImageViewer imageViewer;
+    private JPanel customJPanel;
 
     private JKineticScrollPane scrollPane;
     private boolean savedChanges = true;
+    private boolean isHomepage = false;
 
     private List<TextAreaManager.Problem> problems = new ArrayList<>();
 
@@ -35,6 +38,11 @@ public class PrismFile {
     public PrismFile(File file, ImageViewer imageViewer) {
         this.file = file;
         this.imageViewer = imageViewer;
+    }
+
+    public PrismFile(File file, JPanel customJPanel) {
+        this.file = file;
+        this.customJPanel = customJPanel;
     }
 
     public File getFile() {
@@ -57,8 +65,8 @@ public class PrismFile {
         return imageViewer;
     }
 
-    public void setImageViewer(ImageViewer imageViewer) {
-        this.imageViewer = imageViewer;
+    public JPanel getCustomJPanel() {
+        return customJPanel;
     }
 
     public boolean isSaved() {
@@ -67,6 +75,10 @@ public class PrismFile {
 
     public void setSaved(boolean savedChanges) {
         this.savedChanges = savedChanges;
+    }
+
+    public void setHomepage(boolean isHomepage) {
+        this.isHomepage = isHomepage;
     }
 
     public JKineticScrollPane getScrollPane() {
@@ -78,7 +90,7 @@ public class PrismFile {
     }
 
     public String getName() {
-        return this.file == null ? "Untitled" : this.file.getName();
+        return this.file == null ? (isHomepage ? "Homepage" : "Untitled") : this.file.getName();
     }
 
     public String getAbsolutePath() {
@@ -93,8 +105,16 @@ public class PrismFile {
         return this.imageViewer != null;
     }
 
+    public boolean isCustom() {
+        return this.customJPanel != null;
+    }
+
+    public boolean isHomepage() {
+        return isHomepage;
+    }
+
     public ImageIcon getIcon() {
-        return Languages.getIcon(file);
+        return isHomepage ? ResourceUtil.getIconFromSVG("icons/ui/home.svg", 16, 16) : Languages.getIcon(file);
     }
 
     public List<TextAreaManager.Problem> getProblems() {

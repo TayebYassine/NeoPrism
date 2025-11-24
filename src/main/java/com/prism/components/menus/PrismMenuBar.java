@@ -47,6 +47,8 @@ public class PrismMenuBar extends JMenuBar {
 	JMenuItem menuItemDelete;
 	JMenuItem menuItemSelectAll;
 	JMenuItem menuItemOptions;
+	JMenuItem menuItemHomepage;
+	JMenuItem menuItemTextDiff;
 	JMenuItem menuItemSidebar;
 	JMenuItem menuItemLowerSidebar;
 	JMenuItem menuItemNewTool;
@@ -259,6 +261,33 @@ public class PrismMenuBar extends JMenuBar {
 		 */
 		JMenu viewMenu = new JMenu(prism.getLanguage().get(147));
 
+		menuItemHomepage = createMenuItem(prism.getLanguage().get(234), null, null, null);
+		menuItemHomepage.addActionListener((_) -> {
+			FileManager.openHomepage();
+		});
+
+		menuItemTextDiff = createMenuItem(prism.getLanguage().get(195), null, null,
+				KeyStroke.getKeyStroke(KeyEvent.VK_D, KeyEvent.CTRL_DOWN_MASK + KeyEvent.SHIFT_DOWN_MASK));
+		menuItemTextDiff.addActionListener((_) -> {
+			PrismFile prismFile = prism.getTextAreaTabbedPane().getCurrentFile();
+			com.prism.components.textarea.TextArea textArea = prismFile.getTextArea();
+			File file = prismFile.getFile();
+
+			if (file == null) {
+				return;
+			}
+
+			String oldText = FileManager.getOriginalText(file);
+
+			if (oldText == null) {
+				return;
+			}
+
+			if (textArea != null) {
+				new TextDifferFrame(file, oldText, file, textArea.getText());
+			}
+		});
+
 		menuItemSidebar = createMenuItem(prism.getLanguage().get(172), null, null,
 				KeyStroke.getKeyStroke(KeyEvent.VK_U, KeyEvent.CTRL_DOWN_MASK + KeyEvent.SHIFT_DOWN_MASK));
 		menuItemSidebar.addActionListener((_) -> {
@@ -275,6 +304,9 @@ public class PrismMenuBar extends JMenuBar {
 			updateComponent();
 		});
 
+		viewMenu.add(menuItemHomepage);
+		viewMenu.add(menuItemTextDiff);
+		viewMenu.addSeparator();
 		viewMenu.add(menuItemSidebar);
 		viewMenu.add(menuItemLowerSidebar);
 
@@ -451,7 +483,7 @@ public class PrismMenuBar extends JMenuBar {
 				}
 			} else {
 				JOptionPane.showMessageDialog(prism,
-						"Faild to open Help URL.",
+						"Failed to open Help URL.",
 						"Error", JOptionPane.ERROR_MESSAGE);
 			}
 		});
@@ -585,15 +617,6 @@ public class PrismMenuBar extends JMenuBar {
 			menuItemUndo.setEnabled(textArea.canUndo());
 
 			menuItemSave.setEnabled(!prismFile.isSaved());
-
-			menuItemSaveAs.setEnabled(true);
-			menuItemCloseFile.setEnabled(true);
-			menuItemCut.setEnabled(true);
-			menuItemCopy.setEnabled(true);
-			menuItemPaste.setEnabled(true);
-			menuItemDelete.setEnabled(true);
-			menuItemSelectAll.setEnabled(true);
-			menuItemGoToLine.setEnabled(true);
 		}
 
 		menuItemSidebar.setEnabled(prism.isComponentRemoved(ComponentType.SIDEBAR));
@@ -607,6 +630,15 @@ public class PrismMenuBar extends JMenuBar {
 		menuItemDelete.setEnabled(prismFile.isText());
 		menuItemSelectAll.setEnabled(prismFile.isText());
 		menuItemGoToLine.setEnabled(prismFile.isText());
+		menuItemSaveAs.setEnabled(prismFile.isText());
+		menuItemCloseFile.setEnabled(prismFile.isText());
+		menuItemCut.setEnabled(prismFile.isText());
+		menuItemCopy.setEnabled(prismFile.isText());
+		menuItemPaste.setEnabled(prismFile.isText());
+		menuItemDelete.setEnabled(prismFile.isText());
+		menuItemSelectAll.setEnabled(prismFile.isText());
+		menuItemGoToLine.setEnabled(prismFile.isText());
+		menuItemTextDiff.setEnabled(prismFile.isText());
 
 		menuItemDeleteTools.setEnabled(!ToolsManager.getAllTools().isEmpty());
 		menuItemEditTools.setEnabled(!ToolsManager.getAllTools().isEmpty());

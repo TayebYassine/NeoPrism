@@ -375,7 +375,7 @@ public class ConfigurationDialog extends JFrame {
 
 	private JPanel customSeparator(String text, Color color) {
 		JLabel label = new JLabel(text);
-		label.setForeground(Theme.invertColorIfDarkThemeSet(color));
+		label.setForeground(color);
 
 		JSeparator separator = new JSeparator(SwingConstants.HORIZONTAL);
 
@@ -478,13 +478,13 @@ public class ConfigurationDialog extends JFrame {
 			size.setEnabled(warn.isSelected());
 			warn.addActionListener(e -> size.setEnabled(warn.isSelected()));
 
-			add(customSeparator("General: ", Color.decode("#0084ff")));
+			add(customSeparator("General: ", UIManager.getColor("Component.linkColor")));
 
-			add(pair(checkbox("Open recent files on startup", ConfigKey.OPEN_RECENT_FILES, true, true)));
+			add(pair(checkbox("Open recent files on startup", ConfigKey.OPEN_RECENT_FILES, false, true)));
 			add(pair(updates));
 
 			add(Box.createVerticalStrut(20));
-			add(customSeparator("Other: ", Color.decode("#0084ff")));
+			add(customSeparator("Other: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(warn, size));
 
@@ -497,13 +497,13 @@ public class ConfigurationDialog extends JFrame {
 			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 			setBorder(new EmptyBorder(5, 5, 5, 5));
 
-			add(customSeparator("Gutter: ", Color.decode("#0084ff")));
+			add(customSeparator("Gutter: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(checkbox("Show line numbers", ConfigKey.SHOW_LINE_NUMBERS, true, true)));
 			add(pair(checkbox("Bookmarks", ConfigKey.BOOK_MARKS, true, true)));
 
 			add(Box.createVerticalStrut(20));
-			add(customSeparator("Text Area: ", Color.decode("#0084ff")));
+			add(customSeparator("Text Area: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(checkbox("Anti-Aliasing", ConfigKey.ANTI_ALIASING_ENABLED, true, true)));
 
@@ -532,7 +532,7 @@ public class ConfigurationDialog extends JFrame {
 			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 			setBorder(new EmptyBorder(5, 5, 5, 5));
 
-			add(customSeparator("Terminal: ", Color.decode("#0084ff")));
+			add(customSeparator("Terminal: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(checkbox("Show Process output code", ConfigKey.SHOW_PROCESS_TERMINATION_CODE_OUTPUT, true)));
 
@@ -589,12 +589,12 @@ public class ConfigurationDialog extends JFrame {
 			add(pair(new JLabel("Remember! Any changes to the following settings will require Prism to be restarted.")));
 
 			add(Box.createVerticalStrut(20));
-			add(customSeparator("Interface: ", Color.decode("#0084ff")));
+			add(customSeparator("Interface: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(new JLabel("Language: "), languageCombo));
 
 			add(Box.createVerticalStrut(20));
-			add(customSeparator("Themes: ", Color.decode("#0084ff")));
+			add(customSeparator("Themes: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(new JLabel("Theme: "), themeCombo));
 		}
@@ -649,12 +649,12 @@ public class ConfigurationDialog extends JFrame {
 			tokenCombo.addActionListener(e -> syncColorButton());
 			colorBtn.addActionListener(e -> pickColor());
 
-			add(customSeparator("Overriding: ", Color.decode("#0084ff")));
+			add(customSeparator("Overriding: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(checkbox("Invert colors for Dark theme?", ConfigKey.INVERT_TEXTAREA_TOKEN_COLORS_FOR_DARK_THEME, true, true)));
 
 			add(Box.createVerticalStrut(20));
-			add(customSeparator("Highlighters: ", Color.decode("#0084ff")));
+			add(customSeparator("Highlighters: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(new JLabel("Token: "), tokenCombo, Box.createHorizontalStrut(5), colorBtn));
 
@@ -738,7 +738,7 @@ public class ConfigurationDialog extends JFrame {
 			popup.setEnabled(master.isSelected());
 			master.addActionListener(e -> popup.setEnabled(master.isSelected()));
 
-			add(customSeparator("Autocomplete: ", Color.decode("#0084ff")));
+			add(customSeparator("Autocomplete: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(master));
 			add(pair(popup));
@@ -756,7 +756,7 @@ public class ConfigurationDialog extends JFrame {
 			a.setEnabled(master.isSelected());
 			master.addActionListener(e -> a.setEnabled(master.isSelected()));
 
-			add(customSeparator("Services: ", Color.decode("#0084ff")));
+			add(customSeparator("Services: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(master));
 			add(pair(a));
@@ -791,7 +791,7 @@ public class ConfigurationDialog extends JFrame {
 			add(new JLabel("Install MinGW from SourceForge to install the compilers."));
 
 			add(Box.createVerticalStrut(20));
-			add(customSeparator("Compiler: ", Color.decode("#0084ff")));
+			add(customSeparator("Compiler: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(providedInPath));
 			add(pair(new JLabel("GCC Compiler Executable (.exe) Path: "), Box.createRigidArea(new Dimension(5, 0)), compilerPathField, Box.createRigidArea(new Dimension(5, 0)), browseButton));
@@ -845,7 +845,7 @@ public class ConfigurationDialog extends JFrame {
 			add(new JLabel("Install MinGW from SourceForge to install the compilers."));
 
 			add(Box.createVerticalStrut(20));
-			add(customSeparator("Compiler: ", Color.decode("#0084ff")));
+			add(customSeparator("Compiler: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(providedInPath));
 			add(pair(new JLabel("G++ Compiler Executable (.exe) Path: "), Box.createRigidArea(new Dimension(5, 0)), compilerPathField, Box.createRigidArea(new Dimension(5, 0)), browseButton));

@@ -415,7 +415,7 @@ public class Prism extends JFrame {
 
 		add(primarySplitPane);
 
-		textAreaTabbedPane.openNewFileIfAllTabsAreClosed();
+		textAreaTabbedPane.openHomepageIfAllClosed();
 		terminalTabbedPane.openNewTerminalIfAllTabsAreClosed();
 	}
 
@@ -429,7 +429,7 @@ public class Prism extends JFrame {
 		DatabaseManager.loadDatabases();
 		TasksManager.loadTasks();
 
-		if (config.getBoolean(ConfigKey.OPEN_RECENT_FILES, true)) {
+		if (config.getBoolean(ConfigKey.OPEN_RECENT_FILES, false)) {
 			FileManager.openRecentFiles();
 		}
 
