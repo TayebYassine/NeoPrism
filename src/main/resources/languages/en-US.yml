@@ -219,7 +219,7 @@
 226: "Threads Sidebar"
 227: "Threads"
 228: "AStyle executable file not found!"
-
+229: "Please wait until Prism finishes updating the components..."
 
 10000: "Error: Incomplete arguments"
 10001: "Error: Invalid argument"
@@ -227,3 +227,4 @@
 10003: "Warning: Failure"
 10004: "Error: Missing drivers"
 10005: "Error: Connection error"
+10006: "Updating Components"

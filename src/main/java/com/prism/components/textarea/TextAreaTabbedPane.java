@@ -6,6 +6,7 @@ import com.prism.components.extended.JDefaultKineticScrollPane;
 import com.prism.components.extended.JKineticScrollPane;
 import com.prism.managers.FileManager;
 import com.prism.managers.TextAreaManager;
+import com.prism.managers.ThreadsManager;
 import com.prism.utils.Keyboard;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
@@ -207,13 +208,30 @@ public class TextAreaTabbedPane extends JTabbedPane {
 	}
 
 	public void refresh() {
-		final List<File> files = FileManager.getFiles().stream().map(PrismFile::getFile).toList();
+		ThreadsManager.submitAndTrackThread("Refresh Text Area", () -> {
+			JOptionPane pane = new JOptionPane(prism.getLanguage().get(229), JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION);
+			JDialog dialog = pane.createDialog(prism, prism.getLanguage().get(10006));
+			dialog.setModal(true);
+			dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+			dialog.setResizable(false);
 
-		closeAllTabs();
+			SwingUtilities.invokeLater(() -> {
+				dialog.setVisible(true);
+			});
 
-		for (File file : files) {
-			FileManager.openFile(file);
-		}
+			final List<File> files = FileManager.getFiles().stream().map(PrismFile::getFile).toList();
+
+			closeAllTabs();
+
+			for (File file : files) {
+				FileManager.openFile(file);
+			}
+
+			SwingUtilities.invokeLater(() -> {
+				dialog.setVisible(false);
+				dialog.dispose();
+			});
+		});
 	}
 
 	public void openNewFileIfAllTabsAreClosed() {
