@@ -11,10 +11,13 @@ import com.prism.utils.Theme;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
-import javax.swing.filechooser.*;
-import javax.swing.tree.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.TreeNode;
+import javax.swing.tree.TreeSelectionModel;
 import java.awt.*;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -480,7 +483,7 @@ public class ConfigurationDialog extends JFrame {
 
 			add(customSeparator("General: ", UIManager.getColor("Component.linkColor")));
 
-			add(pair(checkbox("Open recent files on startup", ConfigKey.OPEN_RECENT_FILES, false, true)));
+            add(pair(checkbox("Open recent files on startup", ConfigKey.OPEN_RECENT_FILES, true, false)));
 			add(pair(updates));
 
 			add(Box.createVerticalStrut(20));

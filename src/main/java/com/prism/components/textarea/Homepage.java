@@ -10,9 +10,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.font.TextAttribute;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Collections;
+import java.util.Map;
 
 public class Homepage extends JPanel {
 
@@ -61,10 +64,24 @@ public class Homepage extends JPanel {
 
 		link.addMouseListener(new MouseAdapter() {
 			@Override public void mouseEntered(MouseEvent e) {
-				link.setFont(link.getFont().deriveFont(Font.PLAIN | Font.BOLD));
+                Map<TextAttribute, Object> attributes = (Map<TextAttribute, Object>)
+                        Collections.synchronizedMap(link.getFont().getAttributes());
+
+                attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+
+                Font underlinedFont = new Font(attributes);
+
+                link.setFont(underlinedFont);
 			}
 			@Override public void mouseExited(MouseEvent e) {
-				link.setFont(link.getFont().deriveFont(Font.PLAIN));
+                Map<TextAttribute, Object> attributes = (Map<TextAttribute, Object>)
+                        Collections.synchronizedMap(link.getFont().getAttributes());
+
+                attributes.remove(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+
+                Font underlinedFont = new Font(attributes);
+
+                link.setFont(underlinedFont);
 			}
 		});
 

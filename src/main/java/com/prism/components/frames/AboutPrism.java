@@ -5,10 +5,13 @@ import com.prism.components.extended.JDefaultKineticScrollPane;
 import com.prism.utils.ResourceUtil;
 
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.text.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
 
 public class AboutPrism extends JFrame {
 	private static final String LICENSE = """
@@ -394,7 +397,7 @@ public class AboutPrism extends JFrame {
 				{"", "@bobbylight/RText – Inspiration", ""},
 				{"", "@jesseweed/seti-ui – File Icons", ""},
 				{"Third-Party Software:", "Artistic Style (AStyle)", "MIT"},
-				{"Third-Party Libraries:", "xerial: sqlite-jdbc", "BSD-3-Clause & Apache-2.0"},
+                {"Third-Party Libraries:", "xerial: sqlite-jdbc", "BSD-3-Clause"},
 				{"", "Fifesoft: RSyntaxTextArea", "BSD-3-Clause"},
 				{"", "Fifesoft: Autocomplete", "BSD-3-Clause"},
 				{"", "Fifesoft: Language Support", "BSD-3-Clause"},

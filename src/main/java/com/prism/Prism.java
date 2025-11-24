@@ -23,9 +23,10 @@ import com.prism.plugins.PluginLoader;
 import com.prism.utils.*;
 
 import javax.swing.*;
-import javax.swing.text.*;
+import javax.swing.text.BadLocationException;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -294,6 +295,7 @@ public class Prism extends JFrame {
 				recentFiles.add(pf.getAbsolutePath());
 			}
 		}
+
 		config.set(ConfigKey.RECENT_OPENED_FILES, recentFiles.toArray(new String[0]));
 	}
 
@@ -429,7 +431,7 @@ public class Prism extends JFrame {
 		DatabaseManager.loadDatabases();
 		TasksManager.loadTasks();
 
-		if (config.getBoolean(ConfigKey.OPEN_RECENT_FILES, false)) {
+		if (config.getBoolean(ConfigKey.OPEN_RECENT_FILES, true)) {
 			FileManager.openRecentFiles();
 		}
 

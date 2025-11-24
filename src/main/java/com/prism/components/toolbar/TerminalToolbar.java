@@ -6,17 +6,16 @@ import com.prism.components.definition.PrismFile;
 import com.prism.components.definition.Shell;
 import com.prism.components.definition.Tool;
 import com.prism.components.terminal.Terminal;
-import com.prism.managers.FileManager;
 import com.prism.managers.TerminalManager;
 import com.prism.managers.ToolsManager;
 import com.prism.utils.ResourceUtil;
 
 import javax.swing.*;
-import javax.swing.border.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.List;
 
-import static javax.swing.JOptionPane.*;
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
 
 public class TerminalToolbar extends JToolBar {
 
@@ -97,7 +96,7 @@ public class TerminalToolbar extends JToolBar {
 		buttonProcessRestart.addActionListener((_) -> {
 			Terminal terminal = prism.getTerminalTabbedPane().getCurrentTerminal();
 
-			//terminal.restartProcess();
+			terminal.restartProcess();
 		});
 
 		JButton buttonProcessStop = createButton(ResourceUtil.getIconFromSVG("icons/ui/stop.svg"), prism.getLanguage().get(208));

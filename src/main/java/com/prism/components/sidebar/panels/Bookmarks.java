@@ -5,15 +5,16 @@ import com.prism.components.definition.PrismFile;
 import com.prism.components.extended.JDefaultKineticScrollPane;
 import com.prism.managers.TextAreaManager.Bookmark;
 import com.prism.managers.TextAreaManager.BookmarkInfo;
-import com.prism.utils.Languages;
 import com.prism.utils.ResourceUtil;
 
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.event.*;
-import javax.swing.tree.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
+import javax.swing.tree.DefaultTreeModel;
 import java.awt.*;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -148,14 +149,7 @@ public class Bookmarks extends JPanel {
 			if (userObj instanceof PrismFile pf) {
 				setText(pf.getName());
 
-				File actualFile = pf.getFile();
-
-				if (actualFile != null) {
-					setIcon(Languages.getIcon(actualFile));
-				} else {
-					setIcon(ResourceUtil.getIcon("icons/file.png"));
-				}
-
+                setIcon(pf.getIcon());
 			} else if (userObj instanceof BookmarkInfo info) {
 				String label = null;
 				try {

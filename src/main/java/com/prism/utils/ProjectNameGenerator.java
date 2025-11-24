@@ -55,6 +55,6 @@ public class ProjectNameGenerator {
 		String adj = ADJECTIVES[RANDOM.nextInt(ADJECTIVES.length)];
 		String noun = NOUNS[RANDOM.nextInt(NOUNS.length)];
 
-		return adj + "-" + noun;
+		return StringUtil.capitalizeFirstLetter(adj + "-" + noun);
 	}
 }

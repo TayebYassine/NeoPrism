@@ -9,18 +9,14 @@ import com.prism.components.textarea.TextArea;
 import com.prism.managers.FileManager;
 import com.prism.managers.ThreadsManager;
 import com.prism.services.syntaxchecker.CPlusPlusSyntaxChecker;
-import com.prism.services.syntaxchecker.CSyntaxChecker;
 import com.prism.utils.AStyleWrapper;
 import com.prism.utils.ResourceUtil;
 
 import javax.swing.*;
-import java.awt.event.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Paths;
-
-import static javax.swing.JOptionPane.*;
 
 public class ServiceForCPlusPlus extends Service {
 	private static final Prism prism = Prism.getInstance();
@@ -134,10 +130,13 @@ public class ServiceForCPlusPlus extends Service {
 
 		ThreadsManager.submitAndTrackThread("C++ Build " + file.getName() , () -> {
 			try {
-				new ProcessBuilder("cmd", "/c", cmdLine)
+				Process p = new ProcessBuilder("cmd", "/c", cmdLine)
 						.directory(dir)
 						.inheritIO()
 						.start();
+
+				p.waitFor();
+				p.destroyForcibly();
 			} catch (Exception ex) {
 				new WarningDialog(prism, ex);
 			}

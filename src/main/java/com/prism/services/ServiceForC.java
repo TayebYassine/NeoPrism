@@ -13,13 +13,10 @@ import com.prism.utils.AStyleWrapper;
 import com.prism.utils.ResourceUtil;
 
 import javax.swing.*;
-import java.awt.event.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Paths;
-
-import static javax.swing.JOptionPane.*;
 
 public class ServiceForC extends Service {
 	private static final Prism prism = Prism.getInstance();
@@ -142,6 +139,7 @@ public class ServiceForC extends Service {
 						.redirectOutput(ProcessBuilder.Redirect.DISCARD)
 						.start();
 				p.waitFor();
+				p.destroyForcibly();
 			} catch (Exception ex) {
 				new WarningDialog(prism, ex);
 			}

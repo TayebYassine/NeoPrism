@@ -16,7 +16,6 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
 import java.awt.*;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -150,14 +149,7 @@ public class Problems extends JPanel {
 			if (userObj instanceof PrismFile pf) {
 				setText(pf.getName());
 
-				File actualFile = pf.getFile();
-
-				if (actualFile != null) {
-					setIcon(Languages.getIcon(actualFile));
-				} else {
-					setIcon(ResourceUtil.getIcon("icons/file.png"));
-				}
-
+                setIcon(pf.getIcon());
 			} else if (userObj instanceof TextAreaManager.Problem info) {
 				String label = null;
 				try {

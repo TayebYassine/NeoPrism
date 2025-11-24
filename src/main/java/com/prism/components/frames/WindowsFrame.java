@@ -8,8 +8,8 @@ import com.prism.utils.FileUtil;
 import com.prism.utils.ResourceUtil;
 
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.table.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.io.File;
 import java.util.List;
@@ -125,7 +125,7 @@ public class WindowsFrame extends JFrame {
 			Object[] row = new Object[4];
 			row[0] = prismFile.getName();
 			row[1] = prismFile.getAbsolutePath();
-			row[2] = prismFile.isImage() ? prism.getLanguage().get(139) : prism.getLanguage().get(138);
+			row[2] = prismFile.isHomepage() ? "?" : (prismFile.isImage() ? prism.getLanguage().get(139) : prism.getLanguage().get(138));
 
 			File file = prismFile.getFile();
 			if (file != null && file.exists()) {

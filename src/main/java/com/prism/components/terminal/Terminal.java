@@ -5,17 +5,23 @@ import com.prism.components.definition.ConfigKey;
 import com.prism.components.definition.PrismFile;
 import com.prism.components.definition.Shell;
 import com.prism.components.definition.Tool;
-import com.prism.components.extended.JExtendedTextField;
 import com.prism.components.extended.JDefaultKineticScrollPane;
+import com.prism.components.extended.JExtendedTextField;
 import com.prism.managers.FileManager;
 import com.prism.managers.ToolsManager;
 import com.prism.utils.Theme;
 
 import javax.swing.*;
-import javax.swing.border.*;
-import javax.swing.text.*;
+import javax.swing.border.EmptyBorder;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Style;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -372,14 +378,6 @@ public class Terminal extends JPanel {
         pb.directory(new File(currentDirectory));
         pb.redirectErrorStream(true);
 
-        String currentPath = pb.environment().get("Path");
-        String gccPath = "C:\\MinGW\\bin";
-
-        if (currentPath == null) currentPath = "";
-        if (!currentPath.toLowerCase().contains(gccPath.toLowerCase())) {
-            pb.environment().put("Path", currentPath + ";" + gccPath);
-        }
-
         List<String> commands = new ArrayList<>();
         switch (shell) {
             case COMMAND_PROMPT:
@@ -733,6 +731,16 @@ public class Terminal extends JPanel {
         cleanupProcess();
         appendToTerminal("\n" + prism.getLanguage().get(45) + "\n", Color.RED, true);
         appendPrompt();
+    }
+
+    public void restartProcess() {
+        if (commandHistory.isEmpty()) {
+            return;
+        }
+
+        closeProcess();
+
+        executeCommand(commandHistory.get(commandHistory.size() - 1), true);
     }
 
     public void executeCommandSync(String command) {
