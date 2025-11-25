@@ -18,14 +18,14 @@ import java.io.File;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class CodeOutline extends JTree {
+public class CodeFoldingPanel extends JTree {
 	private static final Prism prism = Prism.getInstance();
 
 	private TextArea textArea;
 	private File file;
 
-	public CodeOutline() {
-		super(new DefaultTreeModel(new DefaultMutableTreeNode("Outline")));
+	public CodeFoldingPanel() {
+		super(new DefaultTreeModel(new DefaultMutableTreeNode("Folding")));
 		tuneUi();
 		addTreeNavigationListener();
 	}
@@ -40,7 +40,7 @@ public class CodeOutline extends JTree {
 		if (textArea == null) return;
 
 		FoldManager fm = textArea.getFoldManager();
-		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Outline");
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode("Folding");
 
 		for (int i = 0, top = fm.getFoldCount(); i < top; i++) {
 			DefaultMutableTreeNode node = createNode(fm.getFold(i));
@@ -70,7 +70,7 @@ public class CodeOutline extends JTree {
 	}
 
 	private boolean shouldIgnore(Fold fold) {
-		if (!prism.getConfig().getBoolean(ConfigKey.CODE_OUTLINE_IGNORE_COMMENTS, true))
+		if (!prism.getConfig().getBoolean(ConfigKey.CODE_FOLDING_IGNORE_COMMENTS, true))
 			return false;
 		String t = getFoldTitle(fold);
 		return t.startsWith("//") || t.startsWith("/*") || t.startsWith("/**");
@@ -134,11 +134,11 @@ public class CodeOutline extends JTree {
 				return this;
 			}
 
-			CodeOutline outline = prism.getCodeOutline();
-			if (outline != null && outline.file != null && outline.file.exists()) {
-				Service svc = Languages.getService(outline.file);
+			CodeFoldingPanel folding = prism.getCodeFoldingPanel();
+			if (folding != null && folding.file != null && folding.file.exists()) {
+				Service svc = Languages.getService(folding.file);
 				if (svc != null) {
-					Icon custom = customIconCache.computeIfAbsent(fw.title, t -> svc.getIconOfCodeOutlineLine(t));
+					Icon custom = customIconCache.computeIfAbsent(fw.title, t -> svc.getIconOfCodeFoldingLine(t));
 					if (custom != null) {
 						setIcon(custom);
 						return this;

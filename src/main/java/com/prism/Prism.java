@@ -20,6 +20,7 @@ import com.prism.components.toolbar.*;
 import com.prism.config.Config;
 import com.prism.managers.*;
 import com.prism.plugins.PluginLoader;
+import com.prism.services.Service;
 import com.prism.utils.*;
 
 import javax.swing.*;
@@ -69,7 +70,7 @@ public class Prism extends JFrame {
 	private TerminalTabbedPane terminalTabbedPane;
 	private TerminalToolbar terminalToolbar;
 	private FileExplorer fileExplorer;
-	private CodeOutline codeOutline;
+	private CodeFoldingPanel codeFoldingPanel;
 	private Bookmarks bookmarks;
 	private BookmarksToolbar bookmarksToolbar;
 	private TasksList tasksList;
@@ -82,6 +83,7 @@ public class Prism extends JFrame {
 	private LowerSidebar lowerSidebar;
 	private JLabel lowerSidebarHeader;
 	private PluginsPanel pluginsPanel;
+	private SymbolsPanel symbolsPanel;
 	private JSplitPane primarySplitPane;
 	private JSplitPane secondarySplitPane;
 	private JClosableComponent sidebarClosableComponent;
@@ -375,15 +377,16 @@ public class Prism extends JFrame {
 	private void initializeSidebars(File directory, JPanel terminalArea, JPanel bookmarksArea,
 									JPanel tasksArea, JPanel databaseArea, JPanel problemsArea) {
 		fileExplorer = new FileExplorer(directory);
-		codeOutline = new CodeOutline();
+		codeFoldingPanel = new CodeFoldingPanel();
 		pluginsPanel = new PluginsPanel(pluginLoader.getPlugins());
+		symbolsPanel = new SymbolsPanel();
 
 		lowerSidebarHeader = new JLabel(languageInterface.get(209));
 		lowerSidebar = new LowerSidebar(lowerSidebarHeader, terminalArea, bookmarksArea, tasksArea, databaseArea, problemsArea);
 		lowerSidebarClosableComponent = new JClosableComponent(ComponentType.LOWER_SIDEBAR, lowerSidebarHeader, lowerSidebar);
 
 		sidebarHeader = new JLabel(languageInterface.get(33));
-		sidebar = new Sidebar(sidebarHeader, fileExplorer, codeOutline, pluginsPanel);
+		sidebar = new Sidebar(sidebarHeader, fileExplorer, codeFoldingPanel, symbolsPanel, pluginsPanel);
 		sidebarClosableComponent = new JClosableComponent(ComponentType.SIDEBAR, sidebarHeader, sidebar);
 	}
 
@@ -695,10 +698,20 @@ public class Prism extends JFrame {
 		menuBar.updateComponent();
 		problems.updateTreeData();
 
-		if (pf != null && codeOutline.getTextArea() != null && pf.isText() && codeOutline.getTextArea().equals(pf.getTextArea())) {
-			codeOutline.updateTree();
-		} else {
-			codeOutline.setFile(pf);
+		if (pf != null && pf.isText()) {
+			if (codeFoldingPanel.getTextArea() != null && codeFoldingPanel.getTextArea().equals(pf.getTextArea())) {
+				codeFoldingPanel.updateTree();
+			} else {
+				codeFoldingPanel.setFile(pf);
+			}
+
+			if (pf.getAbsolutePath() != null) {
+				Service service = Languages.getService(pf.getFile());
+
+				if (service != null) {
+					service.updateSymbolsTree(pf, pf.getTextArea());
+				}
+			}
 		}
 	}
 
@@ -734,8 +747,12 @@ public class Prism extends JFrame {
 		return problems;
 	}
 
-	public CodeOutline getCodeOutline() {
-		return codeOutline;
+	public CodeFoldingPanel getCodeFoldingPanel() {
+		return codeFoldingPanel;
+	}
+
+	public SymbolsPanel getSymbolsPanel() {
+		return symbolsPanel;
 	}
 
 	public TasksList getTasksList() {

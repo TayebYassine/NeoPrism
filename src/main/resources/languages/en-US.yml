@@ -31,7 +31,7 @@
 31: "Edit JSON"
 32: "Problems"
 33: "File Explorer"
-34: "Code Outline"
+34: "Folding"
 35: "Plugins"
 36: "Enter a command, an input, or use '/' to view shortcuts..."
 37: "No commands..."
@@ -227,6 +227,8 @@
 234: "Homepage"
 235: "Random"
 236: "Chill! 100 times already and no perfect and suitable project name? Just write on your own!"
+237: "Symbols"
+238: "Ctags executable file not found!"
 
 10000: "Error: Incomplete arguments"
 10001: "Error: Invalid argument"

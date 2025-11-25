@@ -12,12 +12,15 @@ import com.prism.managers.FileManager;
 import com.prism.managers.ThreadsManager;
 import com.prism.services.syntaxchecker.JavaSyntaxChecker;
 import com.prism.utils.AStyleWrapper;
+import com.prism.utils.CtagsWrapper;
 import com.prism.utils.ResourceUtil;
 
 import javax.swing.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 public class ServiceForJava extends Service {
 	private static final Prism prism = Prism.getInstance();
@@ -58,7 +61,7 @@ public class ServiceForJava extends Service {
 	}
 
 	@Override
-	public ImageIcon getIconOfCodeOutlineLine(String line) {
+	public ImageIcon getIconOfCodeFoldingLine(String line) {
 		line = line.trim();
 
 		if (line.matches("^(public\\s+|protected\\s+|private\\s+)?(static\\s+)?(final\\s+)?(class|interface|enum|record|@interface)\\s+\\w+.*"))
@@ -112,6 +115,34 @@ public class ServiceForJava extends Service {
 		}
 
 		JavaSyntaxChecker.install(pf, textArea);
+	}
+
+	@Override
+	public void updateSymbolsTree(PrismFile pf, TextArea textArea) {
+		File ctagsFile = new File("Ctags/ctags.exe");
+
+		if (ctagsFile == null || !ctagsFile.exists() || !ctagsFile.isFile()) {
+			JOptionPane.showMessageDialog(prism, prism.getLanguage().get(238), prism.getLanguage().get(10002), JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		String[] opts = {"--language-force=Java", "--kinds-Java=*"};
+
+		CtagsWrapper.extractSymbolsAsync(
+				pf.getFile(),
+				ctagsFile.getAbsolutePath(),
+				opts,
+				new CtagsWrapper.Callback() {
+					@Override
+					public void onSuccess(Map<String, List<String>> kindToSymbols) {
+						prism.getSymbolsPanel().updateTree(kindToSymbols);
+					}
+
+					@Override
+					public void onError(String message) {
+						new WarningDialog(prism, new Error(message));
+					}
+				});
 	}
 
 	private void buildAndRunExternalThreadFile(File file) {

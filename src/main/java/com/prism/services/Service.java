@@ -15,7 +15,7 @@ public class Service extends JPopupMenu {
 		this.show(button, 0, button.getHeight());
 	}
 
-	public ImageIcon getIconOfCodeOutlineLine(String line) {
+	public ImageIcon getIconOfCodeFoldingLine(String line) {
 		return null;
 	}
 
@@ -28,6 +28,10 @@ public class Service extends JPopupMenu {
 	}
 
 	public void installSyntaxChecker(PrismFile pf, TextArea textArea) {
+		return;
+	}
+
+	public void updateSymbolsTree(PrismFile pf, TextArea textArea) {
 		return;
 	}
 }

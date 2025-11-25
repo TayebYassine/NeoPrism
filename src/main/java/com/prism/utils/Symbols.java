@@ -14,14 +14,19 @@ public class Symbols {
                 return ResourceUtil.getIconFromSVG("icons/ui/symbol-global.svg", 16, 16);
             case "namespace":
                 return ResourceUtil.getIconFromSVG("icons/ui/symbol-namespace.svg", 16, 16);
+            case "member":
+            case "local":
             case "qualified_name":
                 return ResourceUtil.getIconFromSVG("icons/ui/symbol-qualified_name.svg", 16, 16);
             case "struct":
                 return ResourceUtil.getIconFromSVG("icons/ui/symbol-struct.svg", 16, 16);
+            case "class":
+            case "typedef":
             case "type":
                 return ResourceUtil.getIconFromSVG("icons/ui/symbol-type.svg", 16, 16);
             case "union":
                 return ResourceUtil.getIconFromSVG("icons/ui/symbol-union.svg", 16, 16);
+            case "method":
             case "function":
                 return ResourceUtil.getIconFromSVG("icons/ui/symbol-function.svg", 16, 16);
             default:

@@ -10,6 +10,7 @@ import com.prism.managers.FileManager;
 import com.prism.managers.ThreadsManager;
 import com.prism.services.syntaxchecker.CPlusPlusSyntaxChecker;
 import com.prism.utils.AStyleWrapper;
+import com.prism.utils.CtagsWrapper;
 import com.prism.utils.ResourceUtil;
 
 import javax.swing.*;
@@ -17,6 +18,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.Map;
 
 public class ServiceForCPlusPlus extends Service {
 	private static final Prism prism = Prism.getInstance();
@@ -51,7 +54,7 @@ public class ServiceForCPlusPlus extends Service {
 	}
 
 	@Override
-	public ImageIcon getIconOfCodeOutlineLine(String line) {
+	public ImageIcon getIconOfCodeFoldingLine(String line) {
 		line = line.trim();
 
 		if (line.matches("^namespace\\s+\\w+.*"))
@@ -110,6 +113,34 @@ public class ServiceForCPlusPlus extends Service {
 		} else {
 			CPlusPlusSyntaxChecker.install(pf, textArea, Paths.get(prism.getConfig().getString(ConfigKey.LANGUAGE_CPP_GNU_GPP_COMPILER_PATH, "")));
 		}
+	}
+
+	@Override
+	public void updateSymbolsTree(PrismFile pf, TextArea textArea) {
+		File ctagsFile = new File("Ctags/ctags.exe");
+
+		if (ctagsFile == null || !ctagsFile.exists() || !ctagsFile.isFile()) {
+			JOptionPane.showMessageDialog(prism, prism.getLanguage().get(238), prism.getLanguage().get(10002), JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+
+		String[] opts = {"--language-force=C++", "--kinds-C++=*"};
+
+		CtagsWrapper.extractSymbolsAsync(
+				pf.getFile(),
+				ctagsFile.getAbsolutePath(),
+				opts,
+				new CtagsWrapper.Callback() {
+					@Override
+					public void onSuccess(Map<String, List<String>> kindToSymbols) {
+						prism.getSymbolsPanel().updateTree(kindToSymbols);
+					}
+
+					@Override
+					public void onError(String message) {
+						new WarningDialog(prism, new Error(message));
+					}
+				});
 	}
 
 	private void buildAndRunExternalThreadFile(File file) {
