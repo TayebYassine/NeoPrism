@@ -7,6 +7,7 @@ public class Symbols {
             case "enum":
                 return ResourceUtil.getIconFromSVG("icons/ui/symbol-enum.svg", 16, 16);
             case "enumerator":
+            case "enumconstant":
             case "enum2":
                 return ResourceUtil.getIconFromSVG("icons/ui/symbol-enum2.svg", 16, 16);
             case "field":

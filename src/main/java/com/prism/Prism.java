@@ -710,8 +710,14 @@ public class Prism extends JFrame {
 
 				if (service != null) {
 					service.updateSymbolsTree(pf, pf.getTextArea());
+				} else {
+					symbolsPanel.clear();
 				}
 			}
+		} else {
+			codeFoldingPanel.clear();
+
+			symbolsPanel.clear();
 		}
 	}
 

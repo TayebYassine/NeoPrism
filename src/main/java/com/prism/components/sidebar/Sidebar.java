@@ -29,31 +29,28 @@ public class Sidebar extends JTabbedPane {
 		addSymbols(symbolsPanel);
 		addPlugins(pluginsPanel);
 
+		addChangeListener(e -> {
+            int index = getSelectedIndex();
+
+            prism.getConfig().set(ConfigKey.SIDEBAR_SELECTED_INDEX, index);
+
+            switch (index) {
+                case 0:
+                    header.setText(prism.getLanguage().get(33));
+                    break;
+                case 1:
+                    header.setText(prism.getLanguage().get(34));
+                    break;
+                case 2:
+                    header.setText(prism.getLanguage().get(237));
+                    break;
+                case 3:
+                    header.setText(prism.getLanguage().get(35));
+                    break;
+            }
+        });
+
 		setSelectedIndex(prism.getConfig().getInt(ConfigKey.SIDEBAR_SELECTED_INDEX, 0));
-
-		addChangeListener(new ChangeListener() {
-			@Override
-			public void stateChanged(ChangeEvent e) {
-				int index = getSelectedIndex();
-
-				prism.getConfig().set(ConfigKey.SIDEBAR_SELECTED_INDEX, index);
-
-				switch (index) {
-					case 0:
-						header.setText(prism.getLanguage().get(33));
-						break;
-					case 1:
-						header.setText(prism.getLanguage().get(34));
-						break;
-					case 2:
-						header.setText(prism.getLanguage().get(237));
-						break;
-					case 3:
-						header.setText(prism.getLanguage().get(35));
-						break;
-				}
-			}
-		});
 	}
 
 	private void addFileExplorer(FileExplorer fileExplorer) {

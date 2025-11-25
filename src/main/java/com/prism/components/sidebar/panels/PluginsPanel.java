@@ -13,40 +13,51 @@ import java.util.List;
 public class PluginsPanel extends JPanel {
     private static final Prism prism = Prism.getInstance();
 
+    private final List<Plugin> plugins;
+    private final JPanel listPanel = new JPanel();
+
     public PluginsPanel(List<Plugin> plugins) {
         super(new BorderLayout());
+        this.plugins = plugins;
 
-        JPanel content = new JPanel();
-        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
-        content.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
+        listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.Y_AXIS));
+        JDefaultKineticScrollPane scroll = new JDefaultKineticScrollPane(listPanel);
+        scroll.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
+        scroll.getVerticalScrollBar().setUnitIncrement(16);
+        scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        add(scroll, BorderLayout.CENTER);
+        rebuildRows();
+    }
+
+    private void rebuildRows() {
+        listPanel.removeAll();
 
         for (int i = 0; i < plugins.size(); i++) {
-            content.add(createPluginRow(plugins.get(i)));
+            listPanel.add(createRow(plugins.get(i)));
 
             if (i < plugins.size() - 1) {
                 JSeparator sep = new JSeparator(SwingConstants.HORIZONTAL);
                 sep.setMaximumSize(new Dimension(Integer.MAX_VALUE, 1));
-                content.add(sep);
+                listPanel.add(sep);
             }
         }
 
-        JDefaultKineticScrollPane sp = new JDefaultKineticScrollPane(content);
-        sp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        sp.getVerticalScrollBar().setUnitIncrement(16);
-        sp.setBorder(null);
-        add(sp, BorderLayout.CENTER);
+        listPanel.revalidate();
+        listPanel.repaint();
     }
 
-    private static JPanel createPluginRow(Plugin plugin) {
+    private JPanel createRow(Plugin plugin) {
         JPanel row = new JPanel(new BorderLayout());
-        row.setBorder(BorderFactory.createEmptyBorder(8, 8, 8, 8));
-        row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 80)); // uniform height
+        row.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 75));
 
-        JLabel nameLab = new JLabel(
-                String.format("<html><b>%s</b> %s — </html>",
-                        escape(plugin.getName()),
-                        escape(plugin.getVersion() == null ? "" : plugin.getVersion())));
-        nameLab.setFont(nameLab.getFont().deriveFont(Font.PLAIN, 12f));
+        JPanel left = new JPanel(new GridLayout(0, 1, 0, 2));
+        left.setOpaque(false);
+        left.add(new JLabel(htmlBold(escape(plugin.getName()) + " " + escape(plugin.getVersion()))));
+        left.add(new JLabel("<html><p style='width:175px;'>" +
+                escape(plugin.getDescription() == null ? "" : plugin.getDescription()) +
+                "</p></html>"));
 
         JCheckBox enabledCB = new JCheckBox(prism.getLanguage().get(30));
         enabledCB.setSelected(plugin.getEnabled());
@@ -54,34 +65,26 @@ public class PluginsPanel extends JPanel {
         enabledCB.addItemListener(e ->
                 plugin.setEnabled(e.getStateChange() == ItemEvent.SELECTED));
 
-        JPanel titleBar = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 0));
-        titleBar.setOpaque(false);
-        titleBar.add(nameLab);
-        titleBar.add(enabledCB);
+        JButton editJsonBtn = new JButton("Edit JSON");
+        editJsonBtn.setFocusable(false);
+        editJsonBtn.addActionListener(a -> FileManager.openFile(plugin.getFile()));
 
-        row.add(titleBar, BorderLayout.NORTH);
+        JPanel right = new JPanel(new FlowLayout(FlowLayout.RIGHT, 5, 0));
+        right.setOpaque(false);
+        right.add(enabledCB);
+        right.add(editJsonBtn);
 
-        JLabel descLab = new JLabel(
-                "<html><p style='width:300px;'>" +
-                        escape(plugin.getDescription() == null ? "" : plugin.getDescription()) +
-                        "</p></html>");
-        row.add(descLab, BorderLayout.CENTER);
-
-        JButton editBtn = new JButton(prism.getLanguage().get(31));
-        editBtn.setFocusable(false);
-        editBtn.addActionListener(a -> {
-            FileManager.openFile(plugin.getFile());
-        });
-
-        JPanel south = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
-        south.setOpaque(false);
-        south.add(editBtn);
-        row.add(south, BorderLayout.SOUTH);
+        row.add(left, BorderLayout.CENTER);
+        row.add(right, BorderLayout.EAST);
 
         return row;
     }
 
     private static String escape(String s) {
         return s == null ? "" : s.replace("&", "&amp;").replace("<", "&lt;");
+    }
+
+    private static String htmlBold(String s) {
+        return "<html><b>" + escape(s) + "</b></html>";
     }
 }

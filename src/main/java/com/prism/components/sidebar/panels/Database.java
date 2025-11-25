@@ -11,6 +11,7 @@ import com.prism.managers.FileManager;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.*;
 import java.awt.*;
 import java.sql.*;
@@ -105,6 +106,10 @@ public class Database extends JPanel {
                 }
 
                 JFileChooser fc = new JFileChooser(FileManager.getRootDirectory());
+                fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+                fc.setMultiSelectionEnabled(false);
+                fc.setFileFilter(new FileNameExtensionFilter(
+                        "SQLite3 File (*.sql, *.sqlite)", "sql", "sqlite"));
 
                 if (fc.showOpenDialog(prism) == JFileChooser.APPROVE_OPTION) {
                     try {

@@ -46,9 +46,19 @@ public class CodeFoldingPanel extends JTree {
 			DefaultMutableTreeNode node = createNode(fm.getFold(i));
 			if (node != null) root.add(node);
 		}
+
 		setModel(new DefaultTreeModel(root));
 
 		for (int i = 0, rows = getRowCount(); i < rows; i++) expandRow(i);
+	}
+
+	public void clear() {
+		DefaultTreeModel model = (DefaultTreeModel) getModel();
+		DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+
+		root.removeAllChildren();
+
+		model.reload(root);
 	}
 
 	private void tuneUi() {

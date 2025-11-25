@@ -154,7 +154,7 @@ public class TextArea extends RSyntaxTextArea {
 
             AutoCompletion ac = new AutoCompletion(provider);
             ac.setAutoActivationEnabled(true);
-            ac.setAutoActivationDelay(250);
+            ac.setAutoActivationDelay(prism.getConfig().getInt(ConfigKey.AUTOCOMPLETE_AUTO_POPUP_DELAY_MS, 250));
 
             ac.setListCellRenderer(new CompletionCellRenderer() {
                 private final JLabel label = new JLabel();

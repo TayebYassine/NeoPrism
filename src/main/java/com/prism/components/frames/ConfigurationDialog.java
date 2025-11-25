@@ -401,6 +401,42 @@ public class ConfigurationDialog extends JFrame {
 		return c;
 	}
 
+	private JSlider slider(int min, int max, int step, ConfigKey key, int def, boolean... requiresRefresh) {
+		JSlider s = new JSlider(min, max, def);
+		s.setValue(prism.getConfig().getInt(key, def));
+
+		if (step > 1) {
+			s.setMajorTickSpacing(step);
+			s.setPaintTicks(true);
+			s.setPaintLabels(true);
+			s.setSnapToTicks(true);
+		}
+
+		s.addChangeListener(e -> {
+			prism.getConfig().set(key, s.getValue(), false);
+
+			enableApplyButton();
+
+			if (requiresRefresh != null && requiresRefresh.length > 0 && requiresRefresh[0]) {
+				setRequireRefresh(true);
+			}
+		});
+
+		return s;
+	}
+
+	private JPanel sliderPanel(JSlider slider) {
+		JLabel value = new JLabel(String.format("%,d", slider.getValue()));
+
+		JPanel panel = pair(new JLabel(String.format("%,d", slider.getMinimum())), slider, new JLabel(String.format("%,d", slider.getMaximum())), new JLabel(" — Value: "), value);
+
+		slider.addChangeListener(e -> {
+			value.setText(String.format("%,d", slider.getValue()));
+		});
+
+		return panel;
+	}
+
 	private JSpinner spinner(ConfigKey key, int def, int min, int max, int step) {
 		JSpinner s = fixedSpinner(new SpinnerNumberModel(prism.getConfig().getInt(key, def), min, max, step));
 		s.addChangeListener((ChangeEvent e) -> {
@@ -757,15 +793,24 @@ public class ConfigurationDialog extends JFrame {
 			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 			setBorder(new EmptyBorder(5, 5, 5, 5));
 
-			JCheckBox master = checkbox("Enable Autocomplete", ConfigKey.AUTOCOMPLETE_ENABLED, true);
-			JCheckBox popup = checkbox("Autocomplete automatic popup menu", ConfigKey.AUTOCOMPLETE_AUTO_POPUP_ENABLED, true);
-			popup.setEnabled(master.isSelected());
-			master.addActionListener(e -> popup.setEnabled(master.isSelected()));
+			JCheckBox master = checkbox("Enable Autocomplete", ConfigKey.AUTOCOMPLETE_ENABLED, true, true);
+
+			JCheckBox popupEnabled = checkbox("Autocomplete automatic popup menu", ConfigKey.AUTOCOMPLETE_AUTO_POPUP_ENABLED, true, true);
+			JSlider popupDelayMs = slider(100, 750, 50, ConfigKey.AUTOCOMPLETE_AUTO_POPUP_DELAY_MS, 250, true);
+
+			popupEnabled.setEnabled(master.isSelected());
+			popupDelayMs.setEnabled(master.isSelected());
+
+			master.addActionListener(e -> {
+				popupEnabled.setEnabled(master.isSelected());
+				popupDelayMs.setEnabled(master.isSelected());
+			});
 
 			add(customSeparator("Autocomplete: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(master));
-			add(pair(popup));
+			add(pair(popupEnabled));
+			add(pair(new JLabel("Popup menu delay (ms): "), popupDelayMs));
 		}
 	}
 

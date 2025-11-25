@@ -22,34 +22,31 @@ public class LowerSidebar extends JTabbedPane {
 		addDatabase(databaseArea);
 		addProblems(problemsArea);
 
+		addChangeListener(e -> {
+            int index = getSelectedIndex();
+
+            prism.getConfig().set(ConfigKey.LOWER_SIDEBAR_SELECTED_INDEX, index);
+
+            switch (index) {
+                case 0:
+                    header.setText(prism.getLanguage().get(210));
+                    break;
+                case 1:
+                    header.setText(prism.getLanguage().get(209));
+                    break;
+                case 2:
+                    header.setText(prism.getLanguage().get(211));
+                    break;
+                case 3:
+                    header.setText(prism.getLanguage().get(212));
+                    break;
+                case 4:
+                    header.setText(prism.getLanguage().get(213));
+                    break;
+            }
+        });
+
 		setSelectedIndex(prism.getConfig().getInt(ConfigKey.LOWER_SIDEBAR_SELECTED_INDEX, 1));
-
-		addChangeListener(new ChangeListener() {
-			@Override
-			public void stateChanged(ChangeEvent e) {
-				int index = getSelectedIndex();
-
-				prism.getConfig().set(ConfigKey.LOWER_SIDEBAR_SELECTED_INDEX, index);
-
-				switch (index) {
-					case 0:
-						header.setText(prism.getLanguage().get(210));
-						break;
-					case 1:
-						header.setText(prism.getLanguage().get(209));
-						break;
-					case 2:
-						header.setText(prism.getLanguage().get(211));
-						break;
-					case 3:
-						header.setText(prism.getLanguage().get(212));
-						break;
-					case 4:
-						header.setText(prism.getLanguage().get(213));
-						break;
-				}
-			}
-		});
 	}
 
 	private void addTasks(JPanel tasksArea) {

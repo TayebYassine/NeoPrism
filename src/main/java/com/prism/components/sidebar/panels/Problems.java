@@ -144,8 +144,6 @@ public class Problems extends JPanel {
 
 	private static class FileTreeCellRenderer extends DefaultTreeCellRenderer {
 
-		private static final Icon BOOKMARK_ICON =
-				ResourceUtil.getIconFromSVG("icons/ui/bookmark2.svg", 18, 18);
 		private static final Icon ROOT_ICON =
 				ResourceUtil.getIconFromSVG("icons/ui/book.svg", 18, 18);
 
@@ -167,8 +165,8 @@ public class Problems extends JPanel {
 				Icon icon = CACHE.computeIfAbsent(pf, PrismFile::getIcon);
 				setIcon(icon);
 
-			} else if (userObj instanceof TextAreaManager.BookmarkInfo info) {
-				setIcon(BOOKMARK_ICON);
+			} else if (userObj instanceof TextAreaManager.Problem info) {
+				setIcon(ALERT_ICON);
 
 				String label = null;
 				try {
@@ -186,7 +184,7 @@ public class Problems extends JPanel {
 				} catch (Exception ignored) { }
 
 				if (label == null || label.trim().isEmpty()) {
-					setText("Line " + (info.getLine() + 1));
+					setText(prism.getLanguage().get(135, (info.getLine() + 1), info.getMessage()));
 				} else {
 					setText(String.format("%s (Line %d)", label, (info.getLine() + 1)));
 				}

@@ -75,6 +75,15 @@ public class SymbolsPanel extends JPanel {
 		});
 	}
 
+	public void clear() {
+		DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+		DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+
+		root.removeAllChildren();
+
+		model.reload(root);
+	}
+
 	class KindNode extends DefaultMutableTreeNode {
 		KindNode(String kind){ super(kind); }
 		@Override public boolean isLeaf(){ return false; }

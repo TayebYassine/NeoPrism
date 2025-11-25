@@ -277,6 +277,24 @@ public class TextAreaTabbedPane extends JTabbedPane {
 					JMenuItem closeAllItem = new JMenuItem(prism.getLanguage().get(46));
 					closeAllItem.addActionListener(e -> closeAllTabs());
 
+					JMenuItem closeAllFromRightItem = new JMenuItem(prism.getLanguage().get(239));
+					closeAllFromRightItem.addActionListener(e -> {
+						for (int i = indexOfTabComponent(tabPanel); i < getTabCount(); i++) {
+							closeTabByIndex(i, true);
+						}
+					});
+
+					JMenuItem closeOthersItem = new JMenuItem(prism.getLanguage().get(240));
+					closeOthersItem.addActionListener(e -> {
+						for (int i = 0; i < getTabCount(); i++) {
+							if (i == indexOfTabComponent(tabPanel)) {
+								continue;
+							}
+
+							closeTabByIndex(i, true);
+						}
+					});
+
 					JMenuItem copyPathItem = new JMenuItem(prism.getLanguage().get(48));
 					copyPathItem.addActionListener(e -> {
 						int tabIndex = indexOfTabComponent(tabPanel);
@@ -297,6 +315,8 @@ public class TextAreaTabbedPane extends JTabbedPane {
 
 					contextMenu.add(closeItem);
 					contextMenu.add(closeAllItem);
+					contextMenu.add(closeOthersItem);
+					contextMenu.add(closeAllFromRightItem);
 					contextMenu.addSeparator();
 					contextMenu.add(copyPathItem);
 
