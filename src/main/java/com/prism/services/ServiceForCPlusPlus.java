@@ -28,7 +28,7 @@ public class ServiceForCPlusPlus extends Service {
 		PrismFile pf = prism.getTextAreaTabbedPane().getCurrentFile();
 		File file = pf.getFile();
 
-		JMenuItem buildAndRunExternalThreadItem = new JMenuItem("C++: Build & Run (External Thread)");
+		JMenuItem buildAndRunExternalThreadItem = new JMenuItem("C++: Build & Run");
 		buildAndRunExternalThreadItem.addActionListener(e -> {
 			FileManager.saveFile(pf);
 
@@ -48,7 +48,7 @@ public class ServiceForCPlusPlus extends Service {
 		});
 
 		add(buildAndRunExternalThreadItem);
-		add(buildAndRunItem);
+		//add(buildAndRunItem);
 		addSeparator();
 		add(formatSourceWithAStyleItem);
 	}

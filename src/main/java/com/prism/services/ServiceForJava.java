@@ -29,7 +29,7 @@ public class ServiceForJava extends Service {
 		PrismFile pf = prism.getTextAreaTabbedPane().getCurrentFile();
 		File file = pf.getFile();
 
-		JMenuItem buildAndRunExternalThreadItem = new JMenuItem("Java: Build & Run (External Thread)");
+		JMenuItem buildAndRunExternalThreadItem = new JMenuItem("Java: Build & Run");
 		buildAndRunExternalThreadItem.addActionListener(e -> {
 			FileManager.saveFile(pf);
 
@@ -54,7 +54,7 @@ public class ServiceForJava extends Service {
 		});
 
 		add(buildAndRunExternalThreadItem);
-		add(buildAndRunItem);
+		//add(buildAndRunItem);
 		addSeparator();
 		add(formatSourceWithGoogleItem);
 		add(formatSourceWithAStyleItem);
