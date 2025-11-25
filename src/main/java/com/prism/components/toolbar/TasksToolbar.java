@@ -140,6 +140,10 @@ public class TasksToolbar extends JPanel {
         Map<String, File> pathToFile = new LinkedHashMap<>();
 
         for (PrismFile pf : FileManager.getFiles()) {
+            if (!pf.isText()) {
+                continue;
+            }
+
             String abs = pf.getFile().getAbsolutePath();
 
             pathToFile.put(abs, pf.getFile());
