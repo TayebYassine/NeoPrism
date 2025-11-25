@@ -42,12 +42,10 @@ public class TextArea extends RSyntaxTextArea {
 
         setHighlightSecondaryLanguages(false);
 
-        Font font = getFont();
-
         if (noConfigZoom.length == 1 && noConfigZoom[0]) {
-            setFont(font.deriveFont((float) 12));
+            setFont(new Font(prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Consolas"), Font.PLAIN,  12));
         } else {
-            setFont(font.deriveFont((float) prism.getConfig().getInt(ConfigKey.TEXTAREA_ZOOM, 12)));
+            setFont(new Font(prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Consolas"), Font.PLAIN, prism.getConfig().getInt(ConfigKey.TEXTAREA_ZOOM, 12)));
         }
 
         if (Theme.isDarkTheme()) {

@@ -114,7 +114,7 @@ public class Problems extends JPanel {
 		for (PrismFile file : FileManager.getFiles()) {
 			List<TextAreaManager.Problem> infos = file.getProblems();
 
-			if (Languages.getService(file.getFile()) == null || infos == null) {
+			if (!file.isText() || Languages.getService(file.getFile()) == null || infos == null) {
 				continue;
 			}
 

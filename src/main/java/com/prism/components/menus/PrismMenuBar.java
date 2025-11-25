@@ -610,14 +610,12 @@ public class PrismMenuBar extends JMenuBar {
 			return;
 		}
 
-		if (prismFile.isText()) {
-			TextArea textArea = prismFile.getTextArea();
+		TextArea textArea = prismFile.getTextArea();
 
-			menuItemRedo.setEnabled(textArea.canRedo());
-			menuItemUndo.setEnabled(textArea.canUndo());
+		menuItemRedo.setEnabled(prismFile.isText() && textArea != null && textArea.canRedo());
+		menuItemUndo.setEnabled(prismFile.isText() && textArea != null && textArea.canUndo());
 
-			menuItemSave.setEnabled(!prismFile.isSaved());
-		}
+		menuItemSave.setEnabled(prismFile.isText() && textArea != null && !prismFile.isSaved());
 
 		menuItemSidebar.setEnabled(prism.isComponentRemoved(ComponentType.SIDEBAR));
 		menuItemLowerSidebar.setEnabled(prism.isComponentRemoved(ComponentType.LOWER_SIDEBAR));

@@ -55,6 +55,7 @@ public enum ConfigKey {
     ALLOW_SERVICES(47),
     ALLOW_SERVICE_SYNTAX_CHECKER(48),
     LAST_SELECTED_TEXT_AREA_TAB_INDEX(49),
+    TEXT_AREA_FONT_NAME(50),
 
     // Token color keys
     ANNOTATION(1000),

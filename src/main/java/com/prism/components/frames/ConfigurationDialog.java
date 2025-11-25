@@ -420,10 +420,17 @@ public class ConfigurationDialog extends JFrame {
 		return p;
 	}
 
-	private JComboBox<String> fixedCombo(String[] items) {
+	private JComboBox<String> fixedCombo(String[] items, boolean... requiresRefresh) {
 		JComboBox<String> c = new JComboBox<>(items);
 		c.setMaximumSize(new Dimension(180, c.getPreferredSize().height)); // <-- limit width
 		c.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+		c.addActionListener((e) -> {
+			if (requiresRefresh != null && requiresRefresh.length > 0 && requiresRefresh[0]) {
+				setRequireRefresh(true);
+			}
+		});
+
 		return c;
 	}
 
@@ -507,6 +514,19 @@ public class ConfigurationDialog extends JFrame {
 
 			add(Box.createVerticalStrut(20));
 			add(customSeparator("Text Area: ", UIManager.getColor("Component.linkColor")));
+
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			String[] fontFamilies = ge.getAvailableFontFamilyNames();
+
+			JComboBox<String> fontFamiliesCombo = fixedCombo(fontFamilies, true);
+			fontFamiliesCombo.setSelectedItem(prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Consolas"));
+			fontFamiliesCombo.addActionListener(e -> {
+				prism.getConfig().set(ConfigKey.TEXT_AREA_FONT_NAME, (String) fontFamiliesCombo.getSelectedItem(), false);
+
+				enableApplyButton();
+			});
+
+			add(pair(new JLabel("Font: "), fontFamiliesCombo));
 
 			add(pair(checkbox("Anti-Aliasing", ConfigKey.ANTI_ALIASING_ENABLED, true, true)));
 
@@ -755,7 +775,7 @@ public class ConfigurationDialog extends JFrame {
 			setBorder(new EmptyBorder(5, 5, 5, 5));
 
 			JCheckBox master = checkbox("Enable Services", ConfigKey.ALLOW_SERVICES, true);
-			JCheckBox a = checkbox("Syntax problems checker", ConfigKey.ALLOW_SERVICE_SYNTAX_CHECKER, true);
+			JCheckBox a = checkbox("Syntax problems checker (C, C++, and Java)", ConfigKey.ALLOW_SERVICE_SYNTAX_CHECKER, true);
 			a.setEnabled(master.isSelected());
 			master.addActionListener(e -> a.setEnabled(master.isSelected()));
 

@@ -181,7 +181,7 @@ public class ServiceForCPlusPlus extends Service {
 		}
 
 		AStyleWrapper.formatFileAsync(pf.getFile(), aStyleFile.getAbsolutePath(),
-				String.format("--style=kr --indent=spaces=%d",
+				String.format("--style=java --indent=spaces=%d",
 						prism.getConfig().getInt(ConfigKey.TAB_SIZE, 4)
 				),
 				new AStyleWrapper.Callback() {

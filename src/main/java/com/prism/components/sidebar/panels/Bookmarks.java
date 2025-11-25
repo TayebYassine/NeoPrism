@@ -116,7 +116,7 @@ public class Bookmarks extends JPanel {
 
 			List<BookmarkInfo> infos = bookmark.getBookmarks();
 
-			if (infos == null) {
+			if (!file.isText() || infos == null) {
 				continue;
 			}
 

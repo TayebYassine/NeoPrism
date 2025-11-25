@@ -228,14 +228,12 @@ public class PrimaryToolbar extends JToolBar {
             return;
         }
 
-        if (prismFile.isText()) {
-            TextArea textArea = prismFile.getTextArea();
+        TextArea textArea = prismFile.getTextArea();
 
-            buttonRedo.setEnabled(textArea.canRedo());
-            buttonUndo.setEnabled(textArea.canUndo());
+        buttonRedo.setEnabled(prismFile.isText() && textArea != null && textArea.canRedo());
+        buttonUndo.setEnabled(prismFile.isText() && textArea != null && textArea.canUndo());
 
-            buttonSave.setEnabled(!prismFile.isSaved());
-        }
+        buttonSave.setEnabled(prismFile.isText() && textArea != null && !prismFile.isSaved());
 
         File file = prismFile.getFile();
 
