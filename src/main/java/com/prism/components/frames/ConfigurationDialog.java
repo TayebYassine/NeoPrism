@@ -490,7 +490,8 @@ public class ConfigurationDialog extends JFrame {
 
 			add(customSeparator("General: ", UIManager.getColor("Component.linkColor")));
 
-            add(pair(checkbox("Open recent files on startup", ConfigKey.OPEN_RECENT_FILES, true, false)));
+			add(pair(checkbox("Auto-save", ConfigKey.AUTO_SAVE, true)));
+            add(pair(checkbox("Open recent files on startup", ConfigKey.OPEN_RECENT_FILES, true)));
 			add(pair(updates));
 
 			add(Box.createVerticalStrut(20));

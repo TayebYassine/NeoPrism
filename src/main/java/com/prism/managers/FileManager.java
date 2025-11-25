@@ -443,7 +443,13 @@ public class FileManager {
 		debounce = new Timer(DEBOUNCE_MS, (e) -> {
 			PrismFile pf = prism.getTextAreaTabbedPane().getCurrentFile();
 
-			prism.updateComponents(pf);
+			if (prism.getConfig().getBoolean(ConfigKey.AUTO_SAVE, true)) {
+				ThreadsManager.submitAndTrackThread("Auto-save " + pf.getName(), () -> {
+					FileManager.saveFile(pf);
+				});
+			} else {
+				prism.updateComponents(pf);
+			}
 		});
 
 		debounce.setRepeats(false);

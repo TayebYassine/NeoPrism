@@ -689,7 +689,7 @@ public class Prism extends JFrame {
 	}
 
 	public void updateWindowTitle(PrismFile pf) {
-		setTitle("Prism (" + Prism.getVersion() + ") - " + pf.getName() + (!pf.isSaved() ? "*" : ""));
+		setTitle("Prism (" + Prism.getVersion() + ") - " + pf.getName() + ((!pf.isSaved() && !config.getBoolean(ConfigKey.AUTO_SAVE, true)) ? "*" : ""));
 		textAreaTabbedPane.updateTabTitle(pf);
 	}
 

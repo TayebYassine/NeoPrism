@@ -1,6 +1,7 @@
 package com.prism.components.textarea;
 
 import com.prism.Prism;
+import com.prism.components.definition.ConfigKey;
 import com.prism.components.definition.PrismFile;
 import com.prism.components.extended.JKineticScrollPane;
 import com.prism.managers.FileManager;
@@ -184,7 +185,7 @@ public class TextAreaTabbedPane extends JTabbedPane {
 			JPanel tabPanel = (JPanel) getTabComponentAt(index);
 
 			if (tabPanel != null && tabPanel.getComponent(0) instanceof JLabel tabTitle) {
-				tabTitle.setText(file.getName() + (!file.isSaved() ? "*" : ""));
+				tabTitle.setText(file.getName() + ((!file.isSaved() && !prism.getConfig().getBoolean(ConfigKey.AUTO_SAVE, true)) ? "*" : ""));
 			}
 		}
 	}
