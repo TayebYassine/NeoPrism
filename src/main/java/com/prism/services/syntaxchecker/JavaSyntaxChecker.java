@@ -41,7 +41,7 @@ public class JavaSyntaxChecker {
                 try {
                     String src = doc.getText(0, doc.getLength());
 
-                    List<Problem> problems = compile(src);
+                    List<Problem> problems = compile(pf.getFile().getName(), src);
 
                     pf.setProblems(new ArrayList<>());
 
@@ -76,11 +76,11 @@ public class JavaSyntaxChecker {
         });
     }
 
-    private static List<Problem> compile(String source) {
+    private static List<Problem> compile(String fileName, String source) {
         DiagnosticCollector<JavaFileObject> diag = new DiagnosticCollector<>();
         SimpleJavaFileObject file =
                 new SimpleJavaFileObject(
-                        URI.create("string:///Test.java"), JavaFileObject.Kind.SOURCE) {
+                        URI.create(String.format("string:///%s", fileName)), JavaFileObject.Kind.SOURCE) {
                     @Override
                     public CharSequence getCharContent(boolean ignore) {
                         return source;
