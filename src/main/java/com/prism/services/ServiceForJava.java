@@ -126,7 +126,7 @@ public class ServiceForJava extends Service {
 			return;
 		}
 
-		String[] opts = {"--language-force=Java", "--kinds-Java=*"};
+		String[] opts = {"--language-force=Java", "--kinds-Java=acefgilm"};
 
 		CtagsWrapper.extractSymbolsAsync(
 				pf.getFile(),

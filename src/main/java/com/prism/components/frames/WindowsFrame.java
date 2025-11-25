@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.io.File;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class WindowsFrame extends JFrame {
 	private static Prism prism = Prism.getInstance();
@@ -119,7 +120,7 @@ public class WindowsFrame extends JFrame {
 	private void loadFiles() {
 		tableModel.setRowCount(0);
 
-		List<PrismFile> files = FileManager.getFiles();
+		CopyOnWriteArrayList<PrismFile> files = FileManager.getFiles();
 
 		for (PrismFile prismFile : files) {
 			Object[] row = new Object[4];
@@ -152,7 +153,7 @@ public class WindowsFrame extends JFrame {
 	private void redirectToFile() {
 		int selectedRow = fileTable.getSelectedRow();
 		if (selectedRow != -1) {
-			List<PrismFile> files = FileManager.getFiles();
+			CopyOnWriteArrayList<PrismFile> files = FileManager.getFiles();
 			if (selectedRow < files.size()) {
 				PrismFile selectedFile = files.get(selectedRow);
 
@@ -165,7 +166,7 @@ public class WindowsFrame extends JFrame {
 		int selectedRow = fileTable.getSelectedRow();
 
 		if (selectedRow != -1) {
-			List<PrismFile> files = FileManager.getFiles();
+			CopyOnWriteArrayList<PrismFile> files = FileManager.getFiles();
 			if (selectedRow < files.size()) {
 				PrismFile selectedFile = files.get(selectedRow);
 

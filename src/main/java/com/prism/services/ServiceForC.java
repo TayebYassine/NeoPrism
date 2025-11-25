@@ -127,7 +127,7 @@ public class ServiceForC extends Service {
 			return;
 		}
 
-		String[] opts = {"--language-force=C", "--kinds-C=*"};
+		String[] opts = {"--language-force=C", "--kinds-C=fvgesut"};
 
 		CtagsWrapper.extractSymbolsAsync(
 				pf.getFile(),

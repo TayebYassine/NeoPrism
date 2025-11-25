@@ -7,9 +7,9 @@ import com.prism.utils.Symbols;
 import javax.swing.*;
 import javax.swing.tree.*;
 import java.awt.*;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class SymbolsPanel extends JPanel {
 	private static final Prism prism = Prism.getInstance();
@@ -17,36 +17,41 @@ public class SymbolsPanel extends JPanel {
 	private final JTree tree = new JTree();
 	private final DefaultTreeModel model;
 
-	public SymbolsPanel() {
-		super(new java.awt.BorderLayout());
+	private final Map<String, Icon> CACHE = new ConcurrentHashMap<>();
 
-		DefaultMutableTreeNode root = new DefaultMutableTreeNode(prism.getLanguage().get(237));
+	public SymbolsPanel() {
+		super(new BorderLayout());
+
+		DefaultMutableTreeNode root = new DefaultMutableTreeNode(
+				prism.getLanguage().get(237));
 		model = new DefaultTreeModel(root);
 		tree.setModel(model);
 		tree.setRootVisible(false);
 
 		tree.setCellRenderer(new DefaultTreeCellRenderer() {
 			@Override
-			public Component getTreeCellRendererComponent(JTree tree,
-														  Object value,
-														  boolean sel,
-														  boolean expanded,
-														  boolean leaf,
-														  int row,
-														  boolean hasFocus) {
+			public Component getTreeCellRendererComponent(
+					JTree tree, Object value,
+					boolean sel, boolean expanded,
+					boolean leaf, int row, boolean hasFocus) {
 
-				super.getTreeCellRendererComponent(tree, value, sel,
-						expanded, leaf, row, hasFocus);
+				super.getTreeCellRendererComponent(
+						tree, value, sel, expanded, leaf, row, hasFocus);
 
-				if (value instanceof KindNode kind) {
-					setIcon(Symbols.getSymbolIcon(kind.getUserObject().toString().toLowerCase()));
+				if (value instanceof KindNode) {
+					String kind = ((KindNode) value)
+							.getUserObject().toString().toLowerCase();
+
+					Icon icon = CACHE.computeIfAbsent(
+							kind, k -> Symbols.getSymbolIcon(k));
+
+					setIcon(icon);
 				}
-
 				return this;
 			}
 		});
 
-		add(new JScrollPane(tree), java.awt.BorderLayout.CENTER);
+		add(new JScrollPane(tree), BorderLayout.CENTER);
 	}
 
 	public void updateTree(Map<String, List<String>> kindToSymbols) {

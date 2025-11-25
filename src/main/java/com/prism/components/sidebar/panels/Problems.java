@@ -1,5 +1,6 @@
 package com.prism.components.sidebar.panels;
 
+import com.google.common.cache.Cache;
 import com.prism.Prism;
 import com.prism.components.definition.PrismFile;
 import com.prism.components.extended.JDefaultKineticScrollPane;
@@ -20,9 +21,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Problems extends JPanel {
 	private static Prism prism = Prism.getInstance();
+
+	private static final Icon ALERT_ICON =
+			ResourceUtil.getIconFromSVG("icons/ui/alert-small.svg", 18, 18);
+
+	private static final Map<PrismFile, Icon> CACHE = new ConcurrentHashMap<>();
 
 	private Map<PrismFile, List<TextAreaManager.Problem>> fileLineData;
 	private final JTree fileTree;
@@ -137,9 +144,17 @@ public class Problems extends JPanel {
 
 	private static class FileTreeCellRenderer extends DefaultTreeCellRenderer {
 
+		private static final Icon BOOKMARK_ICON =
+				ResourceUtil.getIconFromSVG("icons/ui/bookmark2.svg", 18, 18);
+		private static final Icon ROOT_ICON =
+				ResourceUtil.getIconFromSVG("icons/ui/book.svg", 18, 18);
+
+		private static final Map<PrismFile, Icon> CACHE = new ConcurrentHashMap<>();
+
 		@Override
 		public Component getTreeCellRendererComponent(JTree tree, Object value,
-													  boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
+													  boolean sel, boolean expanded,
+													  boolean leaf, int row, boolean hasFocus) {
 
 			super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
 
@@ -149,36 +164,36 @@ public class Problems extends JPanel {
 			if (userObj instanceof PrismFile pf) {
 				setText(pf.getName());
 
-                setIcon(pf.getIcon());
-			} else if (userObj instanceof TextAreaManager.Problem info) {
+				Icon icon = CACHE.computeIfAbsent(pf, PrismFile::getIcon);
+				setIcon(icon);
+
+			} else if (userObj instanceof TextAreaManager.BookmarkInfo info) {
+				setIcon(BOOKMARK_ICON);
+
 				String label = null;
 				try {
 					try {
-						label = (String) info.getClass().getMethod("getLabel").invoke(info);
+						label = (String) userObj.getClass().getMethod("getLabel").invoke(userObj);
 					} catch (Exception ex1) {
 						try {
-							label = (String) info.getClass().getMethod("getName").invoke(info);
+							label = (String) userObj.getClass().getMethod("getName").invoke(userObj);
 						} catch (Exception ex2) {
 							try {
-								label = (String) info.getClass().getMethod("getText").invoke(info);
-							} catch (Exception ex3) {
-								/* ignore */
-							}
+								label = (String) userObj.getClass().getMethod("getText").invoke(userObj);
+							} catch (Exception ex3) { /* ignore */ }
 						}
 					}
-				} catch (Exception ignored) {
-				}
+				} catch (Exception ignored) { }
 
 				if (label == null || label.trim().isEmpty()) {
-					setText(prism.getLanguage().get(135, (info.getLine() + 1), info.getMessage()));
+					setText("Line " + (info.getLine() + 1));
 				} else {
-					setText(String.format("%s (@ %d)", label, (info.getLine() + 1)));
+					setText(String.format("%s (Line %d)", label, (info.getLine() + 1)));
 				}
-
-				Icon icon = ResourceUtil.getIconFromSVG("icons/ui/alert-small.svg", 18, 18);
-				setIcon(icon);
 			} else if (node.isRoot()) {
 				setText(String.valueOf(userObj));
+				setIcon(ROOT_ICON);
+
 			} else {
 				setText(String.valueOf(userObj));
 				setIcon(ResourceUtil.getIcon("icons/file.png"));

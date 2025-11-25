@@ -23,6 +23,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import static javax.swing.JOptionPane.*;
 
@@ -31,7 +32,7 @@ public class FileManager {
 
 	public static HashMap<String, String> DIFF_TOOL_CACHE = new HashMap<>();
 	public static int DEBOUNCE_MS = 300;
-	public static List<PrismFile> files = new ArrayList<>();
+	public static CopyOnWriteArrayList<PrismFile> files = new CopyOnWriteArrayList<>();
 	public static JFileChooser fileChooser = new JFileChooser();
 	public static JFileChooser directoryChooser = new JFileChooser();
 	public static javax.swing.Timer debounce;
@@ -381,7 +382,7 @@ public class FileManager {
 		}
 	}
 
-	public static List<PrismFile> getFiles() {
+	public static CopyOnWriteArrayList<PrismFile> getFiles() {
 		return files;
 	}
 

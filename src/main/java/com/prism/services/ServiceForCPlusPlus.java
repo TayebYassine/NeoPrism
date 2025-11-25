@@ -124,7 +124,7 @@ public class ServiceForCPlusPlus extends Service {
 			return;
 		}
 
-		String[] opts = {"--language-force=C++", "--kinds-C++=*"};
+		String[] opts = {"--language-force=C++", "--kinds-C++=cefglmnstuv"};
 
 		CtagsWrapper.extractSymbolsAsync(
 				pf.getFile(),
