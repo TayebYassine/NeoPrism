@@ -15,7 +15,7 @@ import java.awt.event.*;
 import java.io.File;
 
 public class TerminalTabbedPane extends JTabbedPane {
-	private static Prism prism = Prism.getInstance();
+	private static final Prism prism = Prism.getInstance();
 
 	public TerminalTabbedPane() {
 		setFocusable(true);

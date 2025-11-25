@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class WindowsFrame extends JFrame {
-	private static Prism prism = Prism.getInstance();
+	private static final Prism prism = Prism.getInstance();
 
 	private JTable fileTable;
 	private JButton redirectButton;

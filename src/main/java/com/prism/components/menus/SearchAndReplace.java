@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class SearchAndReplace extends JPanel {
-	private static Prism prism = Prism.getInstance();
+	private static final Prism prism = Prism.getInstance();
 
 	private final JExtendedTextField searchField = new JExtendedTextField(25);
 	private final JExtendedTextField replaceField = new JExtendedTextField(15);

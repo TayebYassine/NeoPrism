@@ -11,7 +11,7 @@ import java.awt.event.ItemEvent;
 import java.util.List;
 
 public class PluginsPanel extends JPanel {
-    private static Prism prism = Prism.getInstance();
+    private static final Prism prism = Prism.getInstance();
 
     public PluginsPanel(List<Plugin> plugins) {
         super(new BorderLayout());

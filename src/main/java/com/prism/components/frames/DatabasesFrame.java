@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabasesFrame extends JFrame {
-	private static Prism prism = Prism.getInstance();
+	private static final Prism prism = Prism.getInstance();
 
 	private final DatabaseProvider provider;
 	private final List<Connection> connections = new ArrayList<>();

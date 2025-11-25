@@ -206,7 +206,7 @@ public class AboutPrism extends JFrame {
 			See the License for the specific language governing permissions and
 			limitations under the License.
 			""";
-	private static Prism prism = Prism.getInstance();
+	private static final Prism prism = Prism.getInstance();
 	private final String VERSION = Prism.getVersion();
 	private final String BUILD_INFO = Prism.getBuildInfo();
 	private final String AUTHOR = "Tayeb Yassine";

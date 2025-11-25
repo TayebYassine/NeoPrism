@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TextDifferFrame extends JFrame {
-	private static Prism prism = Prism.getInstance();
+	private static final Prism prism = Prism.getInstance();
 
 	private final Icon YELLOW_ICON = ResourceUtil.getIcon("icons/ui/symbol-yellow-square.gif");
 	private final Icon GREEN_ICON = ResourceUtil.getIcon("icons/ui/symbol-green-circle.gif");

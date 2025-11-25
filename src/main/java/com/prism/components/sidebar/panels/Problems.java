@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Problems extends JPanel {
-	private static Prism prism = Prism.getInstance();
+	private static final Prism prism = Prism.getInstance();
 
 	private static final Icon ALERT_ICON =
 			ResourceUtil.getIconFromSVG("icons/ui/alert-small.svg", 18, 18);

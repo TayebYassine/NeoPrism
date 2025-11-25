@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Bookmarks extends JPanel {
-	private static Prism prism = Prism.getInstance();
+	private static final Prism prism = Prism.getInstance();
 
 	private Map<PrismFile, List<BookmarkInfo>> fileLineData;
 	private final JTree fileTree;

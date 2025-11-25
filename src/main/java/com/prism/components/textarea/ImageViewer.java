@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class ImageViewer extends JPanel {
-	private static Prism prism = Prism.getInstance();
+	private static final Prism prism = Prism.getInstance();
 
 	private final ImagePanel imagePanel;
 	private final JLabel zoomLabel;
