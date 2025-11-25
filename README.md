@@ -42,6 +42,19 @@ The **Java Runtime Environment** (**JRE**), SE 25, is bundled within the applica
 <img src="./assets/screenshot-installation.png" />
 </details>
 
+## Screenshots
+<details>
+<summary>Light theme</summary>
+
+<img src="./assets/screenshot-1-light.png" />
+</details>
+
+<details>
+<summary>Dark theme</summary>
+
+<img src="./assets/screenshot-1-dark.png" />
+</details>
+
 ## Development
 
 Want to contribute? Prism is open for collaboration as development continues.
