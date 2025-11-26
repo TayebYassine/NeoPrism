@@ -17,6 +17,7 @@ import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class TextArea extends RSyntaxTextArea {
 
@@ -131,38 +132,54 @@ public class TextArea extends RSyntaxTextArea {
         }
     }
 
-    public void addAutocomplete(File file) {
+    public void setAutocomplete(File file, Map<String, List<String>> symbols) {
         try {
             String lang = Languages.getFullName(file);
 
             if (lang == null) return;
 
             DefaultCompletionProvider provider = new DefaultCompletionProvider() {
-                @Override
-                public List<Completion> getCompletions(JTextComponent comp) {
-                    RSyntaxTextArea area = (RSyntaxTextArea) comp;
+				@Override
+				public List<Completion> getCompletions(JTextComponent comp) {
+					RSyntaxTextArea area = (RSyntaxTextArea) comp;
 
-                    String line = area.getText()
-                            .substring(area.getLineStartOffsetOfCurrentLine(),
-                                    area.getLineEndOffsetOfCurrentLine());
+					String line = area.getText()
+							.substring(area.getLineStartOffsetOfCurrentLine(),
+									area.getLineEndOffsetOfCurrentLine());
 
-                    int col = area.getCaretOffsetFromLineStart();
-                    String left = line.substring(0, col);
+					int col = area.getCaretOffsetFromLineStart();
+					String left = line.substring(0, col);
 
-                    int dot = left.lastIndexOf('.');
-                    if (dot >= 0) {
-                        String prefix = left.substring(0, dot);
+					int dot = left.lastIndexOf('.');
+					if (dot >= 0) {
+						String prefix = left.substring(0, dot);
 
-                        return new ArrayList<>(AutocompleteManager.getChildren(this, lang, prefix));
-                    }
+						ArrayList<Completion> completions = new ArrayList<>(
+								AutocompleteManager.getChildren(this, lang, prefix)
+						);
+						completions.addAll(AutocompleteManager.getSymbols(this, prism.getSymbolsPanel().getSymbols()));
 
-                    return super.getCompletions(comp);
-                }
+						String inputAfterDot = left.substring(dot + 1);
+						completions.removeIf(c -> !c.getInputText().toLowerCase().startsWith(inputAfterDot.toLowerCase()));
+
+						return completions;
+					}
+
+					List<Completion> currentCompletions = super.getCompletions(comp);
+					currentCompletions.addAll(AutocompleteManager.getSymbols(this, prism.getSymbolsPanel().getSymbols()));
+
+					String currentWord = getAlreadyEnteredText(comp);
+					if (currentWord != null && !currentWord.isEmpty()) {
+						currentCompletions.removeIf(c -> !c.getInputText().toLowerCase().startsWith(currentWord.toLowerCase()));
+					}
+
+					return currentCompletions;
+				}
             };
 
             provider.setAutoActivationRules(true, ".");
 
-            AutocompleteManager.installCompletions(provider, lang);
+            AutocompleteManager.installShorthandCompletion(provider, lang);
 
             AutoCompletion ac = new AutoCompletion(provider);
             ac.setAutoActivationEnabled(true);

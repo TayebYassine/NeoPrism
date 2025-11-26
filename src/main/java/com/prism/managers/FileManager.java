@@ -187,7 +187,7 @@ public class FileManager {
 			textArea.addSyntaxHighlighting();
 
 			if (prism.getConfig().getBoolean(ConfigKey.AUTOCOMPLETE_ENABLED, true)) {
-				textArea.addAutocomplete(file);
+				textArea.setAutocomplete(file, null);
 			}
 
 			PrismFile pf = new PrismFile(file, textArea);

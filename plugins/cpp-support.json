@@ -153,19 +153,19 @@
                     "description": "Introduces a user-defined overload for an operator such as +, *, [] or ()."
                 },
                 {
-                    "symbol": "global",
+                    "symbol": "constant",
                     "keyword": "private",
                     "shortDescription": "Standard C++ keyword",
                     "description": "Restricts the visibility of class members to member functions and friends of the same class."
                 },
                 {
-                    "symbol": "global",
+                    "symbol": "constant",
                     "keyword": "protected",
                     "shortDescription": "Standard C++ keyword",
                     "description": "Allows visibility to the class itself and its derived classes, but not to unrelated code."
                 },
                 {
-                    "symbol": "global",
+                    "symbol": "constant",
                     "keyword": "public",
                     "shortDescription": "Standard C++ keyword",
                     "description": "Makes class members accessible from any part of the program."

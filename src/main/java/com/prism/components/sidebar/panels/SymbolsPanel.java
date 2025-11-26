@@ -18,6 +18,7 @@ public class SymbolsPanel extends JPanel {
 	private final DefaultTreeModel model;
 
 	private final Map<String, Icon> CACHE = new ConcurrentHashMap<>();
+	private final Map<String, List<String>> SYMBOLS_MAP = new ConcurrentHashMap<>();
 
 	public SymbolsPanel() {
 		super(new BorderLayout());
@@ -56,6 +57,9 @@ public class SymbolsPanel extends JPanel {
 
 	public void updateTree(Map<String, List<String>> kindToSymbols) {
 		SwingUtilities.invokeLater(() -> {
+			SYMBOLS_MAP.clear();
+			SYMBOLS_MAP.putAll(kindToSymbols);
+
 			DefaultMutableTreeNode newRoot = new DefaultMutableTreeNode("Symbols");
 
 			kindToSymbols.forEach((kind, names) -> {
@@ -73,6 +77,10 @@ public class SymbolsPanel extends JPanel {
 				}
 			}
 		});
+	}
+
+	public Map<String, List<String>> getSymbols() {
+		return SYMBOLS_MAP;
 	}
 
 	public void clear() {

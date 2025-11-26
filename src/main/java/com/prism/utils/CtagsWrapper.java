@@ -58,10 +58,15 @@ public class CtagsWrapper {
 			String line;
 			while ((line = br.readLine()) != null) {
 				String[] parts = line.trim().split("\\s+", 4);
+
 				if (parts.length < 3) continue;
+
 				String name = parts[0];
 				String kind = parts[1];
-				bucket.computeIfAbsent(kind, k -> new ArrayList<>()).add(name);
+
+				if (!kind.startsWith("__")) {
+					bucket.computeIfAbsent(kind, k -> new ArrayList<>()).add(name);
+				}
 			}
 		}
 

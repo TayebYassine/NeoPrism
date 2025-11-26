@@ -3,343 +3,343 @@
         "Java": {
             "default": [
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "abstract",
                     "shortDescription": "Java keyword",
                     "description": "Declares a class or method that cannot be instantiated or must be implemented by subclasses."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "assert",
                     "shortDescription": "Java keyword",
                     "description": "Evaluates a boolean expression at runtime, throwing AssertionError if false."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "break",
                     "shortDescription": "Java keyword",
                     "description": "Exits the nearest enclosing switch, for, while, or do-while statement."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "case",
                     "shortDescription": "Java keyword",
                     "description": "Labels a branch inside a switch statement."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "catch",
                     "shortDescription": "Java keyword",
                     "description": "Introduces a block that handles exceptions of a given type thrown by try."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": "class",
                     "keyword": "class",
                     "shortDescription": "Java keyword",
                     "description": "Declares a new reference type consisting of fields and methods."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "const",
                     "shortDescription": "Java keyword (reserved)",
                     "description": "Reserved but unused; not a valid Java language construct."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "continue",
                     "shortDescription": "Java keyword",
                     "description": "Skips the rest of the current loop iteration and continues with the next."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "default",
                     "shortDescription": "Java keyword",
                     "description": "Labels the fallback branch in a switch statement or supplies a body for an annotation/ interface method."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "do",
                     "shortDescription": "Java keyword",
                     "description": "Introduces a do-while loop whose body is executed at least once."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "else",
                     "shortDescription": "Java keyword",
                     "description": "Introduces the alternative branch executed when the preceding if is false."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": "enum",
                     "keyword": "enum",
                     "shortDescription": "Java keyword",
                     "description": "Declares a type that consists of a fixed set of named constants."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "exports",
                     "shortDescription": "Java keyword (module)",
                     "description": "Specifies that a module makes a package accessible to other modules at compile/run time."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "extends",
                     "shortDescription": "Java keyword",
                     "description": "Declares that a class inherits from another class or an interface from another interface."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "final",
                     "shortDescription": "Java keyword",
                     "description": "Prevents further subclassing, overriding, or assignment (for variables)."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "finally",
                     "shortDescription": "Java keyword",
                     "description": "Introduces a block that always executes after try/catch regardless of exceptions."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "for",
                     "shortDescription": "Java keyword",
                     "description": "Introduces a loop that repeats while a boolean condition is true."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "goto",
                     "shortDescription": "Java keyword (reserved)",
                     "description": "Reserved but unused; not a valid Java language construct."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "if",
                     "shortDescription": "Java keyword",
                     "description": "Executes a statement only when the boolean expression is true."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "implements",
                     "shortDescription": "Java keyword",
                     "description": "Declares that a class realises the contracts specified by one or more interfaces."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "import",
                     "shortDescription": "Java keyword",
                     "description": "Brings classes or entire packages into scope, avoiding fully-qualified names."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "instanceof",
                     "shortDescription": "Java keyword",
                     "description": "Tests whether the runtime type of an object is assignment-compatible with a reference type."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": "interface",
                     "keyword": "interface",
                     "shortDescription": "Java keyword",
                     "description": "Declares a reference type that can contain only abstract methods, constants, default/static/nested types."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "module",
                     "shortDescription": "Java keyword",
                     "description": "Declares a named, self-describing collection of packages (Java 9+)."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "native",
                     "shortDescription": "Java keyword",
                     "description": "Indicates that a method is implemented in platform-dependent code (JNI)."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "new",
                     "shortDescription": "Java keyword",
                     "description": "Creates a new instance of a reference type by invoking a constructor."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "non-sealed",
                     "shortDescription": "Java keyword",
                     "description": "Allows a class or interface to be extended by arbitrary subclasses inside a sealed hierarchy (Java 17+)."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "null",
                     "shortDescription": "Java literal",
                     "description": "The single value that represents an uninitialized or absent reference."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "open",
                     "shortDescription": "Java keyword (module)",
                     "description": "Makes a package accessible for deep reflection at run time (Java 9+)."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "opens",
                     "shortDescription": "Java keyword (module)",
                     "description": "Directive inside module-info that opens a package for reflective access."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "package",
                     "shortDescription": "Java keyword",
                     "description": "Declares the namespace to which the current source file belongs."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "permits",
                     "shortDescription": "Java keyword",
                     "description": "Lists the classes or interfaces allowed to extend/implement a sealed class/interface."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "private",
                     "shortDescription": "Java keyword",
                     "description": "Restricts visibility to the enclosing class only."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "protected",
                     "shortDescription": "Java keyword",
                     "description": "Allows visibility within the same package and by subclasses."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "provides",
                     "shortDescription": "Java keyword (module)",
                     "description": "Declares that a module supplies an implementation of a service interface."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "public",
                     "shortDescription": "Java keyword",
                     "description": "Makes a member accessible from any other code."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": "record",
                     "keyword": "record",
                     "shortDescription": "Java keyword",
                     "description": "Declares an immutable, transparent carrier class (Java 14+)."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "requires",
                     "shortDescription": "Java keyword (module)",
                     "description": "Declares a dependency of the current module on another module."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "return",
                     "shortDescription": "Java keyword",
                     "description": "Terminates method execution and optionally passes a value back to the caller."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "sealed",
                     "shortDescription": "Java keyword",
                     "description": "Restricts which other classes or interfaces may extend/implement the declared type."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "static",
                     "shortDescription": "Java keyword",
                     "description": "Declares a member that belongs to the class itself rather than to instances."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "strictfp",
                     "shortDescription": "Java keyword",
                     "description": "Ensures consistent floating-point semantics across all platforms by restricting optimisations."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "super",
                     "shortDescription": "Java keyword",
                     "description": "Refers to the immediate superclass instance or its constructor."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "switch",
                     "shortDescription": "Java keyword",
                     "description": "Selects one of many code branches to execute based on the value of an integral, enum, or String expression."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "synchronized",
                     "shortDescription": "Java keyword",
                     "description": "Acquires an intrinsic lock on an object or class before executing the marked block/method."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "this",
                     "shortDescription": "Java keyword",
                     "description": "Refers to the current object instance or invokes another constructor in the same class."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "throw",
                     "shortDescription": "Java keyword",
                     "description": "Causes an exception to be raised immediately."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "throws",
                     "shortDescription": "Java keyword",
                     "description": "Lists the checked exceptions that a method may propagate to its callers."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "to",
                     "shortDescription": "Java keyword (module)",
                     "description": "Used in 'exports ... to' and 'opens ... to' directives to list target modules."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "transient",
                     "shortDescription": "Java keyword",
                     "description": "Excludes a field from automatic serialization mechanism."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "transitive",
                     "shortDescription": "Java keyword (module)",
                     "description": "Makes a required dependency implicitly readable by any module that reads the current module."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "try",
                     "shortDescription": "Java keyword",
                     "description": "Introduces a block whose thrown exceptions can be handled by following catch clauses."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "uses",
                     "shortDescription": "Java keyword (module)",
                     "description": "Declares that a module consumes a service interface that will be provided at run time."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "volatile",
                     "shortDescription": "Java keyword",
                     "description": "Ensures that reads and writes of a variable are always made to and from main memory."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "while",
                     "shortDescription": "Java keyword",
                     "description": "Repeats a statement as long as its boolean condition is true."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "with",
                     "shortDescription": "Java keyword",
                     "description": "Introduces a resource in the try-with-resources statement (Java 7+)."
                 },
                 {
-                    "symbol": "keyword",
+                    "symbol": null,
                     "keyword": "yield",
                     "shortDescription": "Java keyword",
                     "description": "Produces a value from a switch expression when the enclosing case matches (Java 12+)."
@@ -399,7 +399,7 @@
                     "description": "Lets the compiler infer the type of a local variable from its initializer (Java 10+)."
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "class",
                     "keyword": "System",
                     "shortDescription": "System utilities",
                     "description": "Global facilities including standard I/O streams and utility methods.",
@@ -465,7 +465,7 @@
                     ]
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "class",
                     "keyword": "String",
                     "shortDescription": "Immutable character sequence",
                     "description": "Represents a sequence of UTF-16 code units and provides rich text-manipulation methods.",
@@ -563,7 +563,7 @@
                     ]
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "class",
                     "keyword": "Math",
                     "shortDescription": "Numeric utilities",
                     "description": "Provides basic numeric constants and mathematical functions.",
@@ -625,7 +625,7 @@
                     ]
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "class",
                     "keyword": "Integer",
                     "shortDescription": "Wrapper for int",
                     "description": "Boxing type for int plus parsing and constant utilities.",
@@ -663,7 +663,7 @@
                     ]
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "class",
                     "keyword": "Double",
                     "shortDescription": "Wrapper for double",
                     "description": "Boxing type for double plus parsing and utility methods.",
@@ -689,7 +689,7 @@
                     ]
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "class",
                     "keyword": "Thread",
                     "shortDescription": "Thread of execution",
                     "description": "Represents a lightweight process and provides thread-lifecycle control.",
@@ -715,7 +715,7 @@
                     ]
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "class",
                     "keyword": "Runtime",
                     "shortDescription": "JVM runtime object",
                     "description": "Interface to the current Java virtual-machine process.",
@@ -747,7 +747,7 @@
                     ]
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "class",
                     "keyword": "Throwable",
                     "shortDescription": "Root of exception hierarchy",
                     "description": "Superclass of all errors and exceptions that can be thrown by the JVM or Java code.",
@@ -773,7 +773,7 @@
                     ]
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "class",
                     "keyword": "Collections",
                     "shortDescription": "Collection utilities",
                     "description": "Static utility methods that operate on or return collections.",
@@ -871,37 +871,37 @@
                     "description": "Superclass of every class except interfaces and primitives; defines equals, hashCode, toString, etc."
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "class",
                     "keyword": "Class",
                     "shortDescription": "Run-time type token",
                     "description": "Represents a run-time class or interface and provides reflective information about it."
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "exception",
                     "keyword": "Exception",
                     "shortDescription": "Checked exception",
                     "description": "Superclass of all exceptions that a well-written program should catch and handle."
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "exception",
                     "keyword": "Error",
                     "shortDescription": "Serious problem",
                     "description": "Superclass of serious problems (e.g., OutOfMemoryError) that applications should not try to handle."
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "exception",
                     "keyword": "RuntimeException",
                     "shortDescription": "Unchecked exception",
                     "description": "Superclass of exceptions that can be thrown during normal operation of the JVM; need not be declared."
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "exception",
                     "keyword": "NullPointerException",
                     "shortDescription": "Null reference",
                     "description": "Thrown when code attempts to use a reference that is null."
                 },
                 {
-                    "symbol": "type",
+                    "symbol": "exception",
                     "keyword": "IllegalArgumentException",
                     "shortDescription": "Invalid argument",
                     "description": "Thrown when a method receives an argument that is inappropriate for the operation."

@@ -13,12 +13,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 public class AutocompleteManager {
 
 	private static final Prism prism = Prism.getInstance();
 
-	public static void installCompletions(DefaultCompletionProvider provider, String lang) {
+	public static void installShorthandCompletion(DefaultCompletionProvider provider, String lang) {
 		JSONObject root = prism.getPluginLoader()
 				.getMergedAutocomplete()
 				.getJson();
@@ -45,6 +46,28 @@ public class AutocompleteManager {
 		if (tops != null) {
 			addLevel(provider, tops);
 		}
+	}
+
+	public static List<Completion> getSymbols(DefaultCompletionProvider provider, Map<String, List<String>> symbols) {
+		List<Completion> out = new ArrayList<>();
+
+		for (Map.Entry<String, List<String>> entry : symbols.entrySet()) {
+			String sym = entry.getKey();
+
+			for (String kw : entry.getValue()) {
+				String shortDesc = "Defined in the program";
+				String desc = "This keyword is defined within the program.\n\nThis may be used as a field or property, careful with the types!";
+
+				BasicCompletion bc = new BasicCompletion(provider, kw, shortDesc, getHTMLDescription(kw, desc, null, null, Symbols.isFunction(sym)));
+
+				assert sym != null;
+				bc.setIcon(Symbols.getSymbolIcon(sym.toLowerCase(), false));
+
+				out.add(bc);
+			}
+		}
+
+		return out;
 	}
 
 	public static List<Completion> getChildren(DefaultCompletionProvider provider, String language,
