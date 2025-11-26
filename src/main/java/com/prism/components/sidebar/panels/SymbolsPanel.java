@@ -43,7 +43,7 @@ public class SymbolsPanel extends JPanel {
 							.getUserObject().toString().toLowerCase();
 
 					Icon icon = CACHE.computeIfAbsent(
-							kind, k -> Symbols.getSymbolIcon(k));
+							kind, k -> Symbols.getSymbolIcon(k, true));
 
 					setIcon(icon);
 				}

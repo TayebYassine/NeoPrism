@@ -98,7 +98,7 @@ public class AutocompleteManager {
 				BasicCompletion bc = new BasicCompletion(provider, kw, shortDesc, getHTMLDescription(kw, desc, returns, definedIn, Symbols.isFunction(sym)));
 
 				assert sym != null;
-				bc.setIcon(Symbols.getSymbolIcon(sym.toLowerCase()));
+				bc.setIcon(Symbols.getSymbolIcon(sym.toLowerCase(), false));
 
 				out.add(bc);
 			}
@@ -122,7 +122,7 @@ public class AutocompleteManager {
 
 			BasicCompletion bc = new BasicCompletion(provider, kw, shortDesc, getHTMLDescription(kw, desc, returns, definedIn, Symbols.isFunction(sym)));
 
-			bc.setIcon(Symbols.getSymbolIcon(sym.toLowerCase()));
+			bc.setIcon(Symbols.getSymbolIcon(sym.toLowerCase(), false));
 
 			provider.addCompletion(bc);
 		}
