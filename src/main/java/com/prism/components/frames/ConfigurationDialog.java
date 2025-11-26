@@ -19,7 +19,10 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreeSelectionModel;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ConfigurationDialog extends JFrame {
@@ -456,9 +459,9 @@ public class ConfigurationDialog extends JFrame {
 		return p;
 	}
 
-	private JComboBox<String> fixedCombo(String[] items, boolean... requiresRefresh) {
-		JComboBox<String> c = new JComboBox<>(items);
-		c.setMaximumSize(new Dimension(180, c.getPreferredSize().height)); // <-- limit width
+	private JComboBox<Object> fixedCombo(Object[] items, boolean... requiresRefresh) {
+		JComboBox<Object> c = new JComboBox<>(items);
+		c.setMaximumSize(new Dimension(c.getPreferredSize().width + 20, c.getPreferredSize().height));
 		c.setAlignmentX(Component.LEFT_ALIGNMENT);
 
 		c.addActionListener((e) -> {
@@ -553,10 +556,13 @@ public class ConfigurationDialog extends JFrame {
 			add(customSeparator("Text Area: ", UIManager.getColor("Component.linkColor")));
 
 			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-			String[] fontFamilies = ge.getAvailableFontFamilyNames();
+			List<String> fixedFontFamilies = Arrays.asList(ge.getAvailableFontFamilyNames());
+			ArrayList<String> fontFamilies = new ArrayList<>(fixedFontFamilies);
 
-			JComboBox<String> fontFamiliesCombo = fixedCombo(fontFamilies, true);
-			fontFamiliesCombo.setSelectedItem(prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Consolas"));
+			fontFamilies.add("Prism: IntelliJ Mono");
+
+			JComboBox<Object> fontFamiliesCombo = fixedCombo(fontFamilies.stream().toArray(), true);
+			fontFamiliesCombo.setSelectedItem(prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Prism: IntelliJ Mono"));
 			fontFamiliesCombo.addActionListener(e -> {
 				prism.getConfig().set(ConfigKey.TEXT_AREA_FONT_NAME, (String) fontFamiliesCombo.getSelectedItem(), false);
 
@@ -596,7 +602,7 @@ public class ConfigurationDialog extends JFrame {
 
 			add(pair(checkbox("Show Process output code", ConfigKey.SHOW_PROCESS_TERMINATION_CODE_OUTPUT, true)));
 
-			JComboBox<String> defaultShellCombo = fixedCombo(new String[]{
+			JComboBox<Object> defaultShellCombo = fixedCombo(new String[]{
 					"Command Prompt",
 					"Powershell"
 			});
@@ -621,7 +627,7 @@ public class ConfigurationDialog extends JFrame {
 			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 			setBorder(new EmptyBorder(5, 5, 5, 5));
 
-			JComboBox<String> languageCombo = fixedCombo(new String[]{
+			JComboBox<Object> languageCombo = fixedCombo(new String[]{
 					"English (US)",
 					"French"
 			});
@@ -633,7 +639,7 @@ public class ConfigurationDialog extends JFrame {
 				setRequireRestart(true);
 			});
 
-			JComboBox<String> themeCombo = fixedCombo(new String[]{
+			JComboBox<Object> themeCombo = fixedCombo(new String[]{
 					"Windows",
 					"Light",
 					"Dark"
@@ -663,7 +669,7 @@ public class ConfigurationDialog extends JFrame {
 	/* ------------ SyntaxHighlightingPanel ------------ */
 	private final class SyntaxHighlightingPanel extends JPanel {
 		private final Map<String, ConfigKey> tokenMap = new LinkedHashMap<>();
-		private final JComboBox<String> tokenCombo = fixedCombo(new String[]{});
+		private JComboBox<Object> tokenCombo;
 		private final JButton colorBtn = new JButton();
 
 		SyntaxHighlightingPanel() {
@@ -704,7 +710,7 @@ public class ConfigurationDialog extends JFrame {
 			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 			setBorder(new EmptyBorder(5, 5, 5, 5));
 
-			tokenCombo.setModel(new DefaultComboBoxModel<>(tokenMap.keySet().toArray(String[]::new)));
+			tokenCombo = fixedCombo(tokenMap.keySet().toArray(String[]::new));
 			colorBtn.setOpaque(true);
 			tokenCombo.addActionListener(e -> syncColorButton());
 			colorBtn.addActionListener(e -> pickColor());
@@ -721,7 +727,7 @@ public class ConfigurationDialog extends JFrame {
 			String[] samples = {C_SAMPLE, JAVA_SAMPLE, GROOVY_SAMPLE, TYPESCRIPT_SAMPLE, HTML_SAMPLE};
 			String[] styles = {SyntaxConstants.SYNTAX_STYLE_C, SyntaxConstants.SYNTAX_STYLE_JAVA, SyntaxConstants.SYNTAX_STYLE_GROOVY, SyntaxConstants.SYNTAX_STYLE_TYPESCRIPT, SyntaxConstants.SYNTAX_STYLE_HTML};
 
-			JComboBox<String> lang = fixedCombo(new String[]{"C", "Java", "Groovy", "TypeScript", "HTML"});
+			JComboBox<Object> lang = fixedCombo(new String[]{"C", "Java", "Groovy", "TypeScript", "HTML"});
 			TextArea ta = new TextArea(true);
 			ta.setEditable(false);
 			ta.setText(samples[0]);

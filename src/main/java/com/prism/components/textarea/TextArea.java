@@ -3,6 +3,7 @@ package com.prism.components.textarea;
 import com.prism.Prism;
 import com.prism.components.definition.ConfigKey;
 import com.prism.managers.AutocompleteManager;
+import com.prism.utils.FontLoader;
 import com.prism.utils.Languages;
 import com.prism.utils.Theme;
 import org.fife.ui.autocomplete.*;
@@ -42,10 +43,21 @@ public class TextArea extends RSyntaxTextArea {
 
         setHighlightSecondaryLanguages(false);
 
+        String fontName = prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Prism: IntelliJ Mono");
+        boolean isIntelliJMono = fontName.equals("Prism: IntelliJ Mono");
+
         if (noConfigZoom.length == 1 && noConfigZoom[0]) {
-            setFont(new Font(prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Consolas"), Font.PLAIN,  12));
+            if (isIntelliJMono) {
+                setFont(FontLoader.getIntelliJFont(12));
+            } else {
+                setFont(new Font(fontName, Font.PLAIN,  12));
+            }
         } else {
-            setFont(new Font(prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Consolas"), Font.PLAIN, prism.getConfig().getInt(ConfigKey.TEXTAREA_ZOOM, 12)));
+            if (isIntelliJMono) {
+                setFont(FontLoader.getIntelliJFont(prism.getConfig().getInt(ConfigKey.TEXTAREA_ZOOM, 12)));
+            } else {
+                setFont(new Font(fontName, Font.PLAIN, prism.getConfig().getInt(ConfigKey.TEXTAREA_ZOOM, 12)));
+            }
         }
 
         if (Theme.isDarkTheme()) {

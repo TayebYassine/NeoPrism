@@ -49,7 +49,7 @@ public class CodeFoldingPanel extends JTree {
 
 		setModel(new DefaultTreeModel(root));
 
-		for (int i = 0, rows = getRowCount(); i < rows; i++) expandRow(i);
+		for (int i = 0; i < getRowCount(); i++) expandRow(i);
 	}
 
 	public void clear() {
