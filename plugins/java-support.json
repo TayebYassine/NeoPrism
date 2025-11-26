@@ -1,470 +1,917 @@
 {
-  "autocomplete" : {
-    "Java" : {
-      "default" : [ {
-        "symbol" : "keyword",
-        "keyword" : "abstract"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "assert"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "break"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "case"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "catch"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "class"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "const"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "continue"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "default"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "do"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "else"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "enum"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "exports"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "extends"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "final"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "finally"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "for"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "goto"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "if"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "implements"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "import"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "instanceof"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "interface"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "module"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "native"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "new"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "non-sealed"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "null"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "open"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "opens"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "package"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "permits"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "private"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "protected"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "provides"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "public"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "record"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "requires"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "sealed"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "static"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "strictfp"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "super"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "switch"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "synchronized"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "this"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "throw"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "throws"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "to"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "transient"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "transitive"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "try"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "uses"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "void"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "volatile"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "while"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "with"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "yield"
-      }, {
-        "symbol" : "keyword",
-        "keyword" : "return"
-      }, {
-        "symbol" : "type",
-        "keyword" : "boolean"
-      }, {
-        "symbol" : "type",
-        "keyword" : "byte"
-      }, {
-        "symbol" : "type",
-        "keyword" : "char"
-      }, {
-        "symbol" : "type",
-        "keyword" : "double"
-      }, {
-        "symbol" : "type",
-        "keyword" : "float"
-      }, {
-        "symbol" : "type",
-        "keyword" : "int"
-      }, {
-        "symbol" : "type",
-        "keyword" : "long"
-      }, {
-        "symbol" : "type",
-        "keyword" : "short"
-      }, {
-        "symbol" : "type",
-        "keyword" : "var"
-      }, {
-        "symbol" : "type",
-        "default" : [ {
-          "symbol" : "field",
-          "default" : [ {
-            "symbol" : "function",
-            "keyword" : "println"
-          }, {
-            "symbol" : "function",
-            "keyword" : "print"
-          }, {
-            "symbol" : "function",
-            "keyword" : "printf"
-          } ],
-          "keyword" : "out"
-        }, {
-          "symbol" : "field",
-          "default" : [ {
-            "symbol" : "function",
-            "keyword" : "println"
-          }, {
-            "symbol" : "function",
-            "keyword" : "print"
-          } ],
-          "keyword" : "err"
-        }, {
-          "symbol" : "function",
-          "keyword" : "currentTimeMillis"
-        }, {
-          "symbol" : "function",
-          "keyword" : "arraycopy"
-        } ],
-        "description" : "Core system utilities (standard output and error streams).",
-        "keyword" : "System"
-      }, {
-        "symbol" : "type",
-        "default" : [ {
-          "symbol" : "function",
-          "keyword" : "length"
-        }, {
-          "symbol" : "function",
-          "keyword" : "charAt"
-        }, {
-          "symbol" : "function",
-          "keyword" : "substring"
-        }, {
-          "symbol" : "function",
-          "keyword" : "indexOf"
-        }, {
-          "symbol" : "function",
-          "keyword" : "lastIndexOf"
-        }, {
-          "symbol" : "function",
-          "keyword" : "trim"
-        }, {
-          "symbol" : "function",
-          "keyword" : "split"
-        }, {
-          "symbol" : "function",
-          "keyword" : "equals"
-        }, {
-          "symbol" : "function",
-          "keyword" : "equalsIgnoreCase"
-        }, {
-          "symbol" : "function",
-          "keyword" : "toLowerCase"
-        }, {
-          "symbol" : "function",
-          "keyword" : "toUpperCase"
-        }, {
-          "symbol" : "function",
-          "keyword" : "startsWith"
-        }, {
-          "symbol" : "function",
-          "keyword" : "endsWith"
-        }, {
-          "symbol" : "function",
-          "keyword" : "contains"
-        }, {
-          "symbol" : "function",
-          "keyword" : "format"
-        } ],
-        "description" : "Immutable character sequences and common operations.",
-        "keyword" : "String"
-      }, {
-        "symbol" : "type",
-        "default" : [ {
-          "symbol" : "function",
-          "keyword" : "abs"
-        }, {
-          "symbol" : "function",
-          "keyword" : "max"
-        }, {
-          "symbol" : "function",
-          "keyword" : "min"
-        }, {
-          "symbol" : "function",
-          "keyword" : "sin"
-        }, {
-          "symbol" : "function",
-          "keyword" : "cos"
-        }, {
-          "symbol" : "function",
-          "keyword" : "tan"
-        }, {
-          "symbol" : "function",
-          "keyword" : "sqrt"
-        }, {
-          "symbol" : "function",
-          "keyword" : "pow"
-        }, {
-          "symbol" : "function",
-          "keyword" : "random"
-        } ],
-        "description" : "Basic numeric operations and constants.",
-        "keyword" : "Math"
-      }, {
-        "symbol" : "type",
-        "default" : [ {
-          "symbol" : "function",
-          "keyword" : "parseInt"
-        }, {
-          "symbol" : "function",
-          "keyword" : "valueOf"
-        }, {
-          "symbol" : "function",
-          "keyword" : "toString"
-        }, {
-          "symbol" : "field",
-          "keyword" : "MAX_VALUE"
-        }, {
-          "symbol" : "field",
-          "keyword" : "MIN_VALUE"
-        } ],
-        "keyword" : "Integer"
-      }, {
-        "symbol" : "type",
-        "default" : [ {
-          "symbol" : "function",
-          "keyword" : "parseDouble"
-        }, {
-          "symbol" : "function",
-          "keyword" : "valueOf"
-        }, {
-          "symbol" : "function",
-          "keyword" : "isNaN"
-        } ],
-        "keyword" : "Double"
-      }, {
-        "symbol" : "type",
-        "default" : [ {
-          "symbol" : "function",
-          "keyword" : "start"
-        }, {
-          "symbol" : "function",
-          "keyword" : "join"
-        }, {
-          "symbol" : "function",
-          "keyword" : "sleep"
-        } ],
-        "keyword" : "Thread"
-      }, {
-        "symbol" : "type",
-        "default" : [ {
-          "symbol" : "function",
-          "keyword" : "getRuntime"
-        }, {
-          "symbol" : "function",
-          "keyword" : "exec"
-        }, {
-          "symbol" : "function",
-          "keyword" : "exit"
-        }, {
-          "symbol" : "function",
-          "keyword" : "availableProcessors"
-        } ],
-        "keyword" : "Runtime"
-      }, {
-        "symbol" : "type",
-        "default" : [ {
-          "symbol" : "function",
-          "keyword" : "getMessage"
-        }, {
-          "symbol" : "function",
-          "keyword" : "printStackTrace"
-        }, {
-          "symbol" : "function",
-          "keyword" : "getCause"
-        } ],
-        "keyword" : "Throwable"
-      }, {
-        "symbol" : "type",
-        "default" : [ {
-          "symbol" : "function",
-          "keyword" : "sort"
-        }, {
-          "symbol" : "function",
-          "keyword" : "binarySearch"
-        }, {
-          "symbol" : "function",
-          "keyword" : "shuffle"
-        } ],
-        "keyword" : "Collections"
-      }, {
-        "symbol" : "type",
-        "keyword" : "Appendable"
-      }, {
-        "symbol" : "type",
-        "keyword" : "AutoCloseable"
-      }, {
-        "symbol" : "type",
-        "keyword" : "CharSequence"
-      }, {
-        "symbol" : "type",
-        "keyword" : "Cloneable"
-      }, {
-        "symbol" : "type",
-        "keyword" : "Comparable"
-      }, {
-        "symbol" : "type",
-        "keyword" : "Iterable"
-      }, {
-        "symbol" : "type",
-        "keyword" : "ProcessHandle"
-      }, {
-        "symbol" : "type",
-        "keyword" : "Readable"
-      }, {
-        "symbol" : "type",
-        "keyword" : "Runnable"
-      }, {
-        "symbol" : "type",
-        "keyword" : "StringBuffer"
-      }, {
-        "symbol" : "type",
-        "keyword" : "StringBuilder"
-      }, {
-        "symbol" : "type",
-        "keyword" : "Object"
-      }, {
-        "symbol" : "type",
-        "keyword" : "Class"
-      }, {
-        "symbol" : "type",
-        "keyword" : "Exception"
-      }, {
-        "symbol" : "type",
-        "keyword" : "Error"
-      }, {
-        "symbol" : "type",
-        "keyword" : "RuntimeException"
-      }, {
-        "symbol" : "type",
-        "keyword" : "NullPointerException"
-      }, {
-        "symbol" : "type",
-        "keyword" : "IllegalArgumentException"
-      } ],
-      "shorthand" : [ ]
-    }
-  },
-  "name" : "Language Support for Java",
-  "description" : "Autocomplete for Java: keywords, common types, and standard functions.",
-  "version" : "1.0.0",
-  "enabled" : true
+    "autocomplete": {
+        "Java": {
+            "default": [
+                {
+                    "symbol": "keyword",
+                    "keyword": "abstract",
+                    "shortDescription": "Java keyword",
+                    "description": "Declares a class or method that cannot be instantiated or must be implemented by subclasses."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "assert",
+                    "shortDescription": "Java keyword",
+                    "description": "Evaluates a boolean expression at runtime, throwing AssertionError if false."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "break",
+                    "shortDescription": "Java keyword",
+                    "description": "Exits the nearest enclosing switch, for, while, or do-while statement."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "case",
+                    "shortDescription": "Java keyword",
+                    "description": "Labels a branch inside a switch statement."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "catch",
+                    "shortDescription": "Java keyword",
+                    "description": "Introduces a block that handles exceptions of a given type thrown by try."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "class",
+                    "shortDescription": "Java keyword",
+                    "description": "Declares a new reference type consisting of fields and methods."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "const",
+                    "shortDescription": "Java keyword (reserved)",
+                    "description": "Reserved but unused; not a valid Java language construct."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "continue",
+                    "shortDescription": "Java keyword",
+                    "description": "Skips the rest of the current loop iteration and continues with the next."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "default",
+                    "shortDescription": "Java keyword",
+                    "description": "Labels the fallback branch in a switch statement or supplies a body for an annotation/ interface method."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "do",
+                    "shortDescription": "Java keyword",
+                    "description": "Introduces a do-while loop whose body is executed at least once."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "else",
+                    "shortDescription": "Java keyword",
+                    "description": "Introduces the alternative branch executed when the preceding if is false."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "enum",
+                    "shortDescription": "Java keyword",
+                    "description": "Declares a type that consists of a fixed set of named constants."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "exports",
+                    "shortDescription": "Java keyword (module)",
+                    "description": "Specifies that a module makes a package accessible to other modules at compile/run time."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "extends",
+                    "shortDescription": "Java keyword",
+                    "description": "Declares that a class inherits from another class or an interface from another interface."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "final",
+                    "shortDescription": "Java keyword",
+                    "description": "Prevents further subclassing, overriding, or assignment (for variables)."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "finally",
+                    "shortDescription": "Java keyword",
+                    "description": "Introduces a block that always executes after try/catch regardless of exceptions."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "for",
+                    "shortDescription": "Java keyword",
+                    "description": "Introduces a loop that repeats while a boolean condition is true."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "goto",
+                    "shortDescription": "Java keyword (reserved)",
+                    "description": "Reserved but unused; not a valid Java language construct."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "if",
+                    "shortDescription": "Java keyword",
+                    "description": "Executes a statement only when the boolean expression is true."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "implements",
+                    "shortDescription": "Java keyword",
+                    "description": "Declares that a class realises the contracts specified by one or more interfaces."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "import",
+                    "shortDescription": "Java keyword",
+                    "description": "Brings classes or entire packages into scope, avoiding fully-qualified names."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "instanceof",
+                    "shortDescription": "Java keyword",
+                    "description": "Tests whether the runtime type of an object is assignment-compatible with a reference type."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "interface",
+                    "shortDescription": "Java keyword",
+                    "description": "Declares a reference type that can contain only abstract methods, constants, default/static/nested types."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "module",
+                    "shortDescription": "Java keyword",
+                    "description": "Declares a named, self-describing collection of packages (Java 9+)."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "native",
+                    "shortDescription": "Java keyword",
+                    "description": "Indicates that a method is implemented in platform-dependent code (JNI)."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "new",
+                    "shortDescription": "Java keyword",
+                    "description": "Creates a new instance of a reference type by invoking a constructor."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "non-sealed",
+                    "shortDescription": "Java keyword",
+                    "description": "Allows a class or interface to be extended by arbitrary subclasses inside a sealed hierarchy (Java 17+)."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "null",
+                    "shortDescription": "Java literal",
+                    "description": "The single value that represents an uninitialized or absent reference."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "open",
+                    "shortDescription": "Java keyword (module)",
+                    "description": "Makes a package accessible for deep reflection at run time (Java 9+)."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "opens",
+                    "shortDescription": "Java keyword (module)",
+                    "description": "Directive inside module-info that opens a package for reflective access."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "package",
+                    "shortDescription": "Java keyword",
+                    "description": "Declares the namespace to which the current source file belongs."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "permits",
+                    "shortDescription": "Java keyword",
+                    "description": "Lists the classes or interfaces allowed to extend/implement a sealed class/interface."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "private",
+                    "shortDescription": "Java keyword",
+                    "description": "Restricts visibility to the enclosing class only."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "protected",
+                    "shortDescription": "Java keyword",
+                    "description": "Allows visibility within the same package and by subclasses."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "provides",
+                    "shortDescription": "Java keyword (module)",
+                    "description": "Declares that a module supplies an implementation of a service interface."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "public",
+                    "shortDescription": "Java keyword",
+                    "description": "Makes a member accessible from any other code."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "record",
+                    "shortDescription": "Java keyword",
+                    "description": "Declares an immutable, transparent carrier class (Java 14+)."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "requires",
+                    "shortDescription": "Java keyword (module)",
+                    "description": "Declares a dependency of the current module on another module."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "return",
+                    "shortDescription": "Java keyword",
+                    "description": "Terminates method execution and optionally passes a value back to the caller."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "sealed",
+                    "shortDescription": "Java keyword",
+                    "description": "Restricts which other classes or interfaces may extend/implement the declared type."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "static",
+                    "shortDescription": "Java keyword",
+                    "description": "Declares a member that belongs to the class itself rather than to instances."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "strictfp",
+                    "shortDescription": "Java keyword",
+                    "description": "Ensures consistent floating-point semantics across all platforms by restricting optimisations."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "super",
+                    "shortDescription": "Java keyword",
+                    "description": "Refers to the immediate superclass instance or its constructor."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "switch",
+                    "shortDescription": "Java keyword",
+                    "description": "Selects one of many code branches to execute based on the value of an integral, enum, or String expression."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "synchronized",
+                    "shortDescription": "Java keyword",
+                    "description": "Acquires an intrinsic lock on an object or class before executing the marked block/method."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "this",
+                    "shortDescription": "Java keyword",
+                    "description": "Refers to the current object instance or invokes another constructor in the same class."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "throw",
+                    "shortDescription": "Java keyword",
+                    "description": "Causes an exception to be raised immediately."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "throws",
+                    "shortDescription": "Java keyword",
+                    "description": "Lists the checked exceptions that a method may propagate to its callers."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "to",
+                    "shortDescription": "Java keyword (module)",
+                    "description": "Used in 'exports ... to' and 'opens ... to' directives to list target modules."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "transient",
+                    "shortDescription": "Java keyword",
+                    "description": "Excludes a field from automatic serialization mechanism."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "transitive",
+                    "shortDescription": "Java keyword (module)",
+                    "description": "Makes a required dependency implicitly readable by any module that reads the current module."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "try",
+                    "shortDescription": "Java keyword",
+                    "description": "Introduces a block whose thrown exceptions can be handled by following catch clauses."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "uses",
+                    "shortDescription": "Java keyword (module)",
+                    "description": "Declares that a module consumes a service interface that will be provided at run time."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "volatile",
+                    "shortDescription": "Java keyword",
+                    "description": "Ensures that reads and writes of a variable are always made to and from main memory."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "while",
+                    "shortDescription": "Java keyword",
+                    "description": "Repeats a statement as long as its boolean condition is true."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "with",
+                    "shortDescription": "Java keyword",
+                    "description": "Introduces a resource in the try-with-resources statement (Java 7+)."
+                },
+                {
+                    "symbol": "keyword",
+                    "keyword": "yield",
+                    "shortDescription": "Java keyword",
+                    "description": "Produces a value from a switch expression when the enclosing case matches (Java 12+)."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "boolean",
+                    "shortDescription": "Primitive type",
+                    "description": "Two-valued type whose literals are true and false."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "byte",
+                    "shortDescription": "Primitive type",
+                    "description": "Signed 8-bit two-complement integer."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "char",
+                    "shortDescription": "Primitive type",
+                    "description": "Single 16-bit Unicode code unit (UTF-16)."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "double",
+                    "shortDescription": "Primitive type",
+                    "description": "IEEE-754 64-bit floating-point number."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "float",
+                    "shortDescription": "Primitive type",
+                    "description": "IEEE-754 32-bit floating-point number."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "int",
+                    "shortDescription": "Primitive type",
+                    "description": "Signed 32-bit two-complement integer."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "long",
+                    "shortDescription": "Primitive type",
+                    "description": "Signed 64-bit two-complement integer."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "short",
+                    "shortDescription": "Primitive type",
+                    "description": "Signed 16-bit two-complement integer."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "var",
+                    "shortDescription": "Local type-inference",
+                    "description": "Lets the compiler infer the type of a local variable from its initializer (Java 10+)."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "System",
+                    "shortDescription": "System utilities",
+                    "description": "Global facilities including standard I/O streams and utility methods.",
+                    "default": [
+                        {
+                            "symbol": "field",
+                            "keyword": "out",
+                            "shortDescription": "Standard output stream",
+                            "description": "PrintStream connected to console output; used via System.out.print/println/printf.",
+                            "default": [
+                                {
+                                    "symbol": "function",
+                                    "keyword": "print",
+                                    "shortDescription": "Print to stdout",
+                                    "description": "Outputs the textual representation of its argument without a trailing newline."
+                                },
+                                {
+                                    "symbol": "function",
+                                    "keyword": "println",
+                                    "shortDescription": "Print line to stdout",
+                                    "description": "Outputs its argument (or empty) followed by a platform-specific newline."
+                                },
+                                {
+                                    "symbol": "function",
+                                    "keyword": "printf",
+                                    "shortDescription": "Formatted print to stdout",
+                                    "description": "Produces formatted output under control of a format string (like C printf)."
+                                }
+                            ]
+                        },
+                        {
+                            "symbol": "field",
+                            "keyword": "err",
+                            "shortDescription": "Standard error stream",
+                            "description": "PrintStream connected to console error output; used via System.err.print/println.",
+                            "default": [
+                                {
+                                    "symbol": "function",
+                                    "keyword": "print",
+                                    "shortDescription": "Print to stderr",
+                                    "description": "Outputs text to the error stream without a trailing newline."
+                                },
+                                {
+                                    "symbol": "function",
+                                    "keyword": "println",
+                                    "shortDescription": "Print line to stderr",
+                                    "description": "Outputs text to the error stream followed by a newline."
+                                }
+                            ]
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "currentTimeMillis",
+                            "shortDescription": "UTC time in ms",
+                            "description": "Returns the current time in milliseconds since the epoch (1970-01-01T00:00:00Z)."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "arraycopy",
+                            "shortDescription": "Bulk array copy",
+                            "description": "Efficiently copies a range of elements from one array to another."
+                        }
+                    ]
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "String",
+                    "shortDescription": "Immutable character sequence",
+                    "description": "Represents a sequence of UTF-16 code units and provides rich text-manipulation methods.",
+                    "default": [
+                        {
+                            "symbol": "function",
+                            "keyword": "length",
+                            "shortDescription": "Number of UTF-16 code units",
+                            "description": "Returns the count of 16-bit code units in the string."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "charAt",
+                            "shortDescription": "Character at index",
+                            "description": "Returns the UTF-16 code unit at the specified index."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "substring",
+                            "shortDescription": "Extract portion",
+                            "description": "Returns a new string containing the specified sub-sequence of code units."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "indexOf",
+                            "shortDescription": "First occurrence",
+                            "description": "Returns the index within this string of the first occurrence of the specified substring/char."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "lastIndexOf",
+                            "shortDescription": "Last occurrence",
+                            "description": "Returns the index within this string of the last occurrence of the specified substring/char."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "trim",
+                            "shortDescription": "Remove leading/trailing space",
+                            "description": "Returns a copy whose value is this string with leading and trailing white-space removed."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "split",
+                            "shortDescription": "Divide by delimiter",
+                            "description": "Splits this string around matches of the given regular expression."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "equals",
+                            "shortDescription": "Value equality",
+                            "description": "Compares this string to the specified object for equality of contents."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "equalsIgnoreCase",
+                            "shortDescription": "Case-insensitive equality",
+                            "description": "Compares this string to another string, ignoring case considerations."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "toLowerCase",
+                            "shortDescription": "Lower-case copy",
+                            "description": "Converts all characters in this string to lower case using the default locale."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "toUpperCase",
+                            "shortDescription": "Upper-case copy",
+                            "description": "Converts all characters in this string to upper case using the default locale."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "startsWith",
+                            "shortDescription": "Prefix test",
+                            "description": "Tests if this string begins with the specified prefix."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "endsWith",
+                            "shortDescription": "Suffix test",
+                            "description": "Tests if this string ends with the specified suffix."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "contains",
+                            "shortDescription": "Substring test",
+                            "description": "Returns true if and only if this string contains the specified sequence of char values."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "format",
+                            "shortDescription": "Static formatted string",
+                            "description": "Returns a formatted string using the specified format string and arguments (like printf)."
+                        }
+                    ]
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Math",
+                    "shortDescription": "Numeric utilities",
+                    "description": "Provides basic numeric constants and mathematical functions.",
+                    "default": [
+                        {
+                            "symbol": "function",
+                            "keyword": "abs",
+                            "shortDescription": "Absolute value",
+                            "description": "Returns the absolute value of int, long, float, or double argument."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "max",
+                            "shortDescription": "Maximum of two values",
+                            "description": "Returns the greater of two numeric arguments of the same type."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "min",
+                            "shortDescription": "Minimum of two values",
+                            "description": "Returns the smaller of two numeric arguments of the same type."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "sin",
+                            "shortDescription": "Sine (radians)",
+                            "description": "Returns the trigonometric sine of an angle."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "cos",
+                            "shortDescription": "Cosine (radians)",
+                            "description": "Returns the trigonometric cosine of an angle."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "tan",
+                            "shortDescription": "Tangent (radians)",
+                            "description": "Returns the trigonometric tangent of an angle."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "sqrt",
+                            "shortDescription": "Square root",
+                            "description": "Returns the correctly rounded non-negative square root of a double value."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "pow",
+                            "shortDescription": "Power",
+                            "description": "Returns the value of the first argument raised to the power of the second double argument."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "random",
+                            "shortDescription": "Random double",
+                            "description": "Returns a double value with a positive sign, greater than or equal to 0.0 and less than 1.0."
+                        }
+                    ]
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Integer",
+                    "shortDescription": "Wrapper for int",
+                    "description": "Boxing type for int plus parsing and constant utilities.",
+                    "default": [
+                        {
+                            "symbol": "function",
+                            "keyword": "parseInt",
+                            "shortDescription": "String to int",
+                            "description": "Parses the supplied string as a signed decimal integer."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "valueOf",
+                            "shortDescription": "Box/convert to Integer",
+                            "description": "Returns an Integer instance representing the supplied int or string."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "toString",
+                            "shortDescription": "Convert to string",
+                            "description": "Returns a String object representing the supplied integer value."
+                        },
+                        {
+                            "symbol": "field",
+                            "keyword": "MAX_VALUE",
+                            "shortDescription": "Largest int",
+                            "description": "Constant holding the maximum value an int can have, 2³¹-1."
+                        },
+                        {
+                            "symbol": "field",
+                            "keyword": "MIN_VALUE",
+                            "shortDescription": "Smallest int",
+                            "description": "Constant holding the minimum value an int can have, -2³¹."
+                        }
+                    ]
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Double",
+                    "shortDescription": "Wrapper for double",
+                    "description": "Boxing type for double plus parsing and utility methods.",
+                    "default": [
+                        {
+                            "symbol": "function",
+                            "keyword": "parseDouble",
+                            "shortDescription": "String to double",
+                            "description": "Parses the supplied string as a decimal floating-point number."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "valueOf",
+                            "shortDescription": "Box/convert to Double",
+                            "description": "Returns a Double instance representing the supplied double or string."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "isNaN",
+                            "shortDescription": "Test for NaN",
+                            "description": "Returns true if the specified double value is the Not-a-Number (NaN) value."
+                        }
+                    ]
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Thread",
+                    "shortDescription": "Thread of execution",
+                    "description": "Represents a lightweight process and provides thread-lifecycle control.",
+                    "default": [
+                        {
+                            "symbol": "function",
+                            "keyword": "start",
+                            "shortDescription": "Start new thread",
+                            "description": "Causes the JVM to call this thread's run method in a separate concurrent path."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "join",
+                            "shortDescription": "Wait for completion",
+                            "description": "Blocks the calling thread until this thread finishes execution."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "sleep",
+                            "shortDescription": "Pause current thread",
+                            "description": "Static method that suspends execution of the current thread for the specified number of milliseconds."
+                        }
+                    ]
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Runtime",
+                    "shortDescription": "JVM runtime object",
+                    "description": "Interface to the current Java virtual-machine process.",
+                    "default": [
+                        {
+                            "symbol": "function",
+                            "keyword": "getRuntime",
+                            "shortDescription": "Obtain Runtime instance",
+                            "description": "Static method that returns the singleton Runtime object for the current JVM."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "exec",
+                            "shortDescription": "Launch external process",
+                            "description": "Executes the specified system command in a separate native process."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "exit",
+                            "shortDescription": "Terminate JVM",
+                            "description": "Forces termination of the currently running Java virtual machine."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "availableProcessors",
+                            "shortDescription": "CPU count",
+                            "description": "Returns the number of processors available to the JVM."
+                        }
+                    ]
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Throwable",
+                    "shortDescription": "Root of exception hierarchy",
+                    "description": "Superclass of all errors and exceptions that can be thrown by the JVM or Java code.",
+                    "default": [
+                        {
+                            "symbol": "function",
+                            "keyword": "getMessage",
+                            "shortDescription": "Exception message",
+                            "description": "Returns the detail message string of this throwable."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "printStackTrace",
+                            "shortDescription": "Print stack trace",
+                            "description": "Prints this throwable and its backtrace to the standard error stream."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "getCause",
+                            "shortDescription": "Wrapped cause",
+                            "description": "Returns the cause of this throwable or null if the cause is nonexistent or unknown."
+                        }
+                    ]
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Collections",
+                    "shortDescription": "Collection utilities",
+                    "description": "Static utility methods that operate on or return collections.",
+                    "default": [
+                        {
+                            "symbol": "function",
+                            "keyword": "sort",
+                            "shortDescription": "Sort list",
+                            "description": "Sorts the supplied List into ascending order using natural ordering or a supplied comparator."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "binarySearch",
+                            "shortDescription": "Binary search",
+                            "description": "Searches a sorted list for a key using binary search algorithm."
+                        },
+                        {
+                            "symbol": "function",
+                            "keyword": "shuffle",
+                            "shortDescription": "Randomise list",
+                            "description": "Randomly permutes the specified list using a default source of randomness."
+                        }
+                    ]
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Appendable",
+                    "shortDescription": "Appendable destination",
+                    "description": "Interface implemented by classes whose instances can receive formatted output (e.g., StringBuilder, Writer)."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "AutoCloseable",
+                    "shortDescription": "Resource management",
+                    "description": "Interface implemented by resources that can be closed automatically by try-with-resources."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "CharSequence",
+                    "shortDescription": "Readable character sequence",
+                    "description": "A uniform read-only interface to character sequences such as String, StringBuilder, etc."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Cloneable",
+                    "shortDescription": "Object cloning marker",
+                    "description": "Marker interface that allows an object to be cloned via Object.clone()."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Comparable",
+                    "shortDescription": "Natural ordering",
+                    "description": "Interface implemented by classes whose objects can be ordered using natural ordering."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Iterable",
+                    "shortDescription": "For-each support",
+                    "description": "Interface implemented by classes whose instances can be the target of the enhanced for statement."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "ProcessHandle",
+                    "shortDescription": "Native process handle",
+                    "description": "Identifies and provides control over native operating-system processes (Java 9+)."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Readable",
+                    "shortDescription": "Readable character source",
+                    "description": "Interface for sources of characters that can be read into a CharBuffer."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Runnable",
+                    "shortDescription": "Task to be executed",
+                    "description": "Functional interface whose instances are intended to be executed by threads."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "StringBuffer",
+                    "shortDescription": "Synchronised mutable string",
+                    "description": "Thread-safe, mutable sequence of characters with the same API as StringBuilder."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "StringBuilder",
+                    "shortDescription": "Unsynchronised mutable string",
+                    "description": "Fast, unsynchronised alternative to StringBuffer for single-thread use."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Object",
+                    "shortDescription": "Root of class hierarchy",
+                    "description": "Superclass of every class except interfaces and primitives; defines equals, hashCode, toString, etc."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Class",
+                    "shortDescription": "Run-time type token",
+                    "description": "Represents a run-time class or interface and provides reflective information about it."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Exception",
+                    "shortDescription": "Checked exception",
+                    "description": "Superclass of all exceptions that a well-written program should catch and handle."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "Error",
+                    "shortDescription": "Serious problem",
+                    "description": "Superclass of serious problems (e.g., OutOfMemoryError) that applications should not try to handle."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "RuntimeException",
+                    "shortDescription": "Unchecked exception",
+                    "description": "Superclass of exceptions that can be thrown during normal operation of the JVM; need not be declared."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "NullPointerException",
+                    "shortDescription": "Null reference",
+                    "description": "Thrown when code attempts to use a reference that is null."
+                },
+                {
+                    "symbol": "type",
+                    "keyword": "IllegalArgumentException",
+                    "shortDescription": "Invalid argument",
+                    "description": "Thrown when a method receives an argument that is inappropriate for the operation."
+                }
+            ],
+            "shorthand": []
+        }
+    },
+    "name": "Language Support for Java",
+    "description": "Autocomplete for Java: keywords, common types, and standard functions.",
+    "version": "1.1.0",
+    "enabled": true
 }

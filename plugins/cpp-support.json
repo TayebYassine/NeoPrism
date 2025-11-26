@@ -3,1048 +3,1378 @@
         "C++": {
             "default": [
                 {
-                    "symbol": "null",
-                    "keyword": "auto"
+                    "symbol": null,
+                    "keyword": "auto",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Declares a variable whose type is automatically deduced from its initializer."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "break"
+                    "symbol": null,
+                    "keyword": "break",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Immediately exits the inner-most switch, for, while or do-while statement."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "case"
+                    "symbol": null,
+                    "keyword": "case",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces an individual label within a switch statement."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "catch"
+                    "symbol": null,
+                    "keyword": "catch",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces a block that handles exceptions of a given type thrown in the preceding try block."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "class"
+                    "keyword": "class",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces the definition of a user-defined type that encapsulates data and functions."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "const"
+                    "symbol": null,
+                    "keyword": "const",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Qualifies an object or pointer as read-only or qualifies a member function as non-modifying."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "const_cast"
+                    "symbol": null,
+                    "keyword": "const_cast",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Removes or adds const or volatile qualification from an expression."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "continue"
+                    "symbol": null,
+                    "keyword": "continue",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Skips the rest of the current iteration and continues with the next iteration of the loop."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "default"
+                    "symbol": null,
+                    "keyword": "default",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Labels the branch executed when no case value matches in a switch statement."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "delete"
+                    "symbol": null,
+                    "keyword": "delete",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Deallocates memory previously allocated with new or destroys objects constructed with new."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "do"
+                    "symbol": null,
+                    "keyword": "do",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces a do-while loop whose body is executed at least once before the condition is tested."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "dynamic_cast"
+                    "symbol": null,
+                    "keyword": "dynamic_cast",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Performs a safe, run-time checked cast between polymorphic pointer or reference types."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "else"
+                    "symbol": null,
+                    "keyword": "else",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces the alternative branch executed when the preceding if condition is false."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "enum"
+                    "symbol": null,
+                    "keyword": "enum",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces an enumeration type that binds a set of named integral constants."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "explicit"
+                    "symbol": null,
+                    "keyword": "explicit",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Prevents a single-argument constructor from being used for implicit conversions."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "extern"
+                    "symbol": null,
+                    "keyword": "extern",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Declares a variable or function that is defined in another translation unit."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "for"
+                    "symbol": null,
+                    "keyword": "for",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces a loop that executes its body as long as the controlling condition is true."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "friend"
+                    "symbol": null,
+                    "keyword": "friend",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Grants a function or class access to private and protected members of the class declaring it."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "goto"
+                    "symbol": null,
+                    "keyword": "goto",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Transfers control unconditionally to a labeled statement in the same function."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "if"
+                    "symbol": null,
+                    "keyword": "if",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces a conditional statement that executes its sub-statement only when the condition is true."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "inline"
+                    "symbol": null,
+                    "keyword": "inline",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Suggests to the compiler that it replace every call to the function with the function’s body."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "mutable"
+                    "symbol": null,
+                    "keyword": "mutable",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Allows a class data member to be modified even if the containing object is const."
                 },
                 {
                     "symbol": "namespace",
-                    "keyword": "namespace"
+                    "keyword": "namespace",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces a declarative region that provides a scope to the identifiers inside it."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "new"
+                    "symbol": null,
+                    "keyword": "new",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Allocates dynamic memory for an object or array and returns a pointer to it."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "operator"
+                    "symbol": null,
+                    "keyword": "operator",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces a user-defined overload for an operator such as +, *, [] or ()."
                 },
                 {
                     "symbol": "global",
-                    "keyword": "private"
+                    "keyword": "private",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Restricts the visibility of class members to member functions and friends of the same class."
                 },
                 {
                     "symbol": "global",
-                    "keyword": "protected"
+                    "keyword": "protected",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Allows visibility to the class itself and its derived classes, but not to unrelated code."
                 },
                 {
                     "symbol": "global",
-                    "keyword": "public"
+                    "keyword": "public",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Makes class members accessible from any part of the program."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "register"
+                    "symbol": null,
+                    "keyword": "register",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "(Deprecated) Hints that the variable should be stored in a CPU register for faster access."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "reinterpret_cast"
+                    "symbol": null,
+                    "keyword": "reinterpret_cast",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Performs a low-level, unchecked cast between unrelated pointer or integral types."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "sizeof"
+                    "symbol": null,
+                    "keyword": "sizeof",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Yields the size in bytes of a type or expression at compile time."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "static"
+                    "symbol": null,
+                    "keyword": "static",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Gives internal linkage to a name or declares a member that belongs to the class rather than to any object."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "static_cast"
+                    "symbol": null,
+                    "keyword": "static_cast",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Performs an explicit conversion between related types checked at compile time."
                 },
                 {
                     "symbol": "struct",
-                    "keyword": "struct"
+                    "keyword": "struct",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces an aggregate type whose members are public by default."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "switch"
+                    "symbol": null,
+                    "keyword": "switch",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Selects one of several code branches to execute according to the value of an integral expression."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "template"
+                    "symbol": null,
+                    "keyword": "template",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces a generic definition of a function or class parameterized by types or values."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "this"
+                    "symbol": null,
+                    "keyword": "this",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "A prvalue pointer available in non-static member functions that points to the object for which the function is called."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "throw"
+                    "symbol": null,
+                    "keyword": "throw",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Signals an exceptional condition and transfers control to the nearest matching catch handler."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "try"
+                    "symbol": null,
+                    "keyword": "try",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces a block whose thrown exceptions can be handled by following catch clauses."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "typedef"
+                    "symbol": null,
+                    "keyword": "typedef",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Creates an alias for an existing type name."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "typeid"
+                    "symbol": null,
+                    "keyword": "typeid",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Obtains runtime type information as a std::type_info object."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "typename"
+                    "symbol": null,
+                    "keyword": "typename",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Tells the compiler that a dependent qualified name denotes a type rather than a value."
                 },
                 {
                     "symbol": "struct",
-                    "keyword": "union"
+                    "keyword": "union",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Defines an overlapping set of members that share the same storage."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "using"
+                    "symbol": null,
+                    "keyword": "using",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Introduces a namespace into the current scope or creates type and alias templates."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "virtual"
+                    "symbol": null,
+                    "keyword": "virtual",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Declares a non-static member function whose final overrider is resolved at runtime."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "volatile"
+                    "symbol": null,
+                    "keyword": "volatile",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Tells the compiler that the value of an object may change in ways not detectable by the implementation."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "while"
+                    "symbol": null,
+                    "keyword": "while",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Repeats a statement as long as the controlling condition evaluates to true."
                 },
                 {
-                    "symbol": "null",
-                    "keyword": "return"
+                    "symbol": null,
+                    "keyword": "return",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Terminates execution of the current function and optionally passes a value back to the caller."
                 },
                 {
                     "symbol": "enum2",
-                    "keyword": "true"
+                    "keyword": "true",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Boolean literal of value 1."
                 },
                 {
                     "symbol": "enum2",
-                    "keyword": "false"
+                    "keyword": "false",
+                    "shortDescription": "Standard C++ keyword",
+                    "description": "Boolean literal of value 0."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "char"
+                    "keyword": "char",
+                    "shortDescription": "Integral type",
+                    "description": "Smallest addressable integer type, large enough to hold any character of the basic execution character set."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "div_t"
+                    "keyword": "div_t",
+                    "shortDescription": "Structure type",
+                    "description": "Structure returned by div() containing quot and rem members."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "double"
+                    "keyword": "double",
+                    "shortDescription": "Floating-point type",
+                    "description": "Double-precision floating-point type with at least the range and precision of float."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "float"
+                    "keyword": "float",
+                    "shortDescription": "Floating-point type",
+                    "description": "Single-precision floating-point type."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "int"
+                    "keyword": "int",
+                    "shortDescription": "Integral type",
+                    "description": "Basic signed integer type whose width is at least 16 bits."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "ldiv_t"
+                    "keyword": "ldiv_t",
+                    "shortDescription": "Structure type",
+                    "description": "Structure returned by ldiv() containing long quot and rem members."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "long"
+                    "keyword": "long",
+                    "shortDescription": "Integral type",
+                    "description": "Signed integer type whose width is at least 32 bits."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "short"
+                    "keyword": "short",
+                    "shortDescription": "Integral type",
+                    "description": "Signed integer type whose width is at least 16 bits and no larger than int."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "signed"
+                    "keyword": "signed",
+                    "shortDescription": "Integral type qualifier",
+                    "description": "Explicitly requests a signed representation for the modified integral type."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "size_t"
+                    "keyword": "size_t",
+                    "shortDescription": "Unsigned integral type",
+                    "description": "Type returned by sizeof operator; guaranteed to hold the size of any object in bytes."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "unsigned"
+                    "keyword": "unsigned",
+                    "shortDescription": "Integral type qualifier",
+                    "description": "Requests an unsigned representation for the modified integral type."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "void"
+                    "keyword": "void",
+                    "shortDescription": "Incomplete type",
+                    "description": "Type with no values; used as the return type for functions that return nothing or as the parameter list for functions that take no arguments."
                 },
                 {
                     "symbol": "type",
-                    "keyword": "wchar_t"
+                    "keyword": "wchar_t",
+                    "shortDescription": "Wide-character type",
+                    "description": "Distinct integral type able to represent every valid code unit of the largest supported character set."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "abort"
+                    "keyword": "abort",
+                    "shortDescription": "Abnormal termination",
+                    "description": "Causes abnormal program termination by raising SIGABRT without calling exit handlers or destroying objects."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "abs"
+                    "keyword": "abs",
+                    "shortDescription": "Absolute value",
+                    "description": "Returns the absolute value of an int argument."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "acos"
+                    "keyword": "acos",
+                    "shortDescription": "Arc cosine",
+                    "description": "Computes the principal value of the arc cosine of x in radians."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "asctime"
+                    "keyword": "asctime",
+                    "shortDescription": "Textual time",
+                    "description": "Converts a broken-down time structure to a 26-character string of the form 'Www Mmm dd hh:mm:ss yyyy\\n'."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "asin"
+                    "keyword": "asin",
+                    "shortDescription": "Arc sine",
+                    "description": "Computes the principal value of the arc sine of x in radians."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "assert"
+                    "keyword": "assert",
+                    "shortDescription": "Runtime check",
+                    "description": "If the expression evaluates to zero, prints a diagnostic message and terminates the program."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "atan2"
+                    "keyword": "atan",
+                    "shortDescription": "Arc tangent",
+                    "description": "Computes the principal value of the arc tangent of x in radians."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "atan"
+                    "keyword": "atan2",
+                    "shortDescription": "Arc tangent of quotient",
+                    "description": "Computes the arc tangent of y/x using the signs of both arguments to determine the correct quadrant."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "atexit"
+                    "keyword": "atexit",
+                    "shortDescription": "Register exit handler",
+                    "description": "Registers a function to be called at normal program termination."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "atof"
+                    "keyword": "atof",
+                    "shortDescription": "String to double",
+                    "description": "Interprets a C-string as a floating-point number and returns its value as double."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "atoi"
+                    "keyword": "atoi",
+                    "shortDescription": "String to int",
+                    "description": "Converts the initial part of a C-string to an int value."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "atol"
+                    "keyword": "atol",
+                    "shortDescription": "String to long",
+                    "description": "Converts the initial part of a C-string to a long value."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "bsearch"
+                    "keyword": "bsearch",
+                    "shortDescription": "Binary search",
+                    "description": "Searches an array of sorted objects for an element that matches the key."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "btowc"
+                    "keyword": "btowc",
+                    "shortDescription": "Byte to wide char",
+                    "description": "Converts a single-byte character to a wide character given the current C locale."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "calloc"
+                    "keyword": "calloc",
+                    "shortDescription": "Allocate zeroed memory",
+                    "description": "Allocates memory for an array of num objects of size bytes each and initializes all bits to zero."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "ceil"
+                    "keyword": "ceil",
+                    "shortDescription": "Round up",
+                    "description": "Computes the smallest integer value not less than the given floating-point number."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "clearerr"
+                    "keyword": "clearerr",
+                    "shortDescription": "Clear stream errors",
+                    "description": "Resets both the error and end-of-file indicators for the given stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "clock"
+                    "keyword": "clock",
+                    "shortDescription": "CPU time",
+                    "description": "Returns the approximate processor time used by the program since it began."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "cosh"
+                    "keyword": "cos",
+                    "shortDescription": "Cosine",
+                    "description": "Computes the cosine of an angle measured in radians."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "cos"
+                    "keyword": "cosh",
+                    "shortDescription": "Hyperbolic cosine",
+                    "description": "Computes the hyperbolic cosine of x."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "ctime"
+                    "keyword": "ctime",
+                    "shortDescription": "Calendar time",
+                    "description": "Converts a time_t value to a 26-character textual representation in local time."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "difftime"
+                    "keyword": "difftime",
+                    "shortDescription": "Time difference",
+                    "description": "Returns the difference in seconds between two time_t values."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "div"
+                    "keyword": "div",
+                    "shortDescription": "Integer division",
+                    "description": "Computes both quotient and remainder of the division of two integers."
                 },
                 {
                     "symbol": "field",
-                    "keyword": "errno"
+                    "keyword": "errno",
+                    "shortDescription": "Error number",
+                    "description": "Macro expanding to a modifiable lvalue used for error reporting by library functions."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "exit"
+                    "keyword": "exit",
+                    "shortDescription": "Normal termination",
+                    "description": "Terminates the program normally, calling registered atexit handlers and flushing open streams."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "exp"
+                    "keyword": "exp",
+                    "shortDescription": "Exponential",
+                    "description": "Computes e raised to the given power."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fabs"
+                    "keyword": "fabs",
+                    "shortDescription": "Absolute value (double)",
+                    "description": "Returns the absolute value of a floating-point number."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fclose"
+                    "keyword": "fclose",
+                    "shortDescription": "Close stream",
+                    "description": "Closes the given FILE stream after flushing any pending output."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "feof"
+                    "keyword": "feof",
+                    "shortDescription": "End-of-file indicator",
+                    "description": "Tests the end-of-file indicator for a stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "ferror"
+                    "keyword": "ferror",
+                    "shortDescription": "Error indicator",
+                    "description": "Tests the error indicator for a stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fflush"
+                    "keyword": "fflush",
+                    "shortDescription": "Flush stream",
+                    "description": "Synchronizes the stream buffer with the associated external device."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fgetc"
+                    "keyword": "fgetc",
+                    "shortDescription": "Get character",
+                    "description": "Reads the next character from a stream and returns it as an unsigned char."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fgetpos"
+                    "keyword": "fgetpos",
+                    "shortDescription": "Get file position",
+                    "description": "Stores the current file position indicator into a fpos_t object."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fgetwc"
+                    "keyword": "fgets",
+                    "shortDescription": "Get string",
+                    "description": "Reads at most one less than size characters from a stream into the supplied buffer."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fgets"
+                    "keyword": "floor",
+                    "shortDescription": "Round down",
+                    "description": "Computes the largest integer value not greater than the given floating-point number."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fgetws"
+                    "keyword": "fmod",
+                    "shortDescription": "Floating-point remainder",
+                    "description": "Computes the remainder of x/y with the same sign as x."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "floor"
+                    "keyword": "fopen",
+                    "shortDescription": "Open stream",
+                    "description": "Opens a file and returns a pointer to its associated FILE stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fmod"
+                    "keyword": "fprintf",
+                    "shortDescription": "Formatted print to file",
+                    "description": "Writes formatted output to the given stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fopen"
+                    "keyword": "fputc",
+                    "shortDescription": "Put character",
+                    "description": "Writes a character to the given stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fprintf"
+                    "keyword": "fputs",
+                    "shortDescription": "Put string",
+                    "description": "Writes a C-string to the given stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fputc"
+                    "keyword": "fread",
+                    "shortDescription": "Binary input",
+                    "description": "Reads up to count items of size bytes from a stream into the supplied buffer."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fputs"
+                    "keyword": "free",
+                    "shortDescription": "Deallocate memory",
+                    "description": "Releases memory previously allocated by malloc, calloc or realloc."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fputwc"
+                    "keyword": "freopen",
+                    "shortDescription": "Reopen stream",
+                    "description": "Opens a different file using an existing FILE stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fputws"
+                    "keyword": "frexp",
+                    "shortDescription": "Split into mantissa & exponent",
+                    "description": "Decomposes a floating-point number into a normalized fraction and an integral power of two."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fread"
+                    "keyword": "fseek",
+                    "shortDescription": "Set file position",
+                    "description": "Moves the file position indicator to a new location in a stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "free"
+                    "keyword": "fsetpos",
+                    "shortDescription": "Set file position",
+                    "description": "Moves the file position indicator to the location stored in a fpos_t object."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "freopen"
+                    "keyword": "ftell",
+                    "shortDescription": "Current file offset",
+                    "description": "Returns the current value of the file position indicator for a stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "frexp"
+                    "keyword": "fwrite",
+                    "shortDescription": "Binary output",
+                    "description": "Writes up to count items of size bytes from the buffer to the given stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fscanf"
+                    "keyword": "getc",
+                    "shortDescription": "Get character (macro)",
+                    "description": "Equivalent to fgetc but may be implemented as a macro for performance."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fseek"
+                    "keyword": "getchar",
+                    "shortDescription": "Get character from stdin",
+                    "description": "Reads the next character from standard input."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fsetpos"
+                    "keyword": "getenv",
+                    "shortDescription": "Get environment",
+                    "description": "Searches the environment list for a string of the form name=value and returns the value."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "ftell"
+                    "keyword": "gets",
+                    "shortDescription": "Get line (deprecated)",
+                    "description": "Reads characters from stdin into the given buffer until a newline or EOF occurs (unsafe; removed in C11)."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fwprintf"
+                    "keyword": "gmtime",
+                    "shortDescription": "UTC broken-down time",
+                    "description": "Converts a time_t value to a broken-down time structure expressed in Coordinated Universal Time."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fwrite"
+                    "keyword": "isalnum",
+                    "shortDescription": "Alphanumeric test",
+                    "description": "Checks whether the character is alphanumeric (A-Z, a-z, 0-9)."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "fwscanf"
+                    "keyword": "isalpha",
+                    "shortDescription": "Alphabetic test",
+                    "description": "Checks whether the character is alphabetic (A-Z, a-z)."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "getchar"
+                    "keyword": "iscntrl",
+                    "shortDescription": "Control character test",
+                    "description": "Checks whether the character is a control character (0x00-0x1F and 0x7F)."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "getc"
+                    "keyword": "isdigit",
+                    "shortDescription": "Digit test",
+                    "description": "Checks whether the character is a decimal digit (0-9)."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "getenv"
+                    "keyword": "isgraph",
+                    "shortDescription": "Graphic character test",
+                    "description": "Checks whether the character has a graphical representation (printable except space)."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "gets"
+                    "keyword": "islower",
+                    "shortDescription": "Lower-case test",
+                    "description": "Checks whether the character is a lowercase letter."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "getwc"
+                    "keyword": "isprint",
+                    "shortDescription": "Printable test",
+                    "description": "Checks whether the character is printable (including space)."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "getwchar"
+                    "keyword": "ispunct",
+                    "shortDescription": "Punctuation test",
+                    "description": "Checks whether the character is a punctuation character."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "gmtime"
+                    "keyword": "isspace",
+                    "shortDescription": "Whitespace test",
+                    "description": "Checks whether the character is a whitespace character (space, \\f, \\n, \\r, \\t, \\v)."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "isalnum"
+                    "keyword": "isupper",
+                    "shortDescription": "Upper-case test",
+                    "description": "Checks whether the character is an uppercase letter."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "isalpha"
+                    "keyword": "isxdigit",
+                    "shortDescription": "Hex digit test",
+                    "description": "Checks whether the character is a hexadecimal digit (0-9, A-F, a-f)."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "iscntrl"
+                    "keyword": "labs",
+                    "shortDescription": "Absolute value (long)",
+                    "description": "Returns the absolute value of a long integer."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "isdigit"
+                    "keyword": "ldexp",
+                    "shortDescription": "Load exponent",
+                    "description": "Multiplies a floating-point number by 2 raised to the power exp."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "isgraph"
+                    "keyword": "ldiv",
+                    "shortDescription": "Long integer division",
+                    "description": "Computes both quotient and remainder of the division of two long integers."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "islower"
+                    "keyword": "localeconv",
+                    "shortDescription": "Locale formatting",
+                    "description": "Returns a pointer to a struct containing numeric and monetary formatting rules of the current C locale."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "isprint"
+                    "keyword": "localtime",
+                    "shortDescription": "Local broken-down time",
+                    "description": "Converts a time_t value to a broken-down time structure expressed in local time."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "ispunct"
+                    "keyword": "log",
+                    "shortDescription": "Natural logarithm",
+                    "description": "Computes the natural (base-e) logarithm of x."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "isspace"
+                    "keyword": "log10",
+                    "shortDescription": "Common logarithm",
+                    "description": "Computes the common (base-10) logarithm of x."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "isupper"
+                    "keyword": "longjmp",
+                    "shortDescription": "Non-local jump",
+                    "description": "Restores the environment saved by setjmp and continues execution from that point."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "isxdigit"
+                    "keyword": "malloc",
+                    "shortDescription": "Allocate uninitialized memory",
+                    "description": "Allocates a block of size bytes and returns a pointer to its first byte."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "labs"
+                    "keyword": "mblen",
+                    "shortDescription": "Length of multibyte character",
+                    "description": "Returns the number of bytes in the multibyte character pointed to by s."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "ldexp"
+                    "keyword": "memcmp",
+                    "shortDescription": "Memory compare",
+                    "description": "Compares the first n bytes of two memory areas."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "ldiv"
+                    "keyword": "memcpy",
+                    "shortDescription": "Memory copy",
+                    "description": "Copies n bytes from src into dest; areas must not overlap."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "localeconv"
+                    "keyword": "memmove",
+                    "shortDescription": "Memory move",
+                    "description": "Copies n bytes from src to dest; areas may overlap."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "localtime"
+                    "keyword": "memset",
+                    "shortDescription": "Memory fill",
+                    "description": "Fills the first n bytes of the memory area with the constant byte c."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "log10"
+                    "keyword": "mktime",
+                    "shortDescription": "Make time_t",
+                    "description": "Converts a broken-down local time structure to a calendar time value of type time_t."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "log"
+                    "keyword": "modf",
+                    "shortDescription": "Split fractional/integral",
+                    "description": "Breaks a floating-point number into integer and fractional parts, each with the same sign."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "longjmp"
+                    "keyword": "offsetof",
+                    "shortDescription": "Member offset",
+                    "description": "Expands to the offset in bytes of member from the beginning of structure type."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "malloc"
+                    "keyword": "perror",
+                    "shortDescription": "Print error message",
+                    "description": "Prints a system error message corresponding to the current value of errno to stderr."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "mblen"
+                    "keyword": "pow",
+                    "shortDescription": "Power",
+                    "description": "Raises base to the power of exponent."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "mbrlen"
+                    "keyword": "printf",
+                    "shortDescription": "Formatted print to stdout",
+                    "description": "Writes a formatted character sequence to standard output under control of the format string."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "mbrtowc"
+                    "keyword": "putc",
+                    "shortDescription": "Put character (macro)",
+                    "description": "Writes a character to a stream; may be implemented as a macro."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "mbsinit"
+                    "keyword": "putchar",
+                    "shortDescription": "Put character to stdout",
+                    "description": "Writes a character to standard output."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "mbsrtowcs"
+                    "keyword": "puts",
+                    "shortDescription": "Put string to stdout",
+                    "description": "Writes a C-string to standard output and appends a newline."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "mbstowcs"
+                    "keyword": "qsort",
+                    "shortDescription": "Quick sort",
+                    "description": "Sorts an array of nmemb objects using the supplied comparison function."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "mbtowc"
+                    "keyword": "rand",
+                    "shortDescription": "Pseudo-random number",
+                    "description": "Returns a pseudo-random integer in the range 0 to RAND_MAX."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "memchr"
+                    "keyword": "realloc",
+                    "shortDescription": "Reallocate memory",
+                    "description": "Changes the size of the memory block pointed to by ptr, possibly moving it to a new address."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "memcmp"
+                    "keyword": "remove",
+                    "shortDescription": "Delete file",
+                    "description": "Deletes the file identified by the given pathname."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "memcpy"
+                    "keyword": "rename",
+                    "shortDescription": "Rename file",
+                    "description": "Changes the name of a file from old to new."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "memmove"
+                    "keyword": "rewind",
+                    "shortDescription": "Reset file position",
+                    "description": "Sets the file position indicator to the beginning of the given stream and clears error and EOF flags."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "memset"
+                    "keyword": "scanf",
+                    "shortDescription": "Formatted read from stdin",
+                    "description": "Reads formatted input from standard input under control of the format string."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "mktime"
+                    "keyword": "setbuf",
+                    "shortDescription": "Set stream buffer",
+                    "description": "Assigns a user-supplied buffer of size BUFSIZ to a stream or disables buffering if buf is NULL."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "modf"
+                    "keyword": "setjmp",
+                    "shortDescription": "Save stack context",
+                    "description": "Saves the current execution environment for later use by longjmp."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "offsetof"
+                    "keyword": "setlocale",
+                    "shortDescription": "Set/query locale",
+                    "description": "Sets or queries the C locale for a given category."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "perror"
+                    "keyword": "setvbuf",
+                    "shortDescription": "Set stream buffering mode",
+                    "description": "Controls the buffering strategy and buffer size for a stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "pow"
+                    "keyword": "signal",
+                    "shortDescription": "Install signal handler",
+                    "description": "Installs a function to handle the specified signal."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "printf"
+                    "keyword": "sin",
+                    "shortDescription": "Sine",
+                    "description": "Computes the sine of an angle measured in radians."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "putchar"
+                    "keyword": "sinh",
+                    "shortDescription": "Hyperbolic sine",
+                    "description": "Computes the hyperbolic sine of x."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "putc"
+                    "keyword": "sprintf",
+                    "shortDescription": "Formatted print to string",
+                    "description": "Writes formatted output to a C-string stored in the supplied buffer."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "puts"
+                    "keyword": "sqrt",
+                    "shortDescription": "Square root",
+                    "description": "Computes the non-negative square root of x."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "putwc"
+                    "keyword": "srand",
+                    "shortDescription": "Seed pseudo-random generator",
+                    "description": "Sets the seed for the pseudo-random number generator used by rand()."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "putwchar"
+                    "keyword": "sscanf",
+                    "shortDescription": "Formatted read from string",
+                    "description": "Reads formatted input from a C-string under control of the format string."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "qsort"
+                    "keyword": "strcat",
+                    "shortDescription": "Concatenate strings",
+                    "description": "Appends a copy of the source string to the destination string."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "raise"
+                    "keyword": "strchr",
+                    "shortDescription": "Find character",
+                    "description": "Locates the first occurrence of ch in the C-string s."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "rand"
+                    "keyword": "strcmp",
+                    "shortDescription": "Compare strings",
+                    "description": "Lexicographically compares two C-strings."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "realloc"
+                    "keyword": "strcoll",
+                    "shortDescription": "Locale string compare",
+                    "description": "Compares two C-strings according to the current locale's collation rules."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "remove"
+                    "keyword": "strcpy",
+                    "shortDescription": "Copy string",
+                    "description": "Copies the C-string src into dest including the terminating null character."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "rename"
+                    "keyword": "strcspn",
+                    "shortDescription": "Span complement",
+                    "description": "Returns the length of the initial segment of s consisting of characters not in reject."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "rewind"
+                    "keyword": "strerror",
+                    "shortDescription": "Textual error",
+                    "description": "Returns a pointer to a static string describing the given error number."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "scanf"
+                    "keyword": "strftime",
+                    "shortDescription": "Format calendar time",
+                    "description": "Formats a broken-down time structure into a C-string according to the supplied format."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "setbuf"
+                    "keyword": "strlen",
+                    "shortDescription": "String length",
+                    "description": "Returns the length of a C-string (excluding the terminating null character)."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "setjmp"
+                    "keyword": "strncat",
+                    "shortDescription": "Concatenate strings (bounded)",
+                    "description": "Appends at most n characters from src to dest and null-terminates the result."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "setlocale"
+                    "keyword": "strncmp",
+                    "shortDescription": "Compare strings (bounded)",
+                    "description": "Lexicographically compares at most n characters of two C-strings."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "setvbuf"
+                    "keyword": "strncpy",
+                    "shortDescription": "Copy string (bounded)",
+                    "description": "Copies at most n characters from src to dest; does not guarantee null-termination."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "signal"
+                    "keyword": "strpbrk",
+                    "shortDescription": "Find first in set",
+                    "description": "Locates the first occurrence in s of any character in accept."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "sinh"
+                    "keyword": "strrchr",
+                    "shortDescription": "Find last character",
+                    "description": "Locates the last occurrence of ch in the C-string s."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "sin"
+                    "keyword": "strspn",
+                    "shortDescription": "Span",
+                    "description": "Returns the length of the initial segment of s consisting entirely of characters in accept."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "sprintf"
+                    "keyword": "strstr",
+                    "shortDescription": "Find substring",
+                    "description": "Locates the first occurrence of the substring needle in the string haystack."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "sqrt"
+                    "keyword": "strtod",
+                    "shortDescription": "String to double",
+                    "description": "Converts the initial portion of a C-string to a double value."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "srand"
+                    "keyword": "strtok",
+                    "shortDescription": "Tokenize string",
+                    "description": "Splits a string into tokens delimited by any character in delim; maintains internal state between calls."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "sscanf"
+                    "keyword": "strtol",
+                    "shortDescription": "String to long",
+                    "description": "Converts the initial portion of a C-string to a long value in a given base."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strcat"
+                    "keyword": "strtoul",
+                    "shortDescription": "String to unsigned long",
+                    "description": "Converts the initial portion of a C-string to an unsigned long value in a given base."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strchr"
+                    "keyword": "strxfrm",
+                    "shortDescription": "Transform string for locale",
+                    "description": "Transforms a C-string so that strcmp of transformed strings yields the same result as strcoll."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strcmp"
+                    "keyword": "system",
+                    "shortDescription": "Execute shell command",
+                    "description": "Passes the supplied C-string to the host environment to be executed by the command processor."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strcoll"
+                    "keyword": "tan",
+                    "shortDescription": "Tangent",
+                    "description": "Computes the tangent of an angle measured in radians."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strcpy"
+                    "keyword": "tanh",
+                    "shortDescription": "Hyperbolic tangent",
+                    "description": "Computes the hyperbolic tangent of x."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strcspn"
+                    "keyword": "time",
+                    "shortDescription": "Current calendar time",
+                    "description": "Returns the current calendar time encoded as a value of type time_t."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strerror"
+                    "keyword": "tmpfile",
+                    "shortDescription": "Temporary file",
+                    "description": "Creates a temporary binary file that is automatically removed when it is closed or the program terminates."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strftime"
+                    "keyword": "tmpnam",
+                    "shortDescription": "Temporary filename",
+                    "description": "Generates a unique valid pathname that can be used for a temporary file."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strlen"
+                    "keyword": "tolower",
+                    "shortDescription": "Convert to lowercase",
+                    "description": "Converts an uppercase letter to lowercase if possible; returns the character unchanged otherwise."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strncat"
+                    "keyword": "toupper",
+                    "shortDescription": "Convert to uppercase",
+                    "description": "Converts a lowercase letter to uppercase if possible; returns the character unchanged otherwise."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strncmp"
+                    "keyword": "ungetc",
+                    "shortDescription": "Push character back",
+                    "description": "Pushes the character c (converted to unsigned char) back onto the given stream."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strncpy"
+                    "keyword": "va_arg",
+                    "shortDescription": "Next variadic argument",
+                    "description": "Expands to the next variadic argument of the specified type and advances the internal ap pointer."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strpbrk"
+                    "keyword": "va_end",
+                    "shortDescription": "End variadic iteration",
+                    "description": "Performs cleanup for a va_list object initialized by va_start or va_copy."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strrchr"
+                    "keyword": "va_start",
+                    "shortDescription": "Start variadic iteration",
+                    "description": "Initializes a va_list object for subsequent use by va_arg and va_end."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strspn"
+                    "keyword": "vfprintf",
+                    "shortDescription": "Formatted print (va_list)",
+                    "description": "Writes formatted output to a stream using a va_list instead of variadic arguments."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strstr"
+                    "keyword": "vprintf",
+                    "shortDescription": "Formatted print to stdout (va_list)",
+                    "description": "Writes formatted output to stdout using a va_list instead of variadic arguments."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strtod"
+                    "keyword": "vsprintf",
+                    "shortDescription": "Formatted print to string (va_list)",
+                    "description": "Writes formatted output to a C-string using a va_list instead of variadic arguments."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strtok"
+                    "keyword": "wcscat",
+                    "shortDescription": "Concatenate wide strings",
+                    "description": "Appends a copy of the source wide string to the destination wide string."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strtol"
+                    "keyword": "wcschr",
+                    "shortDescription": "Find wide character",
+                    "description": "Locates the first occurrence of wc in the wide string ws."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strtoul"
+                    "keyword": "wcscmp",
+                    "shortDescription": "Compare wide strings",
+                    "description": "Lexicographically compares two wide C-strings."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "strxfrm"
+                    "keyword": "wcscpy",
+                    "shortDescription": "Copy wide string",
+                    "description": "Copies the wide C-string src into dest including the terminating null wide character."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "swprintf"
+                    "keyword": "wcslen",
+                    "shortDescription": "Wide string length",
+                    "description": "Returns the length of a wide C-string (excluding the terminating null wide character)."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "swscanf"
+                    "keyword": "wcsncat",
+                    "shortDescription": "Concatenate wide strings (bounded)",
+                    "description": "Appends at most n wide characters from src to dest and null-terminates the result."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "system"
+                    "keyword": "wcsncmp",
+                    "shortDescription": "Compare wide strings (bounded)",
+                    "description": "Lexicographically compares at most n wide characters of two wide C-strings."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "tanh"
+                    "keyword": "wcsncpy",
+                    "shortDescription": "Copy wide string (bounded)",
+                    "description": "Copies at most n wide characters from src to dest; does not guarantee null-termination."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "tan"
+                    "keyword": "wcspbrk",
+                    "shortDescription": "Find first in wide set",
+                    "description": "Locates the first occurrence in ws of any wide character in accept."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "time"
+                    "keyword": "wcsrchr",
+                    "shortDescription": "Find last wide character",
+                    "description": "Locates the last occurrence of wc in the wide string ws."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "tmpfile"
+                    "keyword": "wcsspn",
+                    "shortDescription": "Wide span",
+                    "description": "Returns the length of the initial segment of ws consisting entirely of wide characters in accept."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "tmpnam"
+                    "keyword": "wcsstr",
+                    "shortDescription": "Find wide substring",
+                    "description": "Locates the first occurrence of the wide substring needle in the wide string haystack."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "tolower"
+                    "keyword": "wcstod",
+                    "shortDescription": "Wide string to double",
+                    "description": "Converts the initial portion of a wide C-string to a double value."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "toupper"
+                    "keyword": "wcstok",
+                    "shortDescription": "Tokenize wide string",
+                    "description": "Splits a wide string into tokens delimited by any wide character in delim; maintains internal state between calls."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "ungetc"
+                    "keyword": "wcstol",
+                    "shortDescription": "Wide string to long",
+                    "description": "Converts the initial portion of a wide C-string to a long value in a given base."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "ungetwc"
+                    "keyword": "wcstoul",
+                    "shortDescription": "Wide string to unsigned long",
+                    "description": "Converts the initial portion of a wide C-string to an unsigned long value in a given base."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "va_arg"
+                    "keyword": "wcsxfrm",
+                    "shortDescription": "Transform wide string for locale",
+                    "description": "Transforms a wide C-string so that wcscmp of transformed strings yields the same result as wcscoll."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "va_end"
+                    "keyword": "wctob",
+                    "shortDescription": "Wide char to single byte",
+                    "description": "Converts a wide character to a single-byte character if possible given the current C locale."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "va_start"
+                    "keyword": "wmemchr",
+                    "shortDescription": "Find wide char in memory",
+                    "description": "Locates the first occurrence of wc in the initial n wide characters of the object pointed to by s."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "vfprintf"
+                    "keyword": "wmemcmp",
+                    "shortDescription": "Compare wide memory",
+                    "description": "Compares the first n wide characters of two memory areas."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "vfwprintf"
+                    "keyword": "wmemcpy",
+                    "shortDescription": "Copy wide memory",
+                    "description": "Copies n wide characters from src to dest; areas must not overlap."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "vprintf"
+                    "keyword": "wmemmove",
+                    "shortDescription": "Move wide memory",
+                    "description": "Copies n wide characters from src to dest; areas may overlap."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "vsprintf"
+                    "keyword": "wmemset",
+                    "shortDescription": "Fill wide memory",
+                    "description": "Fills the first n wide characters of the memory area with the constant wide character c."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "vswprintf"
+                    "keyword": "wprintf",
+                    "shortDescription": "Formatted wide print to stdout",
+                    "description": "Writes formatted wide-character output to standard output under control of the format string."
                 },
                 {
                     "symbol": "function",
-                    "keyword": "vwprintf"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcrtomb"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcscat"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcschr"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcscmp"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcscoll"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcscpy"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcscspn"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcsftime"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcslen"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcsncat"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcsncmp"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcsncpy"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcspbrk"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcsrchr"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcsrtombs"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcsspn"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcsstr"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcstod"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcstok"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcstol"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcstombs"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcstoul"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wcsxfrm"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wctob"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wctomb"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wmemchr"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wmemcmp"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wmemcpy"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wmemmove"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wmemset"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wprintf"
-                },
-                {
-                    "symbol": "function",
-                    "keyword": "wscanf"
+                    "keyword": "wscanf",
+                    "shortDescription": "Formatted wide read from stdin",
+                    "description": "Reads formatted wide-character input from standard input under control of the format string."
                 }
             ],
             "shorthand": []
@@ -1052,6 +1382,6 @@
     },
     "name": "Language Support for C++",
     "description": "Autocomplete for C++: keywords, common types, and standard functions.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "enabled": true
 }

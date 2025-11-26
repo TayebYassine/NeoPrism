@@ -54,7 +54,7 @@ public class PluginsPanel extends JPanel {
 
         JPanel left = new JPanel(new GridLayout(0, 1, 0, 2));
         left.setOpaque(false);
-        left.add(new JLabel(htmlBold(escape(plugin.getName()) + " " + escape(plugin.getVersion()))));
+        left.add(new JLabel(htmlBold(escape(plugin.getName()) + " (v" + escape(plugin.getVersion()) + ")")));
         left.add(new JLabel("<html><p style='width:175px;'>" +
                 escape(plugin.getDescription() == null ? "" : plugin.getDescription()) +
                 "</p></html>"));

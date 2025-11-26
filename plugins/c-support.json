@@ -3,705 +3,923 @@
     "The C Programming Language" : {
       "default" : [ {
         "symbol" : "keyword",
+        "description" : "Storage-class specifier that declares automatic variables. Rarely used explicitly because local variables are auto by default.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "auto"
       }, {
         "symbol" : "keyword",
+        "description" : "Immediately exits the innermost switch or loop construct, transferring control to the statement following that construct.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "break"
       }, {
         "symbol" : "keyword",
+        "description" : "Labels a branch inside a switch statement; execution jumps here when the switch expression matches the constant value given.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "case"
       }, {
         "symbol" : "keyword",
+        "description" : "Qualifier that promises the compiler the object will not be modified through that identifier; enables optimizations and catches bugs.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "const"
       }, {
         "symbol" : "keyword",
+        "description" : "Skips the rest of the current loop iteration and immediately begins the next iteration (re-evaluates the loop condition).",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "continue"
       }, {
         "symbol" : "keyword",
+        "description" : "Labels the fallback branch in a switch statement; executed when no case label matches the switch expression.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "default"
       }, {
         "symbol" : "keyword",
+        "description" : "Introduces a do-while loop: the body is executed once, then the condition is tested; repeats while the condition is true.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "do"
       }, {
         "symbol" : "keyword",
+        "description" : "Introduces the alternative branch of an if statement; executed when the if condition evaluates to false.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "else"
       }, {
         "symbol" : "keyword",
+        "description" : "Defines an enumeration type: a set of named integer constants that improve code readability and maintainability.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "enum"
       }, {
         "symbol" : "keyword",
+        "description" : "Storage-class specifier that declares a variable or function defined in another translation unit or later in the same file.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "extern"
       }, {
         "symbol" : "keyword",
+        "description" : "Introduces a for loop: initialization, condition test, and iteration expression grouped in one concise statement.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "for"
       }, {
         "symbol" : "keyword",
+        "description" : "Unconditionally transfers control to a labeled statement in the same function; generally discouraged in modern code.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "goto"
       }, {
         "symbol" : "keyword",
+        "description" : "Conditionally executes a statement or block when the controlling expression evaluates to non-zero (true).",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "if"
       }, {
         "symbol" : "keyword",
+        "description" : "Storage-class hint requesting the compiler place the variable in a CPU register for faster access; modern compilers largely ignore it.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "register"
       }, {
         "symbol" : "keyword",
+        "description" : "Terminates the current function, optionally passing a value back to the caller.",
+        "shortDescription" : "Standard C keyword",
+        "keyword" : "return"
+      }, {
+        "symbol" : "keyword",
+        "description" : "Compile-time operator that yields the size in bytes of a type or object; essential for portable memory calculations.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "sizeof"
       }, {
         "symbol" : "keyword",
+        "description" : "Storage-class specifier giving internal linkage (file scope) or static duration (preserves value between function calls).",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "static"
       }, {
         "symbol" : "keyword",
+        "description" : "Introduces a structure type: a composite variable grouping data members of (possibly) different types under one name.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "struct"
       }, {
         "symbol" : "keyword",
+        "description" : "Multi-way branch statement that transfers control to the case label matching the value of the controlling expression.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "switch"
       }, {
         "symbol" : "keyword",
+        "description" : "Creates a new name (alias) for an existing type; improves readability and simplifies complex declarators.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "typedef"
       }, {
         "symbol" : "keyword",
+        "description" : "Defines a union type: all members share the same memory location; size equals the largest member.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "union"
       }, {
         "symbol" : "keyword",
+        "description" : "Qualifier telling the compiler the object may change in ways the compiler cannot see; disables certain optimizations.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "volatile"
       }, {
         "symbol" : "keyword",
+        "description" : "Introduces a while loop: repeatedly executes the body as long as the controlling expression is true.",
+        "shortDescription" : "Standard C keyword",
         "keyword" : "while"
       }, {
-        "symbol" : "keyword",
-        "keyword" : "return"
-      }, {
         "symbol" : "type",
+        "description" : "Smallest addressable integer type, guaranteed to hold one character of the basic execution character set (usually 8 bits).",
+        "shortDescription" : "Standard C type",
         "keyword" : "char"
       }, {
         "symbol" : "type",
+        "description" : "Structure returned by div(): contains two ints—quot and rem—holding the quotient and remainder of an integer division.",
+        "shortDescription" : "Standard C type",
         "keyword" : "div_t"
       }, {
         "symbol" : "type",
+        "description" : "Floating-point type with at least the precision of float; typically 64-bit IEEE-754 on modern platforms.",
+        "shortDescription" : "Standard C type",
         "keyword" : "double"
       }, {
         "symbol" : "type",
+        "description" : "Single-precision floating-point type; usually 32-bit IEEE-754 providing ~7 decimal digits of precision.",
+        "shortDescription" : "Standard C type",
         "keyword" : "float"
       }, {
         "symbol" : "type",
+        "description" : "Basic signed integer type whose width is chosen by the compiler for efficiency (commonly 32-bit today).",
+        "shortDescription" : "Standard C type",
         "keyword" : "int"
       }, {
         "symbol" : "type",
+        "description" : "Structure returned by ldiv(): contains two longs—quot and rem—holding the quotient and remainder of a long division.",
+        "shortDescription" : "Standard C type",
         "keyword" : "ldiv_t"
       }, {
         "symbol" : "type",
+        "description" : "Signed integer type at least as wide as int; typically 32-bit on 32-bit systems and 64-bit on 64-bit LP64 systems.",
+        "shortDescription" : "Standard C type",
         "keyword" : "long"
       }, {
         "symbol" : "type",
+        "description" : "Signed integer type narrower than int, guaranteed to be at least 16 bits.",
+        "shortDescription" : "Standard C type",
         "keyword" : "short"
       }, {
         "symbol" : "type",
+        "description" : "Explicitly requests a signed representation for the accompanying integer type; redundant but can document intent.",
+        "shortDescription" : "Standard C type qualifier",
         "keyword" : "signed"
       }, {
         "symbol" : "type",
+        "description" : "Unsigned type returned by sizeof; large enough to represent the size of any object in bytes.",
+        "shortDescription" : "Standard C type",
         "keyword" : "size_t"
       }, {
         "symbol" : "type",
+        "description" : "Declares the accompanying integer type to use non-negative values only, doubling the positive range.",
+        "shortDescription" : "Standard C type qualifier",
         "keyword" : "unsigned"
       }, {
         "symbol" : "type",
+        "description" : "Incomplete type representing ‘no value’; used for functions returning nothing or generic pointers (void *).",
+        "shortDescription" : "Standard C type",
         "keyword" : "void"
       }, {
         "symbol" : "type",
+        "description" : "Wide-character type able to represent every character in the supported locales; often 32-bit on Unix, 16-bit on Windows.",
+        "shortDescription" : "Standard C type",
         "keyword" : "wchar_t"
       }, {
         "symbol" : "function",
+        "description" : "Raises SIGABRT and terminates the program immediately without running cleanup handlers or flushing streams.",
+        "shortDescription" : "Abnormal termination",
         "keyword" : "abort"
       }, {
         "symbol" : "function",
+        "description" : "Returns the absolute value of an int; undefined on INT_MIN.",
+        "shortDescription" : "Absolute value (int)",
         "keyword" : "abs"
       }, {
         "symbol" : "function",
+        "description" : "Returns the arc-cosine of x in radians; x must be in [-1, 1].",
+        "shortDescription" : "Arc cosine",
         "keyword" : "acos"
       }, {
         "symbol" : "function",
+        "description" : "Converts a broken-down time struct to a fixed-format string like ‘Sun Nov 26 18:03:15 2025\\n’.",
+        "shortDescription" : "Textual time",
         "keyword" : "asctime"
       }, {
         "symbol" : "function",
+        "description" : "Returns the arc-sine of x in radians; x must be in [-1, 1].",
+        "shortDescription" : "Arc sine",
         "keyword" : "asin"
       }, {
         "symbol" : "function",
+        "description" : "If the expression is zero, prints a diagnostic message to stderr and calls abort(); disabled when NDEBUG is defined.",
+        "shortDescription" : "Runtime check",
         "keyword" : "assert"
       }, {
         "symbol" : "function",
-        "keyword" : "atan2"
-      }, {
-        "symbol" : "function",
+        "description" : "Returns the arc-tangent of x in radians; range is [-π/2, π/2].",
+        "shortDescription" : "Arc tangent",
         "keyword" : "atan"
       }, {
         "symbol" : "function",
+        "description" : "Returns the arc-tangent of y/x in radians using the signs of both arguments to determine the correct quadrant.",
+        "shortDescription" : "Arc tangent (2-arg)",
+        "keyword" : "atan2"
+      }, {
+        "symbol" : "function",
+        "description" : "Registers a function to be called (in reverse order of registration) when the program terminates normally via exit().",
+        "shortDescription" : "Register cleanup",
         "keyword" : "atexit"
       }, {
         "symbol" : "function",
+        "description" : "Parses the initial portion of a string and returns its double value; behavior is undefined on overflow.",
+        "shortDescription" : "String → double",
         "keyword" : "atof"
       }, {
         "symbol" : "function",
+        "description" : "Parses the initial portion of a string and returns its int value; 0 if no conversion possible.",
+        "shortDescription" : "String → int",
         "keyword" : "atoi"
       }, {
         "symbol" : "function",
+        "description" : "Parses the initial portion of a string and returns its long value; 0L if no conversion possible.",
+        "shortDescription" : "String → long",
         "keyword" : "atol"
       }, {
         "symbol" : "function",
+        "description" : "Performs binary search on a sorted array; returns pointer to matching element or NULL if not found.",
+        "shortDescription" : "Binary search",
         "keyword" : "bsearch"
       }, {
         "symbol" : "function",
-        "keyword" : "btowc"
-      }, {
-        "symbol" : "function",
+        "description" : "Allocates memory for an array of nmemb elements, each of size bytes, and sets all bits to zero.",
+        "shortDescription" : "Zeroed allocation",
         "keyword" : "calloc"
       }, {
         "symbol" : "function",
+        "description" : "Returns the smallest integral value not less than x.",
+        "shortDescription" : "Round up",
         "keyword" : "ceil"
       }, {
         "symbol" : "function",
+        "description" : "Resets both the error and EOF indicators for a stream.",
+        "shortDescription" : "Clear stream flags",
         "keyword" : "clearerr"
       }, {
         "symbol" : "function",
+        "description" : "Returns the processor time consumed by the program in units of CLOCKS_PER_SEC; divide result to get seconds.",
+        "shortDescription" : "CPU time used",
         "keyword" : "clock"
       }, {
         "symbol" : "function",
-        "keyword" : "cosh"
-      }, {
-        "symbol" : "function",
+        "description" : "Returns the cosine of x (measured in radians).",
+        "shortDescription" : "Cosine",
         "keyword" : "cos"
       }, {
         "symbol" : "function",
+        "description" : "Returns the hyperbolic cosine of x.",
+        "shortDescription" : "Hyperbolic cosine",
+        "keyword" : "cosh"
+      }, {
+        "symbol" : "function",
+        "description" : "Converts a time_t value to a 26-character English string in the same format as asctime().",
+        "shortDescription" : "Calendar time → text",
         "keyword" : "ctime"
       }, {
         "symbol" : "function",
+        "description" : "Returns the difference in seconds between two time_t values as a double.",
+        "shortDescription" : "Time difference",
         "keyword" : "difftime"
       }, {
         "symbol" : "function",
+        "description" : "Performs integral division of two ints, returning a div_t that holds both quotient and remainder.",
+        "shortDescription" : "Integer division",
         "keyword" : "div"
       }, {
-        "symbol" : "global",
-        "keyword" : "errno"
-      }, {
         "symbol" : "function",
+        "description" : "Causes normal program termination: calls atexit-registered functions, flushes streams, closes files, then returns status to the host.",
+        "shortDescription" : "Normal termination",
         "keyword" : "exit"
       }, {
         "symbol" : "function",
+        "description" : "Returns the base-e exponential function of x.",
+        "shortDescription" : "Exponential eˣ",
         "keyword" : "exp"
       }, {
         "symbol" : "function",
+        "description" : "Returns the absolute value of a double.",
+        "shortDescription" : "Absolute value (double)",
         "keyword" : "fabs"
       }, {
         "symbol" : "function",
+        "description" : "Flushes and closes the given FILE; returns 0 on success, EOF on error.",
+        "shortDescription" : "Close stream",
         "keyword" : "fclose"
       }, {
         "symbol" : "function",
+        "description" : "Returns non-zero if the EOF indicator is set for the stream.",
+        "shortDescription" : "End-of-file indicator",
         "keyword" : "feof"
       }, {
         "symbol" : "function",
+        "description" : "Returns non-zero if the error indicator is set for the stream.",
+        "shortDescription" : "Error indicator",
         "keyword" : "ferror"
       }, {
         "symbol" : "function",
+        "description" : "Writes any buffered output to the underlying file; passing NULL flushes all open output streams.",
+        "shortDescription" : "Flush stream",
         "keyword" : "fflush"
       }, {
         "symbol" : "function",
+        "description" : "Reads the next unsigned char from a stream, returned as int, or EOF on end-of-file or error.",
+        "shortDescription" : "Get character",
         "keyword" : "fgetc"
       }, {
         "symbol" : "function",
-        "keyword" : "fgetpos"
-      }, {
-        "symbol" : "function",
-        "keyword" : "fgetwc"
-      }, {
-        "symbol" : "function",
+        "description" : "Reads at most one less than size characters into s, stopping at newline or EOF; appends NUL; returns s or NULL on EOF/error.",
+        "shortDescription" : "Get string",
         "keyword" : "fgets"
       }, {
         "symbol" : "function",
-        "keyword" : "fgetws"
-      }, {
-        "symbol" : "function",
+        "description" : "Returns the largest integral value not greater than x.",
+        "shortDescription" : "Round down",
         "keyword" : "floor"
       }, {
         "symbol" : "function",
-        "keyword" : "fmod"
-      }, {
-        "symbol" : "function",
+        "description" : "Opens a file and returns a pointer to its FILE stream; returns NULL on failure, setting errno.",
+        "shortDescription" : "Open file",
         "keyword" : "fopen"
       }, {
         "symbol" : "function",
+        "description" : "Writes formatted text to the given stream according to the format string; returns number of characters printed.",
+        "shortDescription" : "Formatted output to file",
         "keyword" : "fprintf"
       }, {
         "symbol" : "function",
+        "description" : "Writes the character c (converted to unsigned char) to the stream; returns c or EOF on error.",
+        "shortDescription" : "Put character",
         "keyword" : "fputc"
       }, {
         "symbol" : "function",
+        "description" : "Writes the string s to the stream, without the terminating NUL; returns non-negative or EOF on error.",
+        "shortDescription" : "Put string",
         "keyword" : "fputs"
       }, {
         "symbol" : "function",
-        "keyword" : "fputwc"
-      }, {
-        "symbol" : "function",
-        "keyword" : "fputws"
-      }, {
-        "symbol" : "function",
+        "description" : "Reads up to nmemb elements of size bytes each from the stream into ptr; returns number of items read.",
+        "shortDescription" : "Binary input",
         "keyword" : "fread"
       }, {
         "symbol" : "function",
+        "description" : "Releases memory previously allocated by malloc/calloc/realloc; passing NULL is legal and does nothing.",
+        "shortDescription" : "Deallocate memory",
         "keyword" : "free"
       }, {
         "symbol" : "function",
-        "keyword" : "freopen"
-      }, {
-        "symbol" : "function",
+        "description" : "Breaks x into a normalized fraction and an integral power of two; returns fraction and stores exponent in exp.",
+        "shortDescription" : "Mantissa & exponent",
         "keyword" : "frexp"
       }, {
         "symbol" : "function",
+        "description" : "Reads formatted data from the stream, storing values through the provided pointers; returns number of items successfully assigned.",
+        "shortDescription" : "Formatted input from file",
         "keyword" : "fscanf"
       }, {
         "symbol" : "function",
+        "description" : "Sets the file position indicator for the stream; returns 0 on success, non-zero on error.",
+        "shortDescription" : "Seek position",
         "keyword" : "fseek"
       }, {
         "symbol" : "function",
-        "keyword" : "fsetpos"
-      }, {
-        "symbol" : "function",
+        "description" : "Returns the current value of the file position indicator for the stream, measured in bytes from the beginning.",
+        "shortDescription" : "Current offset",
         "keyword" : "ftell"
       }, {
         "symbol" : "function",
-        "keyword" : "fwprintf"
-      }, {
-        "symbol" : "function",
+        "description" : "Writes nmemb elements of size bytes each from ptr to the stream; returns number of items written.",
+        "shortDescription" : "Binary output",
         "keyword" : "fwrite"
       }, {
         "symbol" : "function",
-        "keyword" : "fwscanf"
-      }, {
-        "symbol" : "function",
-        "keyword" : "getchar"
-      }, {
-        "symbol" : "function",
+        "description" : "Macro equivalent to fgetc(); may evaluate the stream argument more than once.",
+        "shortDescription" : "Get character (macro)",
         "keyword" : "getc"
       }, {
         "symbol" : "function",
-        "keyword" : "getenv"
+        "description" : "Reads the next unsigned char from stdin, returned as int, or EOF on end-of-file or error.",
+        "shortDescription" : "Get char from stdin",
+        "keyword" : "getchar"
       }, {
         "symbol" : "function",
+        "description" : "Reads characters from stdin into s until newline or EOF, discarding newline; does NOT check bounds—deprecated/removed in C11.",
+        "shortDescription" : "Unsafe line input",
         "keyword" : "gets"
       }, {
         "symbol" : "function",
-        "keyword" : "getwc"
-      }, {
-        "symbol" : "function",
-        "keyword" : "getwchar"
-      }, {
-        "symbol" : "function",
-        "keyword" : "gmtime"
-      }, {
-        "symbol" : "function",
-        "keyword" : "isalnum"
-      }, {
-        "symbol" : "function",
-        "keyword" : "isalpha"
-      }, {
-        "symbol" : "function",
-        "keyword" : "iscntrl"
-      }, {
-        "symbol" : "function",
-        "keyword" : "isdigit"
-      }, {
-        "symbol" : "function",
-        "keyword" : "isgraph"
-      }, {
-        "symbol" : "function",
-        "keyword" : "islower"
-      }, {
-        "symbol" : "function",
-        "keyword" : "isprint"
-      }, {
-        "symbol" : "function",
-        "keyword" : "ispunct"
-      }, {
-        "symbol" : "function",
-        "keyword" : "isspace"
-      }, {
-        "symbol" : "function",
-        "keyword" : "isupper"
-      }, {
-        "symbol" : "function",
-        "keyword" : "isxdigit"
-      }, {
-        "symbol" : "function",
+        "description" : "Returns the absolute value of a long; undefined on LONG_MIN.",
+        "shortDescription" : "Absolute value (long)",
         "keyword" : "labs"
       }, {
         "symbol" : "function",
+        "description" : "Multiplies a floating-point number by an integral power of two; inverse of frexp().",
+        "shortDescription" : "x × 2ᵉˣᵖ",
         "keyword" : "ldexp"
       }, {
         "symbol" : "function",
+        "description" : "Performs integral division of two longs, returning an ldiv_t that holds both quotient and remainder.",
+        "shortDescription" : "Long integer division",
         "keyword" : "ldiv"
       }, {
         "symbol" : "function",
-        "keyword" : "localeconv"
-      }, {
-        "symbol" : "function",
+        "description" : "Converts a time_t to a broken-down local time structure (accounting for timezone and DST).",
+        "shortDescription" : "Calendar time → struct",
         "keyword" : "localtime"
       }, {
         "symbol" : "function",
-        "keyword" : "log10"
-      }, {
-        "symbol" : "function",
+        "description" : "Returns the natural logarithm of x; x must be positive.",
+        "shortDescription" : "Natural logarithm",
         "keyword" : "log"
       }, {
         "symbol" : "function",
-        "keyword" : "longjmp"
+        "description" : "Returns the base-10 logarithm of x; x must be positive.",
+        "shortDescription" : "Base-10 logarithm",
+        "keyword" : "log10"
       }, {
         "symbol" : "function",
+        "description" : "Allocates size bytes of uninitialized memory; returns pointer or NULL on failure; alignment suitable for any object.",
+        "shortDescription" : "Allocate memory",
         "keyword" : "malloc"
       }, {
         "symbol" : "function",
-        "keyword" : "mblen"
-      }, {
-        "symbol" : "function",
-        "keyword" : "mbrlen"
-      }, {
-        "symbol" : "function",
-        "keyword" : "mbrtowc"
-      }, {
-        "symbol" : "function",
-        "keyword" : "mbsinit"
-      }, {
-        "symbol" : "function",
-        "keyword" : "mbsrtowcs"
-      }, {
-        "symbol" : "function",
-        "keyword" : "mbstowcs"
-      }, {
-        "symbol" : "function",
-        "keyword" : "mbtowc"
-      }, {
-        "symbol" : "function",
-        "keyword" : "memchr"
-      }, {
-        "symbol" : "function",
+        "description" : "Lexicographically compares two memory blocks; returns negative, zero, or positive as s1 is less than, equal to, or greater than s2.",
+        "shortDescription" : "Compare memory",
         "keyword" : "memcmp"
       }, {
         "symbol" : "function",
+        "description" : "Copies n bytes from src to dest; behavior undefined if regions overlap.",
+        "shortDescription" : "Copy memory",
         "keyword" : "memcpy"
       }, {
         "symbol" : "function",
+        "description" : "Copies n bytes from src to dest; correctly handles overlapping regions.",
+        "shortDescription" : "Safe copy memory",
         "keyword" : "memmove"
       }, {
         "symbol" : "function",
+        "description" : "Sets the first n bytes of the block pointed to by s to the specified unsigned char value.",
+        "shortDescription" : "Fill memory",
         "keyword" : "memset"
       }, {
         "symbol" : "function",
+        "description" : "Converts a local broken-down time structure to calendar time (time_t), normalizing out-of-range fields.",
+        "shortDescription" : "Struct → time_t",
         "keyword" : "mktime"
       }, {
         "symbol" : "function",
+        "description" : "Breaks x into fractional and integral parts, each with the same sign; returns fraction and stores integer via iptr.",
+        "shortDescription" : "Split fractional/integer",
         "keyword" : "modf"
       }, {
         "symbol" : "function",
-        "keyword" : "offsetof"
-      }, {
-        "symbol" : "function",
+        "description" : "Prints the user-supplied string followed by a colon and the current errno message to stderr.",
+        "shortDescription" : "Print error message",
         "keyword" : "perror"
       }, {
         "symbol" : "function",
+        "description" : "Returns x raised to the power y; domain and range errors are reported via errno & floating-point exceptions.",
+        "shortDescription" : "Power xʸ",
         "keyword" : "pow"
       }, {
         "symbol" : "function",
+        "description" : "Prints formatted text to the console according to the format string; returns number of characters printed.",
+        "shortDescription" : "Formatted output to stdout",
         "keyword" : "printf"
       }, {
         "symbol" : "function",
-        "keyword" : "putchar"
-      }, {
-        "symbol" : "function",
+        "description" : "Macro equivalent to fputc(); may evaluate the stream argument more than once.",
+        "shortDescription" : "Put character (macro)",
         "keyword" : "putc"
       }, {
         "symbol" : "function",
+        "description" : "Writes the character c (converted to unsigned char) to stdout; returns c or EOF on error.",
+        "shortDescription" : "Put char to stdout",
+        "keyword" : "putchar"
+      }, {
+        "symbol" : "function",
+        "description" : "Writes the string s to stdout followed by a newline; returns non-negative or EOF on error.",
+        "shortDescription" : "Put string + newline",
         "keyword" : "puts"
       }, {
         "symbol" : "function",
-        "keyword" : "putwc"
-      }, {
-        "symbol" : "function",
-        "keyword" : "putwchar"
-      }, {
-        "symbol" : "function",
+        "description" : "Sorts an array using the quick-sort algorithm; user supplies comparison function that returns negative/zero/positive.",
+        "shortDescription" : "Quick sort",
         "keyword" : "qsort"
       }, {
         "symbol" : "function",
-        "keyword" : "raise"
-      }, {
-        "symbol" : "function",
+        "description" : "Returns a pseudo-random integer in the range 0 to RAND_MAX (inclusive); must seed with srand() for different sequences.",
+        "shortDescription" : "Pseudo-random integer",
         "keyword" : "rand"
       }, {
         "symbol" : "function",
+        "description" : "Changes the size of the memory block pointed to by ptr; may move the block; returns new pointer or NULL on failure.",
+        "shortDescription" : "Resize allocation",
         "keyword" : "realloc"
       }, {
         "symbol" : "function",
+        "description" : "Deletes the named file; returns 0 on success, non-zero on failure.",
+        "shortDescription" : "Delete file",
         "keyword" : "remove"
       }, {
         "symbol" : "function",
+        "description" : "Changes the name of a file from old to new; returns 0 on success, non-zero on failure.",
+        "shortDescription" : "Rename file",
         "keyword" : "rename"
       }, {
         "symbol" : "function",
+        "description" : "Sets the file position indicator to the beginning of the stream and clears error and EOF flags.",
+        "shortDescription" : "Reset stream position",
         "keyword" : "rewind"
       }, {
         "symbol" : "function",
+        "description" : "Reads formatted data from stdin, storing values through the provided pointers; returns number of items successfully assigned.",
+        "shortDescription" : "Formatted input from stdin",
         "keyword" : "scanf"
       }, {
         "symbol" : "function",
+        "description" : "Assigns user-supplied buffer buf to the stream; passing NULL disables buffering; must be called after opening and before any I/O.",
+        "shortDescription" : "Set stream buffer",
         "keyword" : "setbuf"
       }, {
         "symbol" : "function",
-        "keyword" : "setjmp"
-      }, {
-        "symbol" : "function",
-        "keyword" : "setlocale"
-      }, {
-        "symbol" : "function",
+        "description" : "Fine-grained control: choose _IOFBF (full), _IOLBF (line), or _IONBF (none) buffering with a user or system buffer.",
+        "shortDescription" : "Custom stream buffering",
         "keyword" : "setvbuf"
       }, {
         "symbol" : "function",
-        "keyword" : "signal"
-      }, {
-        "symbol" : "function",
-        "keyword" : "sinh"
-      }, {
-        "symbol" : "function",
+        "description" : "Returns the sine of x (measured in radians).",
+        "shortDescription" : "Sine",
         "keyword" : "sin"
       }, {
         "symbol" : "function",
+        "description" : "Returns the hyperbolic sine of x.",
+        "shortDescription" : "Hyperbolic sine",
+        "keyword" : "sinh"
+      }, {
+        "symbol" : "function",
+        "description" : "Writes formatted text into the provided buffer; user must ensure the buffer is large enough; returns number of characters written.",
+        "shortDescription" : "Format to string",
         "keyword" : "sprintf"
       }, {
         "symbol" : "function",
+        "description" : "Returns the non-negative square root of x; x must be non-negative.",
+        "shortDescription" : "Square root",
         "keyword" : "sqrt"
       }, {
         "symbol" : "function",
+        "description" : "Seeds the pseudo-random number generator used by rand(); use a varying seed (e.g., time(NULL)) for different sequences.",
+        "shortDescription" : "Seed random generator",
         "keyword" : "srand"
       }, {
         "symbol" : "function",
+        "description" : "Reads formatted data from the string s, storing values through the provided pointers; returns number of items successfully assigned.",
+        "shortDescription" : "Scan from string",
         "keyword" : "sscanf"
       }, {
         "symbol" : "function",
+        "description" : "Appends the entire src string to dest; assumes dest has enough space; returns dest.",
+        "shortDescription" : "Concatenate strings",
         "keyword" : "strcat"
       }, {
         "symbol" : "function",
+        "description" : "Returns pointer to first occurrence of c in s, or NULL if not found.",
+        "shortDescription" : "Find character",
         "keyword" : "strchr"
       }, {
         "symbol" : "function",
+        "description" : "Lexicographically compares two NUL-terminated strings; returns negative, zero, or positive.",
+        "shortDescription" : "Compare strings",
         "keyword" : "strcmp"
       }, {
         "symbol" : "function",
-        "keyword" : "strcoll"
-      }, {
-        "symbol" : "function",
+        "description" : "Copies the NUL-terminated src string to dest; user must ensure dest is large enough; returns dest.",
+        "shortDescription" : "Copy string",
         "keyword" : "strcpy"
       }, {
         "symbol" : "function",
+        "description" : "Returns the length of the initial segment of s consisting entirely of characters not in reject.",
+        "shortDescription" : "Span complement",
         "keyword" : "strcspn"
       }, {
         "symbol" : "function",
-        "keyword" : "strerror"
-      }, {
-        "symbol" : "function",
-        "keyword" : "strftime"
-      }, {
-        "symbol" : "function",
+        "description" : "Returns the number of characters in the NUL-terminated string s.",
+        "shortDescription" : "String length",
         "keyword" : "strlen"
       }, {
         "symbol" : "function",
+        "description" : "Appends at most n characters from src to dest and always NUL-terminates; returns dest.",
+        "shortDescription" : "Concatenate bounded",
         "keyword" : "strncat"
       }, {
         "symbol" : "function",
+        "description" : "Compares at most n characters of two strings; returns negative, zero, or positive.",
+        "shortDescription" : "Compare bounded",
         "keyword" : "strncmp"
       }, {
         "symbol" : "function",
+        "description" : "Copies at most n characters; pads with NUL bytes if src is shorter; does not guarantee NUL-termination if src is longer.",
+        "shortDescription" : "Copy bounded",
         "keyword" : "strncpy"
       }, {
         "symbol" : "function",
+        "description" : "Returns pointer to the first character in s that matches any character in accept, or NULL if none.",
+        "shortDescription" : "Find first from set",
         "keyword" : "strpbrk"
       }, {
         "symbol" : "function",
+        "description" : "Returns pointer to last occurrence of c in s, or NULL if not found.",
+        "shortDescription" : "Find last character",
         "keyword" : "strrchr"
       }, {
         "symbol" : "function",
+        "description" : "Returns the length of the initial segment of s consisting entirely of characters in accept.",
+        "shortDescription" : "Span",
         "keyword" : "strspn"
       }, {
         "symbol" : "function",
+        "description" : "Returns pointer to first occurrence of needle in haystack, or NULL if not found.",
+        "shortDescription" : "Find substring",
         "keyword" : "strstr"
       }, {
         "symbol" : "function",
+        "description" : "Parses the initial portion of a string as a double; stores pointer to remainder in endptr if not NULL.",
+        "shortDescription" : "String → double",
         "keyword" : "strtod"
       }, {
         "symbol" : "function",
+        "description" : "Breaks string into tokens separated by any character in delim; maintains internal state between calls; not thread-safe.",
+        "shortDescription" : "Tokenize string",
         "keyword" : "strtok"
       }, {
         "symbol" : "function",
+        "description" : "Parses the initial portion of a string as a long in the specified base (0, 2–36); stores remainder pointer in endptr.",
+        "shortDescription" : "String → long",
         "keyword" : "strtol"
       }, {
         "symbol" : "function",
+        "description" : "Like strtol() but for unsigned long; correctly handles leading minus sign by wrapping.",
+        "shortDescription" : "String → unsigned long",
         "keyword" : "strtoul"
       }, {
         "symbol" : "function",
-        "keyword" : "strxfrm"
-      }, {
-        "symbol" : "function",
-        "keyword" : "swprintf"
-      }, {
-        "symbol" : "function",
-        "keyword" : "swscanf"
-      }, {
-        "symbol" : "function",
+        "description" : "Passes the command string to the host environment’s command processor; returns implementation-defined value.",
+        "shortDescription" : "Execute shell command",
         "keyword" : "system"
       }, {
         "symbol" : "function",
-        "keyword" : "tanh"
-      }, {
-        "symbol" : "function",
+        "description" : "Returns the tangent of x (measured in radians).",
+        "shortDescription" : "Tangent",
         "keyword" : "tan"
       }, {
         "symbol" : "function",
+        "description" : "Returns the hyperbolic tangent of x.",
+        "shortDescription" : "Hyperbolic tangent",
+        "keyword" : "tanh"
+      }, {
+        "symbol" : "function",
+        "description" : "Returns the current calendar time (seconds since epoch) as time_t; if timer is non-NULL also stores it there.",
+        "shortDescription" : "Current calendar time",
         "keyword" : "time"
       }, {
         "symbol" : "function",
+        "description" : "Creates a binary file that is automatically deleted when closed or on program termination; returns FILE pointer.",
+        "shortDescription" : "Temporary binary file",
         "keyword" : "tmpfile"
       }, {
         "symbol" : "function",
+        "description" : "Constructs a unique filename that does not already exist; up to TMP_MAX different names possible.",
+        "shortDescription" : "Generate temp name",
         "keyword" : "tmpnam"
       }, {
         "symbol" : "function",
+        "description" : "Converts an unsigned char to lower case if it is an upper-case letter in the current locale; returns input unchanged otherwise.",
+        "shortDescription" : "Lower-case character",
         "keyword" : "tolower"
       }, {
         "symbol" : "function",
+        "description" : "Converts an unsigned char to upper case if it is a lower-case letter in the current locale; returns input unchanged otherwise.",
+        "shortDescription" : "Upper-case character",
         "keyword" : "toupper"
       }, {
         "symbol" : "function",
+        "description" : "Pushes c (converted to unsigned char) back onto the stream; only one character of pushback is guaranteed.",
+        "shortDescription" : "Push character back",
         "keyword" : "ungetc"
       }, {
         "symbol" : "function",
+        "description" : "Pushes the wide character c back onto the stream; only one guaranteed pushback; returns c or WEOF on failure.",
+        "shortDescription" : "Push wide char back",
         "keyword" : "ungetwc"
       }, {
         "symbol" : "function",
+        "description" : "Expands to the next unnamed argument of the specified type; must be called once per argument in the order they appear.",
+        "shortDescription" : "Next var-arg value",
         "keyword" : "va_arg"
       }, {
         "symbol" : "function",
+        "description" : "Cleans up the va_list object after all arguments have been read; must be paired with every va_start/va_copy.",
+        "shortDescription" : "End var-arg traversal",
         "keyword" : "va_end"
       }, {
         "symbol" : "function",
+        "description" : "Initializes ap to point to the first unnamed argument after the fixed parameter last; must be called before va_arg.",
+        "shortDescription" : "Start var-arg traversal",
         "keyword" : "va_start"
       }, {
         "symbol" : "function",
+        "description" : "Writes formatted output to the given stream using a va_list; useful inside custom printf-style wrappers.",
+        "shortDescription" : "Var-arg fprintf",
         "keyword" : "vfprintf"
       }, {
         "symbol" : "function",
+        "description" : "Wide-character version of vfprintf; writes formatted wide text to the stream using a va_list.",
+        "shortDescription" : "Var-arg wide fprintf",
         "keyword" : "vfwprintf"
       }, {
         "symbol" : "function",
+        "description" : "Equivalent to printf but retrieves arguments from a va_list instead of the call stack.",
+        "shortDescription" : "Var-arg printf",
         "keyword" : "vprintf"
       }, {
         "symbol" : "function",
+        "description" : "Writes formatted text into the supplied buffer using a va_list; caller must ensure buffer is large enough.",
+        "shortDescription" : "Var-arg sprintf",
         "keyword" : "vsprintf"
       }, {
         "symbol" : "function",
+        "description" : "Wide-character version of vsprintf; writes formatted wide text into a wide buffer using a va_list.",
+        "shortDescription" : "Var-arg swprintf",
         "keyword" : "vswprintf"
       }, {
         "symbol" : "function",
+        "description" : "Wide-character version of vprintf; outputs formatted wide text to stdout using a va_list.",
+        "shortDescription" : "Var-arg wprintf",
         "keyword" : "vwprintf"
       }, {
         "symbol" : "function",
+        "description" : "Converts a wide character to its multibyte representation, storing it via s and updating the mbstate_t object.",
+        "shortDescription" : "Wide char → multibyte",
         "keyword" : "wcrtomb"
       }, {
         "symbol" : "function",
+        "description" : "Appends the wide string src to dest; assumes dest has enough space; returns dest.",
+        "shortDescription" : "Concatenate wide strings",
         "keyword" : "wcscat"
       }, {
         "symbol" : "function",
+        "description" : "Returns pointer to first occurrence of wc in ws, or NULL if not found.",
+        "shortDescription" : "Find wide char",
         "keyword" : "wcschr"
       }, {
         "symbol" : "function",
+        "description" : "Lexicographically compares two NUL-terminated wide strings; returns negative, zero, or positive.",
+        "shortDescription" : "Compare wide strings",
         "keyword" : "wcscmp"
       }, {
         "symbol" : "function",
+        "description" : "Compares two wide strings according to the current LC_COLLATE locale; useful for alphabetical ordering.",
+        "shortDescription" : "Locale wide compare",
         "keyword" : "wcscoll"
       }, {
         "symbol" : "function",
+        "description" : "Copies the NUL-terminated wide string src to dest; user must ensure dest is large enough; returns dest.",
+        "shortDescription" : "Copy wide string",
         "keyword" : "wcscpy"
       }, {
         "symbol" : "function",
+        "description" : "Returns the length of the initial segment of ws consisting entirely of wide characters not in reject.",
+        "shortDescription" : "Wide span complement",
         "keyword" : "wcscspn"
       }, {
         "symbol" : "function",
+        "description" : "Formats broken-down time into a wide string according to the supplied format and locale.",
+        "shortDescription" : "Format wide time",
         "keyword" : "wcsftime"
       }, {
         "symbol" : "function",
+        "description" : "Returns the number of wide characters in the NUL-terminated wide string ws.",
+        "shortDescription" : "Wide string length",
         "keyword" : "wcslen"
       }, {
         "symbol" : "function",
+        "description" : "Appends at most n wide characters from src to dest and always NUL-terminates; returns dest.",
+        "shortDescription" : "Bounded wide concat",
         "keyword" : "wcsncat"
       }, {
         "symbol" : "function",
+        "description" : "Compares at most n wide characters of two strings; returns negative, zero, or positive.",
+        "shortDescription" : "Bounded wide compare",
         "keyword" : "wcsncmp"
       }, {
         "symbol" : "function",
+        "description" : "Copies at most n wide characters; pads with NUL if src shorter; may omit final NUL if src longer.",
+        "shortDescription" : "Bounded wide copy",
         "keyword" : "wcsncpy"
       }, {
         "symbol" : "function",
+        "description" : "Returns pointer to first wide character in ws that matches any in accept, or NULL if none.",
+        "shortDescription" : "Find first from set (wide)",
         "keyword" : "wcspbrk"
       }, {
         "symbol" : "function",
+        "description" : "Returns pointer to last occurrence of wc in ws, or NULL if not found.",
+        "shortDescription" : "Find last wide char",
         "keyword" : "wcsrchr"
       }, {
         "symbol" : "function",
+        "description" : "Converts a wide string to multibyte, updating src pointer and mbstate_t; returns number of bytes stored.",
+        "shortDescription" : "Wide string → multibyte",
         "keyword" : "wcsrtombs"
       }, {
         "symbol" : "function",
+        "description" : "Returns length of initial segment of ws consisting entirely of wide characters in accept.",
+        "shortDescription" : "Wide span",
         "keyword" : "wcsspn"
       }, {
         "symbol" : "function",
+        "description" : "Returns pointer to first occurrence of needle in haystack, or NULL if not found.",
+        "shortDescription" : "Find wide substring",
         "keyword" : "wcsstr"
       }, {
         "symbol" : "function",
+        "description" : "Parses initial portion of wide string as double; stores address of remainder in endptr if not NULL.",
+        "shortDescription" : "Wide string → double",
         "keyword" : "wcstod"
       }, {
         "symbol" : "function",
+        "description" : "Breaks wide string into tokens separated by any wide character in delim; maintains internal state; not thread-safe.",
+        "shortDescription" : "Tokenize wide string",
         "keyword" : "wcstok"
       }, {
         "symbol" : "function",
+        "description" : "Parses initial portion of wide string as long in specified base; stores remainder pointer in endptr.",
+        "shortDescription" : "Wide string → long",
         "keyword" : "wcstol"
       }, {
         "symbol" : "function",
+        "description" : "Converts entire wide string to multibyte; returns number of bytes stored, or (size_t)-1 on error.",
+        "shortDescription" : "Wide string → multibyte",
         "keyword" : "wcstombs"
       }, {
         "symbol" : "function",
+        "description" : "Like wcstol() but for unsigned long; correctly handles leading minus sign by wrapping.",
+        "shortDescription" : "Wide string → unsigned long",
         "keyword" : "wcstoul"
       }, {
         "symbol" : "function",
+        "description" : "Transforms wide string so that wcscmp on transformed strings yields same order as wcscoll on originals.",
+        "shortDescription" : "Transform wide string",
         "keyword" : "wcsxfrm"
       }, {
         "symbol" : "function",
+        "description" : "Converts a wide character to a single-byte character if possible; returns EOF if no valid conversion.",
+        "shortDescription" : "Wide char → single byte",
         "keyword" : "wctob"
       }, {
         "symbol" : "function",
+        "description" : "Converts wide character to multibyte sequence, storing it via s and updating mbstate_t; returns number of bytes.",
+        "shortDescription" : "Wide char → multibyte",
         "keyword" : "wctomb"
       }, {
         "symbol" : "function",
+        "description" : "Locates first occurrence of wc in the initial n wide characters of ws; returns pointer or NULL.",
+        "shortDescription" : "Find wide char in memory",
         "keyword" : "wmemchr"
       }, {
         "symbol" : "function",
+        "description" : "Lexicographically compares two blocks of n wide characters; returns negative, zero, or positive.",
+        "shortDescription" : "Compare wide memory",
         "keyword" : "wmemcmp"
       }, {
         "symbol" : "function",
+        "description" : "Copies n wide characters from src to dest; behavior undefined if regions overlap.",
+        "shortDescription" : "Copy wide memory",
         "keyword" : "wmemcpy"
       }, {
         "symbol" : "function",
+        "description" : "Copies n wide characters from src to dest; correctly handles overlapping regions.",
+        "shortDescription" : "Safe copy wide memory",
         "keyword" : "wmemmove"
       }, {
         "symbol" : "function",
+        "description" : "Sets the first n wide characters of the block to wc; returns dest.",
+        "shortDescription" : "Fill wide memory",
         "keyword" : "wmemset"
       }, {
         "symbol" : "function",
+        "description" : "Prints formatted wide text to stdout according to the format string; returns number of wide characters printed.",
+        "shortDescription" : "Wide printf to stdout",
         "keyword" : "wprintf"
       }, {
         "symbol" : "function",
+        "description" : "Reads formatted wide text from stdin, storing values through provided pointers; returns number of items successfully assigned.",
+        "shortDescription" : "Wide scanf from stdin",
         "keyword" : "wscanf"
       } ],
       "shorthand" : [ ]
@@ -709,6 +927,6 @@
   },
   "name" : "Language Support for C",
   "description" : "Autocomplete for C: keywords, common types, and standard functions.",
-  "version" : "1.0.0",
+  "version" : "1.1.0",
   "enabled" : true
 }

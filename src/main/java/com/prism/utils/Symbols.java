@@ -1,6 +1,8 @@
 package com.prism.utils;
 
 import javax.swing.*;
+import java.util.List;
+
 public class Symbols {
     public static Icon getSymbolIcon(String symbol) {
         switch (symbol) {
@@ -34,5 +36,9 @@ public class Symbols {
             default:
                 return ResourceUtil.getIconFromSVG("icons/ui/symbol-keyword.svg", 16, 16);
         }
+    }
+
+    public static boolean isFunction(String symbolName) {
+        return List.of("method", "function").contains(symbolName);
     }
 }

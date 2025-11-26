@@ -155,27 +155,24 @@ public class TextArea extends RSyntaxTextArea {
             AutoCompletion ac = new AutoCompletion(provider);
             ac.setAutoActivationEnabled(true);
             ac.setAutoActivationDelay(prism.getConfig().getInt(ConfigKey.AUTOCOMPLETE_AUTO_POPUP_DELAY_MS, 250));
+            ac.setShowDescWindow(true);
 
             ac.setListCellRenderer(new CompletionCellRenderer() {
                 private final JLabel label = new JLabel();
+
+                {
+                    CompletionCellRenderer.setAlternateBackground(Theme.getSecondaryColor());
+                }
 
                 @Override
                 protected void prepareForOtherCompletion(JList<?> list,
                                                          Completion c, int index,
                                                          boolean selected, boolean hasFocus) {
                     super.prepareForOtherCompletion(list, c, index, selected, hasFocus);
+
                     setIcon(super.getIcon());
 
-                    String input = c.getInputText();
-
-                    String desc = c.getSummary();
-                    if (desc == null) desc = "";
-
-                    String html = String.format(
-                            "<html><body><b>%s</b> - %s</body></html>",
-                            input, desc);
-
-                    super.setToolTipText(html);
+					setToolTipText(c.getSummary());
                 }
             });
 
