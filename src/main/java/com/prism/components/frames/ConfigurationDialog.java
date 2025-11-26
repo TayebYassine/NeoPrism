@@ -803,19 +803,23 @@ public class ConfigurationDialog extends JFrame {
 
 			JCheckBox popupEnabled = checkbox("Autocomplete automatic popup menu", ConfigKey.AUTOCOMPLETE_AUTO_POPUP_ENABLED, true, true);
 			JSlider popupDelayMs = slider(100, 750, 50, ConfigKey.AUTOCOMPLETE_AUTO_POPUP_DELAY_MS, 250, true);
+			JCheckBox popupSortKeys = checkbox("Sort completion keys alphabetically", ConfigKey.AUTOCOMPLETE_SORT_KEYS, false);
 
 			popupEnabled.setEnabled(master.isSelected());
 			popupDelayMs.setEnabled(master.isSelected());
+			popupSortKeys.setEnabled(master.isSelected());
 
 			master.addActionListener(e -> {
 				popupEnabled.setEnabled(master.isSelected());
 				popupDelayMs.setEnabled(master.isSelected());
+				popupSortKeys.setEnabled(master.isSelected());
 			});
 
 			add(customSeparator("Autocomplete: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(master));
 			add(pair(popupEnabled));
+			add(pair(popupSortKeys));
 			add(pair(new JLabel("Popup menu delay (ms): "), popupDelayMs));
 		}
 	}

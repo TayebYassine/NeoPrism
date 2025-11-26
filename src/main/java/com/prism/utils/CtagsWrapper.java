@@ -64,7 +64,7 @@ public class CtagsWrapper {
 				String name = parts[0];
 				String kind = parts[1];
 
-				if (!kind.startsWith("__")) {
+				if (!name.startsWith("__")) {
 					bucket.computeIfAbsent(kind, k -> new ArrayList<>()).add(name);
 				}
 			}

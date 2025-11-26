@@ -6,7 +6,10 @@ import com.prism.managers.AutocompleteManager;
 import com.prism.utils.FontLoader;
 import com.prism.utils.Languages;
 import com.prism.utils.Theme;
-import org.fife.ui.autocomplete.*;
+import org.fife.ui.autocomplete.AutoCompletion;
+import org.fife.ui.autocomplete.Completion;
+import org.fife.ui.autocomplete.CompletionCellRenderer;
+import org.fife.ui.autocomplete.DefaultCompletionProvider;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxScheme;
 import org.fife.ui.rsyntaxtextarea.Token;
@@ -21,124 +24,124 @@ import java.util.Map;
 
 public class TextArea extends RSyntaxTextArea {
 
-    private static final Prism prism = Prism.getInstance();
+	private static final Prism prism = Prism.getInstance();
 
-    public TextArea(boolean... noConfigZoom) {
-        super();
+	public TextArea(boolean... noConfigZoom) {
+		super();
 
-        setAnimateBracketMatching(false);
-        setShowMatchedBracketPopup(prism.getConfig().getBoolean(ConfigKey.SHOW_MATCHED_BRACKET_POPUP, true));
-        setCodeFoldingEnabled(prism.getConfig().getBoolean(ConfigKey.CODE_FOLDING_ENABLED, true));
-        setAntiAliasingEnabled(prism.getConfig().getBoolean(ConfigKey.ANTI_ALIASING_ENABLED, true));
-        setTabSize(prism.getConfig().getInt(ConfigKey.TAB_SIZE, 4));
-        setTabsEmulated(true);
-        setAutoIndentEnabled(prism.getConfig().getBoolean(ConfigKey.AUTO_INDENT_ENABLED, true));
-        setCloseCurlyBraces(prism.getConfig().getBoolean(ConfigKey.CLOSE_CURLY_BRACES, true));
-        setCloseMarkupTags(prism.getConfig().getBoolean(ConfigKey.CLOSE_MARKUP_TAGS, true));
-        setBracketMatchingEnabled(prism.getConfig().getBoolean(ConfigKey.BRACKET_MATCHING_ENABLED, true));
-        setMarkOccurrences(prism.getConfig().getBoolean(ConfigKey.MARK_OCCURRENCES, true));
-        setFadeCurrentLineHighlight(prism.getConfig().getBoolean(ConfigKey.FADE_CURRENT_LINE_HIGHLIGHT, true));
-        setHighlightCurrentLine(prism.getConfig().getBoolean(ConfigKey.HIGHLIGHT_CURRENT_LINE, true));
-        setLineWrap(prism.getConfig().getBoolean(ConfigKey.WORD_WRAP_ENABLED, false));
-        setWrapStyleWord(prism.getConfig().getBoolean(ConfigKey.WORD_WRAP_STYLE_WORD, true));
+		setAnimateBracketMatching(false);
+		setShowMatchedBracketPopup(prism.getConfig().getBoolean(ConfigKey.SHOW_MATCHED_BRACKET_POPUP, true));
+		setCodeFoldingEnabled(prism.getConfig().getBoolean(ConfigKey.CODE_FOLDING_ENABLED, true));
+		setAntiAliasingEnabled(prism.getConfig().getBoolean(ConfigKey.ANTI_ALIASING_ENABLED, true));
+		setTabSize(prism.getConfig().getInt(ConfigKey.TAB_SIZE, 4));
+		setTabsEmulated(true);
+		setAutoIndentEnabled(prism.getConfig().getBoolean(ConfigKey.AUTO_INDENT_ENABLED, true));
+		setCloseCurlyBraces(prism.getConfig().getBoolean(ConfigKey.CLOSE_CURLY_BRACES, true));
+		setCloseMarkupTags(prism.getConfig().getBoolean(ConfigKey.CLOSE_MARKUP_TAGS, true));
+		setBracketMatchingEnabled(prism.getConfig().getBoolean(ConfigKey.BRACKET_MATCHING_ENABLED, true));
+		setMarkOccurrences(prism.getConfig().getBoolean(ConfigKey.MARK_OCCURRENCES, true));
+		setFadeCurrentLineHighlight(prism.getConfig().getBoolean(ConfigKey.FADE_CURRENT_LINE_HIGHLIGHT, true));
+		setHighlightCurrentLine(prism.getConfig().getBoolean(ConfigKey.HIGHLIGHT_CURRENT_LINE, true));
+		setLineWrap(prism.getConfig().getBoolean(ConfigKey.WORD_WRAP_ENABLED, false));
+		setWrapStyleWord(prism.getConfig().getBoolean(ConfigKey.WORD_WRAP_STYLE_WORD, true));
 
-        setHighlightSecondaryLanguages(false);
+		setHighlightSecondaryLanguages(false);
 
-        String fontName = prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Prism: IntelliJ Mono");
-        boolean isIntelliJMono = fontName.equals("Prism: IntelliJ Mono");
+		String fontName = prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Prism: IntelliJ Mono");
+		boolean isIntelliJMono = fontName.equals("Prism: IntelliJ Mono");
 
-        if (noConfigZoom.length == 1 && noConfigZoom[0]) {
-            if (isIntelliJMono) {
-                setFont(FontLoader.getIntelliJFont(12));
-            } else {
-                setFont(new Font(fontName, Font.PLAIN,  12));
-            }
-        } else {
-            if (isIntelliJMono) {
-                setFont(FontLoader.getIntelliJFont(prism.getConfig().getInt(ConfigKey.TEXTAREA_ZOOM, 12)));
-            } else {
-                setFont(new Font(fontName, Font.PLAIN, prism.getConfig().getInt(ConfigKey.TEXTAREA_ZOOM, 12)));
-            }
-        }
+		if (noConfigZoom.length == 1 && noConfigZoom[0]) {
+			if (isIntelliJMono) {
+				setFont(FontLoader.getIntelliJFont(12));
+			} else {
+				setFont(new Font(fontName, Font.PLAIN, 12));
+			}
+		} else {
+			if (isIntelliJMono) {
+				setFont(FontLoader.getIntelliJFont(prism.getConfig().getInt(ConfigKey.TEXTAREA_ZOOM, 12)));
+			} else {
+				setFont(new Font(fontName, Font.PLAIN, prism.getConfig().getInt(ConfigKey.TEXTAREA_ZOOM, 12)));
+			}
+		}
 
-        if (Theme.isDarkTheme()) {
-            setBackground(Theme.getSecondaryColor());
+		if (Theme.isDarkTheme()) {
+			setBackground(Theme.getSecondaryColor());
 
-            setCaretColor(Color.WHITE);
-            setDisabledTextColor(Theme.invertColor(getDisabledTextColor()));
-            setSelectedTextColor(Theme.invertColor(getSelectedTextColor()));
-            setSelectionColor(Theme.invertColor(getSelectionColor()));
-            setMarginLineColor(Theme.invertColor(getMarginLineColor()));
-            setMarkOccurrencesColor(Theme.invertColor(getMarkOccurrencesColor()));
-            setTabLineColor(Theme.invertColor(getTabLineColor()));
-            setCurrentLineHighlightColor(Theme.invertColor(getCurrentLineHighlightColor()));
-            setMarkAllHighlightColor(Theme.invertColor(getMarkAllHighlightColor()));
-            setMatchedBracketBGColor(Theme.invertColor(getMatchedBracketBGColor()));
-            setMatchedBracketBorderColor(Theme.invertColor(getMatchedBracketBorderColor()));
-        }
-    }
+			setCaretColor(Color.WHITE);
+			setDisabledTextColor(Theme.invertColor(getDisabledTextColor()));
+			setSelectedTextColor(Theme.invertColor(getSelectedTextColor()));
+			setSelectionColor(Theme.invertColor(getSelectionColor()));
+			setMarginLineColor(Theme.invertColor(getMarginLineColor()));
+			setMarkOccurrencesColor(Theme.invertColor(getMarkOccurrencesColor()));
+			setTabLineColor(Theme.invertColor(getTabLineColor()));
+			setCurrentLineHighlightColor(Theme.invertColor(getCurrentLineHighlightColor()));
+			setMarkAllHighlightColor(Theme.invertColor(getMarkAllHighlightColor()));
+			setMatchedBracketBGColor(Theme.invertColor(getMatchedBracketBGColor()));
+			setMatchedBracketBorderColor(Theme.invertColor(getMatchedBracketBorderColor()));
+		}
+	}
 
-    public void addSyntaxHighlighting() {
-        SyntaxScheme scheme = getSyntaxScheme();
+	private static Color parse(String hex) {
+		if (prism.getConfig().getBoolean(ConfigKey.INVERT_TEXTAREA_TOKEN_COLORS_FOR_DARK_THEME, true)) {
+			return Theme.invertColorIfDarkThemeSet(Color.decode(hex));
+		} else {
+			return Color.decode(hex);
+		}
+	}
 
-        /* -------------- Core language -------------- */
-        scheme.getStyle(Token.ANNOTATION).foreground = parse("#A57440");   // darker amber
-        scheme.getStyle(Token.RESERVED_WORD).foreground = parse("#9050B0");   // darker violet
-        scheme.getStyle(Token.RESERVED_WORD_2).foreground = parse("#9050B0");
+	public void addSyntaxHighlighting() {
+		SyntaxScheme scheme = getSyntaxScheme();
 
-        /* Literals */
-        scheme.getStyle(Token.LITERAL_STRING_DOUBLE_QUOTE).foreground = parse("#669C4D");   // darker green
-        scheme.getStyle(Token.LITERAL_CHAR).foreground = parse("#669C4D");
-        scheme.getStyle(Token.LITERAL_BACKQUOTE).foreground = parse("#669C4D");
+		/* -------------- Core language -------------- */
+		scheme.getStyle(Token.ANNOTATION).foreground = parse("#A57440");   // darker amber
+		scheme.getStyle(Token.RESERVED_WORD).foreground = parse("#9050B0");   // darker violet
+		scheme.getStyle(Token.RESERVED_WORD_2).foreground = parse("#9050B0");
 
-        scheme.getStyle(Token.LITERAL_BOOLEAN).foreground = parse("#3F8A8F");   // darker cyan
+		/* Literals */
+		scheme.getStyle(Token.LITERAL_STRING_DOUBLE_QUOTE).foreground = parse("#669C4D");   // darker green
+		scheme.getStyle(Token.LITERAL_CHAR).foreground = parse("#669C4D");
+		scheme.getStyle(Token.LITERAL_BACKQUOTE).foreground = parse("#669C4D");
 
-        scheme.getStyle(Token.LITERAL_NUMBER_DECIMAL_INT).foreground = parse("#B35055");   // darker red
-        scheme.getStyle(Token.LITERAL_NUMBER_FLOAT).foreground = parse("#B35055");
-        scheme.getStyle(Token.LITERAL_NUMBER_HEXADECIMAL).foreground = parse("#B35055");
+		scheme.getStyle(Token.LITERAL_BOOLEAN).foreground = parse("#3F8A8F");   // darker cyan
 
-        scheme.getStyle(Token.REGEX).foreground = parse("#B89550");   // darker yellow
+		scheme.getStyle(Token.LITERAL_NUMBER_DECIMAL_INT).foreground = parse("#B35055");   // darker red
+		scheme.getStyle(Token.LITERAL_NUMBER_FLOAT).foreground = parse("#B35055");
+		scheme.getStyle(Token.LITERAL_NUMBER_HEXADECIMAL).foreground = parse("#B35055");
 
-        /* Comments */
-        scheme.getStyle(Token.COMMENT_MULTILINE).foreground = parse("#4B5260");   // darker grey
-        scheme.getStyle(Token.COMMENT_DOCUMENTATION).foreground = parse("#4B5260");
-        scheme.getStyle(Token.COMMENT_EOL).foreground = parse("#4B5260");
+		scheme.getStyle(Token.REGEX).foreground = parse("#B89550");   // darker yellow
 
-        /* Structural */
-        scheme.getStyle(Token.SEPARATOR).foreground = parse("#000000");   // BLACK
-        scheme.getStyle(Token.OPERATOR).foreground = parse("#000000");   // BLACK
-        scheme.getStyle(Token.IDENTIFIER).foreground = parse("#000000");   // BLACK
-        scheme.getStyle(Token.VARIABLE).foreground = parse("#B35055");   // same darker red
-        scheme.getStyle(Token.FUNCTION).foreground = parse("#4C8DBF");   // darker blue
-        scheme.getStyle(Token.PREPROCESSOR).foreground = parse("#9050B0");   // darker violet
+		/* Comments */
+		scheme.getStyle(Token.COMMENT_MULTILINE).foreground = parse("#4B5260");   // darker grey
+		scheme.getStyle(Token.COMMENT_DOCUMENTATION).foreground = parse("#4B5260");
+		scheme.getStyle(Token.COMMENT_EOL).foreground = parse("#4B5260");
 
-        /* -------------- Markup (HTML/XML) -------------- */
-        scheme.getStyle(Token.MARKUP_CDATA).foreground = parse("#669C4D");
-        scheme.getStyle(Token.MARKUP_COMMENT).foreground = parse("#4B5260");
-        scheme.getStyle(Token.MARKUP_DTD).foreground = parse("#B35055");
-        scheme.getStyle(Token.MARKUP_TAG_ATTRIBUTE).foreground = parse("#A57440");
-        scheme.getStyle(Token.MARKUP_TAG_ATTRIBUTE_VALUE).foreground = parse("#669C4D");
-        scheme.getStyle(Token.MARKUP_TAG_DELIMITER).foreground = parse("#000000");   // BLACK
-        scheme.getStyle(Token.MARKUP_TAG_NAME).foreground = parse("#B35055");
+		/* Structural */
+		scheme.getStyle(Token.SEPARATOR).foreground = parse("#000000");   // BLACK
+		scheme.getStyle(Token.OPERATOR).foreground = parse("#000000");   // BLACK
+		scheme.getStyle(Token.IDENTIFIER).foreground = parse("#000000");   // BLACK
+		scheme.getStyle(Token.VARIABLE).foreground = parse("#B35055");   // same darker red
+		scheme.getStyle(Token.FUNCTION).foreground = parse("#4C8DBF");   // darker blue
+		scheme.getStyle(Token.PREPROCESSOR).foreground = parse("#9050B0");   // darker violet
 
-        setSyntaxScheme(scheme);
-    }
+		/* -------------- Markup (HTML/XML) -------------- */
+		scheme.getStyle(Token.MARKUP_CDATA).foreground = parse("#669C4D");
+		scheme.getStyle(Token.MARKUP_COMMENT).foreground = parse("#4B5260");
+		scheme.getStyle(Token.MARKUP_DTD).foreground = parse("#B35055");
+		scheme.getStyle(Token.MARKUP_TAG_ATTRIBUTE).foreground = parse("#A57440");
+		scheme.getStyle(Token.MARKUP_TAG_ATTRIBUTE_VALUE).foreground = parse("#669C4D");
+		scheme.getStyle(Token.MARKUP_TAG_DELIMITER).foreground = parse("#000000");   // BLACK
+		scheme.getStyle(Token.MARKUP_TAG_NAME).foreground = parse("#B35055");
 
-    private static Color parse(String hex) {
-        if (prism.getConfig().getBoolean(ConfigKey.INVERT_TEXTAREA_TOKEN_COLORS_FOR_DARK_THEME, true)) {
-            return Theme.invertColorIfDarkThemeSet(Color.decode(hex));
-        } else {
-            return Color.decode(hex);
-        }
-    }
+		setSyntaxScheme(scheme);
+	}
 
-    public void setAutocomplete(File file, Map<String, List<String>> symbols) {
-        try {
-            String lang = Languages.getFullName(file);
+	public void setAutocomplete(File file, Map<String, List<String>> symbols) {
+		try {
+			String lang = Languages.getFullName(file);
 
-            if (lang == null) return;
+			if (lang == null) return;
 
-            DefaultCompletionProvider provider = new DefaultCompletionProvider() {
+			DefaultCompletionProvider provider = new DefaultCompletionProvider() {
 				@Override
 				public List<Completion> getCompletions(JTextComponent comp) {
 					RSyntaxTextArea area = (RSyntaxTextArea) comp;
@@ -159,6 +162,10 @@ public class TextArea extends RSyntaxTextArea {
 						);
 						completions.addAll(AutocompleteManager.getSymbols(this, prism.getSymbolsPanel().getSymbols()));
 
+						if (prism.getConfig().getBoolean(ConfigKey.AUTOCOMPLETE_SORT_KEYS, false)) {
+							completions.sort((a, b) -> a.getInputText().compareToIgnoreCase(b.getInputText()));
+						}
+
 						String inputAfterDot = left.substring(dot + 1);
 						completions.removeIf(c -> !c.getInputText().toLowerCase().startsWith(inputAfterDot.toLowerCase()));
 
@@ -168,6 +175,10 @@ public class TextArea extends RSyntaxTextArea {
 					List<Completion> currentCompletions = super.getCompletions(comp);
 					currentCompletions.addAll(AutocompleteManager.getSymbols(this, prism.getSymbolsPanel().getSymbols()));
 
+					if (prism.getConfig().getBoolean(ConfigKey.AUTOCOMPLETE_SORT_KEYS, false)) {
+						currentCompletions.sort((a, b) -> a.getInputText().compareToIgnoreCase(b.getInputText()));
+					}
+
 					String currentWord = getAlreadyEnteredText(comp);
 					if (currentWord != null && !currentWord.isEmpty()) {
 						currentCompletions.removeIf(c -> !c.getInputText().toLowerCase().startsWith(currentWord.toLowerCase()));
@@ -175,88 +186,88 @@ public class TextArea extends RSyntaxTextArea {
 
 					return currentCompletions;
 				}
-            };
+			};
 
-            provider.setAutoActivationRules(true, ".");
+			provider.setAutoActivationRules(true, ".");
 
-            AutocompleteManager.installShorthandCompletion(provider, lang);
+			AutocompleteManager.installShorthandCompletion(provider, lang);
 
-            AutoCompletion ac = new AutoCompletion(provider);
-            ac.setAutoActivationEnabled(true);
-            ac.setAutoActivationDelay(prism.getConfig().getInt(ConfigKey.AUTOCOMPLETE_AUTO_POPUP_DELAY_MS, 250));
-            ac.setShowDescWindow(true);
+			AutoCompletion ac = new AutoCompletion(provider);
+			ac.setAutoActivationEnabled(true);
+			ac.setAutoActivationDelay(prism.getConfig().getInt(ConfigKey.AUTOCOMPLETE_AUTO_POPUP_DELAY_MS, 250));
+			ac.setShowDescWindow(true);
 
-            ac.setListCellRenderer(new CompletionCellRenderer() {
-                private final JLabel label = new JLabel();
+			ac.setListCellRenderer(new CompletionCellRenderer() {
+				private final JLabel label = new JLabel();
 
-                {
-                    CompletionCellRenderer.setAlternateBackground(Theme.getSecondaryColor());
-                }
+				{
+					CompletionCellRenderer.setAlternateBackground(Theme.getSecondaryColor());
+				}
 
-                @Override
-                protected void prepareForOtherCompletion(JList<?> list,
-                                                         Completion c, int index,
-                                                         boolean selected, boolean hasFocus) {
-                    super.prepareForOtherCompletion(list, c, index, selected, hasFocus);
+				@Override
+				protected void prepareForOtherCompletion(JList<?> list,
+														 Completion c, int index,
+														 boolean selected, boolean hasFocus) {
+					super.prepareForOtherCompletion(list, c, index, selected, hasFocus);
 
-                    setIcon(super.getIcon());
+					setIcon(super.getIcon());
 
 					setToolTipText(c.getSummary());
-                }
-            });
+				}
+			});
 
-            ac.install(this);
+			ac.install(this);
 
-        } catch (Exception ignore) {
-        }
-    }
+		} catch (Exception ignore) {
+		}
+	}
 
-    public void setCursorOnLine(int line) {
-        Document doc = getDocument();
-        try {
-            int lineStartOffset = doc.getDefaultRootElement().getElement(line).getStartOffset();
-            setCaretPosition(lineStartOffset);
-            requestFocusInWindow();
-        } catch (ArrayIndexOutOfBoundsException e) {
+	public void setCursorOnLine(int line) {
+		Document doc = getDocument();
+		try {
+			int lineStartOffset = doc.getDefaultRootElement().getElement(line).getStartOffset();
+			setCaretPosition(lineStartOffset);
+			requestFocusInWindow();
+		} catch (ArrayIndexOutOfBoundsException e) {
 
-        }
-    }
+		}
+	}
 
-    public void replace(String newText) {
-        Document doc = getDocument();
-        try {
-            beginAtomicEdit();
+	public void replace(String newText) {
+		Document doc = getDocument();
+		try {
+			beginAtomicEdit();
 
-            try {
-                doc.remove(0, doc.getLength());
-                doc.insertString(0, newText, null);
-            } finally {
-                endAtomicEdit();
-            }
-        } catch (BadLocationException ex) {
+			try {
+				doc.remove(0, doc.getLength());
+				doc.insertString(0, newText, null);
+			} finally {
+				endAtomicEdit();
+			}
+		} catch (BadLocationException ex) {
 
-        }
-    }
+		}
+	}
 
-    public void replace(String newText, boolean rememberLastCaretPosition) {
-        Document doc = getDocument();
-        try {
-            final int pos = getCaretPosition();
+	public void replace(String newText, boolean rememberLastCaretPosition) {
+		Document doc = getDocument();
+		try {
+			final int pos = getCaretPosition();
 
-            beginAtomicEdit();
+			beginAtomicEdit();
 
-            try {
-                doc.remove(0, doc.getLength());
-                doc.insertString(0, newText, null);
+			try {
+				doc.remove(0, doc.getLength());
+				doc.insertString(0, newText, null);
 
-                if (rememberLastCaretPosition) {
-                    setCaretPosition(pos);
-                }
-            } finally {
-                endAtomicEdit();
-            }
-        } catch (BadLocationException ex) {
+				if (rememberLastCaretPosition) {
+					setCaretPosition(pos);
+				}
+			} finally {
+				endAtomicEdit();
+			}
+		} catch (BadLocationException ex) {
 
-        }
-    }
+		}
+	}
 }
