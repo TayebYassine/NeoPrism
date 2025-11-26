@@ -19,11 +19,8 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreeSelectionModel;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 
 public class ConfigurationDialog extends JFrame {
 
@@ -616,6 +613,11 @@ public class ConfigurationDialog extends JFrame {
 
 			add(pair(new JLabel("Font: "), fontFamiliesCombo));
 
+			add(pair(checkbox("Show Process output code", ConfigKey.SHOW_PROCESS_TERMINATION_CODE_OUTPUT, true)));
+
+			add(Box.createVerticalStrut(20));
+			add(customSeparator("Shell: ", UIManager.getColor("Component.linkColor")));
+
 			JComboBox<Object> defaultShellCombo = fixedCombo(new String[]{
 					"Command Prompt",
 					"Powershell"
@@ -628,8 +630,6 @@ public class ConfigurationDialog extends JFrame {
 			});
 
 			add(pair(new JLabel("Default shell: "), defaultShellCombo));
-
-			add(pair(checkbox("Show Process output code", ConfigKey.SHOW_PROCESS_TERMINATION_CODE_OUTPUT, true)));
 		}
 	}
 
@@ -684,7 +684,11 @@ public class ConfigurationDialog extends JFrame {
 
 	/* ------------ SyntaxHighlightingPanel ------------ */
 	private final class SyntaxHighlightingPanel extends JPanel {
+		private final String[] SAMPLES = {C_SAMPLE, JAVA_SAMPLE, GROOVY_SAMPLE, TYPESCRIPT_SAMPLE, HTML_SAMPLE};
+		private final String[] STYLES = {SyntaxConstants.SYNTAX_STYLE_C, SyntaxConstants.SYNTAX_STYLE_JAVA, SyntaxConstants.SYNTAX_STYLE_GROOVY, SyntaxConstants.SYNTAX_STYLE_TYPESCRIPT, SyntaxConstants.SYNTAX_STYLE_HTML};
+
 		private final Map<String, ConfigKey> tokenMap = new LinkedHashMap<>();
+		private JCheckBox invertColors;
 		private JComboBox<Object> tokenCombo;
 		private final JButton colorBtn = new JButton();
 
@@ -726,41 +730,48 @@ public class ConfigurationDialog extends JFrame {
 			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 			setBorder(new EmptyBorder(5, 5, 5, 5));
 
+			JComboBox<Object> lang = fixedCombo(new String[]{"C", "Java", "Groovy", "TypeScript", "HTML"});
+			TextArea ta = new TextArea(true);
+			ta.setEditable(false);
+			ta.setText(SAMPLES[0]);
+			ta.setSyntaxEditingStyle(STYLES[0]);
+			ta.addSyntaxHighlighting();
+
+			lang.addActionListener(e -> {
+				updateTextPreview(ta, lang);
+			});
+
+			invertColors = checkbox("Invert colors for Dark theme?", ConfigKey.INVERT_TEXTAREA_TOKEN_COLORS_FOR_DARK_THEME, true, true);
 			tokenCombo = fixedCombo(tokenMap.keySet().toArray(String[]::new));
 			colorBtn.setOpaque(true);
+
+			invertColors.addActionListener(e -> {
+				syncColorButton();
+				updateTextPreview(ta, lang);
+			});
 			tokenCombo.addActionListener(e -> syncColorButton());
 			colorBtn.addActionListener(e -> pickColor());
 
 			add(customSeparator("Overriding: ", UIManager.getColor("Component.linkColor")));
 
-			add(pair(checkbox("Invert colors for Dark theme?", ConfigKey.INVERT_TEXTAREA_TOKEN_COLORS_FOR_DARK_THEME, true, true)));
+			add(pair(invertColors));
 
 			add(Box.createVerticalStrut(20));
 			add(customSeparator("Highlighters: ", UIManager.getColor("Component.linkColor")));
 
 			add(pair(new JLabel("Token: "), tokenCombo, Box.createHorizontalStrut(5), colorBtn));
 
-			String[] samples = {C_SAMPLE, JAVA_SAMPLE, GROOVY_SAMPLE, TYPESCRIPT_SAMPLE, HTML_SAMPLE};
-			String[] styles = {SyntaxConstants.SYNTAX_STYLE_C, SyntaxConstants.SYNTAX_STYLE_JAVA, SyntaxConstants.SYNTAX_STYLE_GROOVY, SyntaxConstants.SYNTAX_STYLE_TYPESCRIPT, SyntaxConstants.SYNTAX_STYLE_HTML};
-
-			JComboBox<Object> lang = fixedCombo(new String[]{"C", "Java", "Groovy", "TypeScript", "HTML"});
-			TextArea ta = new TextArea(true);
-			ta.setEditable(false);
-			ta.setText(samples[0]);
-			ta.setSyntaxEditingStyle(styles[0]);
-			ta.addSyntaxHighlighting();
-
-			lang.addActionListener(e -> {
-				int i = lang.getSelectedIndex();
-				ta.setText(samples[i]);
-				ta.setSyntaxEditingStyle(styles[i]);
-				ta.addSyntaxHighlighting();
-			});
-
 			add(pair(new JLabel("Preview: "), lang));
 			add(pair(new JDefaultKineticScrollPane(ta)));
 
 			syncColorButton();
+		}
+
+		private void updateTextPreview(TextArea ta, JComboBox<Object> lang) {
+			int i = lang.getSelectedIndex();
+			ta.setText(SAMPLES[i]);
+			ta.setSyntaxEditingStyle(STYLES[i]);
+			ta.addSyntaxHighlighting();
 		}
 
 		private void syncColorButton() {
@@ -770,7 +781,7 @@ public class ConfigurationDialog extends JFrame {
 
 			Color c;
 
-			if (prism.getConfig().getBoolean(ConfigKey.INVERT_TEXTAREA_TOKEN_COLORS_FOR_DARK_THEME, true)) {
+			if (invertColors.isSelected()/*prism.getConfig().getBoolean(ConfigKey.INVERT_TEXTAREA_TOKEN_COLORS_FOR_DARK_THEME, true)*/) {
 				c = Theme.invertColorIfDarkThemeSet(Color.decode(hex));
 			} else {
 				c = Color.decode(hex);

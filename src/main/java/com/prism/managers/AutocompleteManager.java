@@ -56,7 +56,7 @@ public class AutocompleteManager {
 
 			for (String kw : entry.getValue()) {
 				String shortDesc = "Defined in the program";
-				String desc = "This keyword is defined within the program.\n\nThis may be used as a field or property, careful with the types!";
+				String desc = "This keyword is defined within the program.";
 
 				BasicCompletion bc = new BasicCompletion(provider, kw, shortDesc, getHTMLDescription(kw, desc, null, null, Symbols.isFunction(sym)));
 

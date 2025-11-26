@@ -14,6 +14,8 @@ public class FontLoader {
 			try (InputStream is = FontLoader.class.getResourceAsStream("/fonts/JetBrainsMono.ttf")) {
 				assert is != null;
 				FONT = Font.createFont(Font.TRUETYPE_FONT, is);
+				GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+				ge.registerFont(FONT);
 			} catch (Exception ex) {
 				new ErrorDialog(Prism.getInstance(), ex);
 			}

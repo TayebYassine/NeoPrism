@@ -37,8 +37,8 @@ import java.util.List;
 import java.util.Map;
 
 public class Prism extends JFrame {
-	private static final String VERSION = "1.0.2";
-	private static final String BUILD_INFO = "November 24th, 2025 11:17 PM";
+	private static final String VERSION = "1.1.0";
+	private static final String BUILD_INFO = "November 26th, 2025 10:06 PM";
 	private static final boolean SNAPSHOT = false;
 
 	private static final String WINDOW_TITLE = "Prism";
