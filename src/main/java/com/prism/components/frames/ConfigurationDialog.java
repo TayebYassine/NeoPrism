@@ -559,10 +559,10 @@ public class ConfigurationDialog extends JFrame {
 			List<String> fixedFontFamilies = Arrays.asList(ge.getAvailableFontFamilyNames());
 			ArrayList<String> fontFamilies = new ArrayList<>(fixedFontFamilies);
 
-			fontFamilies.add("Prism: IntelliJ Mono");
+			fontFamilies.add("Prism: JetBrains Mono");
 
 			JComboBox<Object> fontFamiliesCombo = fixedCombo(fontFamilies.stream().toArray(), true);
-			fontFamiliesCombo.setSelectedItem(prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Prism: IntelliJ Mono"));
+			fontFamiliesCombo.setSelectedItem(prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Prism: JetBrains Mono"));
 			fontFamiliesCombo.addActionListener(e -> {
 				prism.getConfig().set(ConfigKey.TEXT_AREA_FONT_NAME, (String) fontFamiliesCombo.getSelectedItem(), false);
 
@@ -600,7 +600,21 @@ public class ConfigurationDialog extends JFrame {
 
 			add(customSeparator("Terminal: ", UIManager.getColor("Component.linkColor")));
 
-			add(pair(checkbox("Show Process output code", ConfigKey.SHOW_PROCESS_TERMINATION_CODE_OUTPUT, true)));
+			GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+			List<String> fixedFontFamilies = Arrays.asList(ge.getAvailableFontFamilyNames());
+			ArrayList<String> fontFamilies = new ArrayList<>(fixedFontFamilies);
+
+			fontFamilies.add("Prism: JetBrains Mono");
+
+			JComboBox<Object> fontFamiliesCombo = fixedCombo(fontFamilies.stream().toArray(), true);
+			fontFamiliesCombo.setSelectedItem(prism.getConfig().getString(ConfigKey.TERMINAL_FONT_NAME, "Prism: JetBrains Mono"));
+			fontFamiliesCombo.addActionListener(e -> {
+				prism.getConfig().set(ConfigKey.TERMINAL_FONT_NAME, (String) fontFamiliesCombo.getSelectedItem(), false);
+
+				enableApplyButton();
+			});
+
+			add(pair(new JLabel("Font: "), fontFamiliesCombo));
 
 			JComboBox<Object> defaultShellCombo = fixedCombo(new String[]{
 					"Command Prompt",
@@ -614,6 +628,8 @@ public class ConfigurationDialog extends JFrame {
 			});
 
 			add(pair(new JLabel("Default shell: "), defaultShellCombo));
+
+			add(pair(checkbox("Show Process output code", ConfigKey.SHOW_PROCESS_TERMINATION_CODE_OUTPUT, true)));
 		}
 	}
 

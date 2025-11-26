@@ -47,8 +47,8 @@ public class TextArea extends RSyntaxTextArea {
 
 		setHighlightSecondaryLanguages(false);
 
-		String fontName = prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Prism: IntelliJ Mono");
-		boolean isIntelliJMono = fontName.equals("Prism: IntelliJ Mono");
+		String fontName = prism.getConfig().getString(ConfigKey.TEXT_AREA_FONT_NAME, "Prism: JetBrains Mono");
+		boolean isIntelliJMono = fontName.equals("Prism: JetBrains Mono");
 
 		if (noConfigZoom.length == 1 && noConfigZoom[0]) {
 			if (isIntelliJMono) {

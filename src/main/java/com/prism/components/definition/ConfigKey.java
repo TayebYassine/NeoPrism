@@ -58,6 +58,7 @@ public enum ConfigKey {
     TEXT_AREA_FONT_NAME(50),
     AUTOCOMPLETE_AUTO_POPUP_DELAY_MS(51),
     AUTOCOMPLETE_SORT_KEYS(52),
+    TERMINAL_FONT_NAME(53),
 
     // Token color keys
     ANNOTATION(1000),
