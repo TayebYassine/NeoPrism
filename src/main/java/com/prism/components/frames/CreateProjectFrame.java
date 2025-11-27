@@ -2,10 +2,7 @@ package com.prism.components.frames;
 
 import com.prism.Prism;
 import com.prism.managers.FileManager;
-import com.prism.services.Service;
-import com.prism.services.ServiceForC;
-import com.prism.services.ServiceForCPlusPlus;
-import com.prism.services.ServiceForJava;
+import com.prism.projects.ProjectsGridFrame;
 import com.prism.utils.ProjectNameGenerator;
 import com.prism.utils.ResourceUtil;
 
@@ -16,12 +13,8 @@ import java.io.File;
 public class CreateProjectFrame extends JFrame {
 	private static final Prism prism = Prism.getInstance();
 
-	private static final String[] languages = {"Empty (no pre-set language)", "C", "C++", "Java"};
-	private final Service[] services = {null, new ServiceForC(), new ServiceForCPlusPlus(), new ServiceForJava()};
-
 	private long clickCounter = 0;
 	private JTextField projectNameField;
-	private JComboBox<String> languageCombo;
 	private JTextField parentDirField;
 
     public CreateProjectFrame() {
@@ -68,21 +61,9 @@ public class CreateProjectFrame extends JFrame {
 		gbc.weightx = 1.0;
 		form.add(projectNamePanel, gbc);
 
-		// Language
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.weightx = 0;
-		form.add(new JLabel(prism.getLanguage().get(10)), gbc);
-
-		languageCombo = new JComboBox<>(languages);
-		gbc.gridx = 1;
-		gbc.gridy = 1;
-		gbc.weightx = 1.0;
-		form.add(languageCombo, gbc);
-
 		// Parent Directory
 		gbc.gridx = 0;
-		gbc.gridy = 2;
+		gbc.gridy = 1;
 		gbc.weightx = 0;
 		form.add(new JLabel(prism.getLanguage().get(11)), gbc);
 
@@ -95,7 +76,7 @@ public class CreateProjectFrame extends JFrame {
 		dirPanel.add(chooseDirButton, BorderLayout.EAST);
 
 		gbc.gridx = 1;
-		gbc.gridy = 2;
+		gbc.gridy = 1;
 		gbc.weightx = 1.0;
 		form.add(dirPanel, gbc);
 
@@ -103,9 +84,9 @@ public class CreateProjectFrame extends JFrame {
 
 		// Buttons
 		JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        JButton createButton = new JButton(prism.getLanguage().get(12));
+        JButton nextButton = new JButton(prism.getLanguage().get(241));
         JButton cancelButton = new JButton(prism.getLanguage().get(13));
-		buttons.add(createButton);
+		buttons.add(nextButton);
 		buttons.add(cancelButton);
 		main.add(buttons, BorderLayout.SOUTH);
 
@@ -128,7 +109,7 @@ public class CreateProjectFrame extends JFrame {
 		});
 		chooseDirButton.addActionListener(e -> onChooseDirectory());
 		cancelButton.addActionListener(e -> onCancel());
-		createButton.addActionListener(e -> onCreateProject());
+		nextButton.addActionListener(e -> onNext());
 	}
 
 	private void onChooseDirectory() {
@@ -149,9 +130,8 @@ public class CreateProjectFrame extends JFrame {
 		dispose();
 	}
 
-	private void onCreateProject() {
+	private void onNext() {
 		String projectName = projectNameField.getText().trim();
-		int langIndex = languageCombo.getSelectedIndex();
 
 		if (projectName.isEmpty()) {
 			JOptionPane.showMessageDialog(this, prism.getLanguage().get(72), prism.getLanguage().get(10000), JOptionPane.ERROR_MESSAGE);
@@ -181,25 +161,7 @@ public class CreateProjectFrame extends JFrame {
 			return;
 		}
 
-		boolean created = projectDir.mkdirs();
-		if (!created) {
-			JOptionPane.showMessageDialog(this, prism.getLanguage().get(77), prism.getLanguage().get(10002), JOptionPane.ERROR_MESSAGE);
-			return;
-		}
-
-		Service chosenService = services[langIndex];
-
-		if (chosenService != null) {
-			boolean createdProjectFiles = chosenService.createNewProject(projectDir);
-
-			if (!createdProjectFiles) {
-				JOptionPane.showMessageDialog(this, prism.getLanguage().get(78), prism.getLanguage().get(10003), JOptionPane.WARNING_MESSAGE);
-				return;
-			}
-		}
-
-		FileManager.setRootDirectory(projectDir);
-		prism.getTextAreaTabbedPane().closeAllTabs();
+		new ProjectsGridFrame(projectDir);
 
 		dispose();
 	}

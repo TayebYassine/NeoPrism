@@ -231,6 +231,11 @@
 238: "Ctags executable file not found!"
 239: "Close Tabs on Right"
 240: "Close other Tabs"
+241: "Next"
+242: "Application Templates"
+243: "Selected: None"
+244: "No thanks"
+245: "Selected: %0"
 
 10000: "Error: Incomplete arguments"
 10001: "Error: Invalid argument"
