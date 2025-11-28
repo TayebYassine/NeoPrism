@@ -100,7 +100,7 @@ public class ServiceForC extends Service {
 			return;
 		}
 
-		String[] opts = {"--language-force=C", "--kinds-C=fvgesut"};
+		String[] opts = prism.getConfig().getString(ConfigKey.LANGUAGE_C_CTAGS_OPTIONS, "--language-force=C --kinds-C=*").split(" ");
 
 		CtagsWrapper.extractSymbolsAsync(
 				pf.getFile(),
@@ -213,9 +213,7 @@ public class ServiceForC extends Service {
 		}
 
 		AStyleWrapper.formatFileAsync(pf.getFile(), aStyleFile.getAbsolutePath(),
-				String.format("--style=java --indent=spaces=%d",
-						prism.getConfig().getInt(ConfigKey.TAB_SIZE, 4)
-				),
+				AStyleWrapper.getOptionsFromConfig("kr"),
 				new AStyleWrapper.Callback() {
 					@Override
 					public void onSuccess(String formattedText) {

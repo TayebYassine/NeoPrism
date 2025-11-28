@@ -4,6 +4,7 @@ import com.prism.Prism;
 import com.prism.components.definition.ConfigKey;
 import com.prism.components.definition.Language;
 import com.prism.components.extended.JDefaultKineticScrollPane;
+import com.prism.components.extended.JExtendedTextField;
 import com.prism.components.textarea.TextArea;
 import com.prism.managers.FileManager;
 import com.prism.utils.ResourceUtil;
@@ -12,7 +13,7 @@ import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ChangeEvent;
+import javax.swing.event.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
@@ -21,6 +22,9 @@ import javax.swing.tree.TreeSelectionModel;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
+
+import static com.prism.utils.AStyleWrapper.STYLE_CODE_SAMPLES;
+import static com.prism.utils.AStyleWrapper.STYLE_NAMES;
 
 public class ConfigurationDialog extends JFrame {
 
@@ -191,6 +195,7 @@ public class ConfigurationDialog extends JFrame {
 	private final InterfacePanel interfacePanel = new InterfacePanel();
 	private final SyntaxHighlightingPanel syntaxHighlightingPanel = new SyntaxHighlightingPanel();
 	private final AutocompletePanel autocompletePanel = new AutocompletePanel();
+	private final FormatterPanel formatterPanel = new FormatterPanel();
 	private final ServicesPanel servicesPanel = new ServicesPanel();
 	private final CPanel cPanel = new CPanel();
 	private final CPPPanel cppPanel = new CPPPanel();
@@ -209,6 +214,7 @@ public class ConfigurationDialog extends JFrame {
 		rightPanel.add(terminalPanel, "Terminal");
 		rightPanel.add(syntaxHighlightingPanel, "Syntax Highlighting");
 		rightPanel.add(autocompletePanel, "Autocomplete");
+		rightPanel.add(formatterPanel, "Formatter (AStyle)");
 		rightPanel.add(servicesPanel, "Services");
 		rightPanel.add(cPanel, "C");
 		rightPanel.add(cppPanel, "C++");
@@ -216,7 +222,7 @@ public class ConfigurationDialog extends JFrame {
 	}
 
 	public ConfigurationDialog() {
-		super("Configuration Settings");
+		super("Prism Settings");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setSize(900, 600);
 		setLocationRelativeTo(null);
@@ -251,6 +257,7 @@ public class ConfigurationDialog extends JFrame {
 
 		DefaultMutableTreeNode syntaxHighlighting = new DefaultMutableTreeNode("Syntax Highlighting");
 		DefaultMutableTreeNode autocomplete = new DefaultMutableTreeNode("Autocomplete");
+		DefaultMutableTreeNode formatter = new DefaultMutableTreeNode("Formatter (AStyle)");
 		DefaultMutableTreeNode services = new DefaultMutableTreeNode("Services");
 		DefaultMutableTreeNode languages = new DefaultMutableTreeNode("Languages");
 
@@ -260,6 +267,7 @@ public class ConfigurationDialog extends JFrame {
 
 		editor.add(syntaxHighlighting);
 		editor.add(autocomplete);
+		editor.add(formatter);
 		editor.add(services);
 		editor.add(languages);
 
@@ -425,6 +433,42 @@ public class ConfigurationDialog extends JFrame {
 		return s;
 	}
 
+	private JExtendedTextField inputField(String placeHolder, ConfigKey key, String def, boolean... requiresRefresh) {
+		JExtendedTextField field = new JExtendedTextField(180);
+		field.setMaximumSize(new Dimension(field.getPreferredSize().width, 24));
+		field.setText(def);
+		field.setPlaceholder(placeHolder);
+
+		field.getDocument().addDocumentListener(new DocumentListener() {
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				applyChangesLocal();
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				applyChangesLocal();
+			}
+
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				applyChangesLocal();
+			}
+
+			private void applyChangesLocal() {
+				prism.getConfig().set(key, field.getText(), false);
+
+				enableApplyButton();
+
+				if (requiresRefresh != null && requiresRefresh.length > 0 && requiresRefresh[0]) {
+					setRequireRefresh(true);
+				}
+			}
+		});
+
+		return field;
+	}
+
 	private JPanel sliderPanel(JSlider slider) {
 		JLabel value = new JLabel(String.format("%,d", slider.getValue()));
 
@@ -495,19 +539,6 @@ public class ConfigurationDialog extends JFrame {
 			setLeafIcon(null);
 			setOpenIcon(null);
 			setClosedIcon(null);
-		}
-	}
-
-	private static final class JavaPanel extends JPanel {
-		JavaPanel() {
-			build();
-		}
-
-		private void build() {
-			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-			setBorder(new EmptyBorder(5, 5, 5, 5));
-
-
 		}
 	}
 
@@ -851,6 +882,60 @@ public class ConfigurationDialog extends JFrame {
 		}
 	}
 
+	/* ------------ Formatter ------------- */
+	private final class FormatterPanel extends JPanel {
+		FormatterPanel() {
+			build();
+		}
+
+		private void build() {
+			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+			setBorder(new EmptyBorder(5, 5, 5, 5));
+
+			JCheckBox master = checkbox("Automatically choose the best style for each language", ConfigKey.ASTYLE_FORMAT_STYLE_AUTO, true);
+
+			int selectedStyleIndex = prism.getConfig().getInt(ConfigKey.ASTYLE_FORMAT_STYLE, 1);
+
+			JComboBox<Object> stylesCombo = fixedCombo(STYLE_NAMES);
+			stylesCombo.setSelectedIndex(selectedStyleIndex);
+			stylesCombo.setEnabled(!master.isSelected());
+
+			TextArea ta = new TextArea(true);
+			ta.setEditable(false);
+			ta.setText(STYLE_CODE_SAMPLES[selectedStyleIndex]);
+			ta.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_C);
+			ta.addSyntaxHighlighting();
+
+			stylesCombo.addActionListener(e -> {
+				int index = stylesCombo.getSelectedIndex();
+
+				prism.getConfig().set(ConfigKey.ASTYLE_FORMAT_STYLE, index, false);
+				ta.setText(STYLE_CODE_SAMPLES[index]);
+
+				enableApplyButton();
+			});
+
+			master.addActionListener(e -> {
+				stylesCombo.setEnabled(!master.isSelected());
+			});
+
+			add(customSeparator("Styles: ", UIManager.getColor("Component.linkColor")));
+
+			add(pair(master));
+			add(pair(new JLabel("Formatter style: "), stylesCombo));
+			add(pair(new JLabel("Preview: ")));
+			add(pair(new JDefaultKineticScrollPane(ta)));
+
+			add(Box.createVerticalStrut(20));
+			add(customSeparator("Options: ", UIManager.getColor("Component.linkColor")));
+
+			add(pair(checkbox("Delete empty lines", ConfigKey.ASTYLE_DELETE_EMPTY_LINES, true)));
+			add(pair(checkbox("Indent labels", ConfigKey.ASTYLE_INDENT_LABELS, true)));
+			add(pair(checkbox("Indent namespaces", ConfigKey.ASTYLE_INDENT_NAMESPACES, true)));
+			add(pair(checkbox("Indent switches and cases", ConfigKey.ASTYLE_INDENT_SWITCHES_AND_CASES, true)));
+		}
+	}
+
 	/* ------------ ServicesPanel ------------ */
 	private final class ServicesPanel extends JPanel {
 		ServicesPanel() {
@@ -901,6 +986,11 @@ public class ConfigurationDialog extends JFrame {
 
 			add(pair(providedInPath));
 			add(pair(new JLabel("GCC Compiler Executable (.exe) Path: "), Box.createRigidArea(new Dimension(5, 0)), compilerPathField, Box.createRigidArea(new Dimension(5, 0)), browseButton));
+
+			add(Box.createVerticalStrut(20));
+			add(customSeparator("Ctags: ", UIManager.getColor("Component.linkColor")));
+
+			add(pair(new JLabel("Options: "), inputField("Enter Ctags options...", ConfigKey.LANGUAGE_C_CTAGS_OPTIONS, "--language-force=C --kinds-C=*")));
 		}
 
 		private void chooseCompilerPath() {
@@ -955,6 +1045,11 @@ public class ConfigurationDialog extends JFrame {
 
 			add(pair(providedInPath));
 			add(pair(new JLabel("G++ Compiler Executable (.exe) Path: "), Box.createRigidArea(new Dimension(5, 0)), compilerPathField, Box.createRigidArea(new Dimension(5, 0)), browseButton));
+
+			add(Box.createVerticalStrut(20));
+			add(customSeparator("Ctags: ", UIManager.getColor("Component.linkColor")));
+
+			add(pair(new JLabel("Options: "), inputField("Enter Ctags options...", ConfigKey.LANGUAGE_CPP_CTAGS_OPTIONS, "--language-force=C++ --kinds-C++=*")));
 		}
 
 		private void chooseCompilerPath() {
@@ -975,6 +1070,21 @@ public class ConfigurationDialog extends JFrame {
 
 				enableApplyButton();
 			}
+		}
+	}
+
+	private final class JavaPanel extends JPanel {
+		JavaPanel() {
+			build();
+		}
+
+		private void build() {
+			setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+			setBorder(new EmptyBorder(5, 5, 5, 5));
+
+			add(customSeparator("Ctags: ", UIManager.getColor("Component.linkColor")));
+
+			add(pair(new JLabel("Options: "), inputField("Enter Ctags options...", ConfigKey.LANGUAGE_JAVA_CTAGS_OPTIONS, "--language-force=Java --kinds-Java=*")));
 		}
 	}
 }

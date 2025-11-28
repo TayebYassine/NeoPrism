@@ -64,6 +64,8 @@ public class TemplatesFrame extends JFrame {
 
 	private void loadTemplates() {
 		TemplateRegistry.getAll().forEach(model::addElement);
+
+		list.setSelectedIndex(0);
 	}
 
 	private void createSelectedTemplate() {

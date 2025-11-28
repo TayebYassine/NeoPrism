@@ -100,7 +100,7 @@ public class ServiceForJava extends Service {
 			return;
 		}
 
-		String[] opts = {"--language-force=Java", "--kinds-Java=acefgilm"};
+		String[] opts = prism.getConfig().getString(ConfigKey.LANGUAGE_JAVA_CTAGS_OPTIONS, "--language-force=Java --kinds-Java=*").split(" ");
 
 		CtagsWrapper.extractSymbolsAsync(
 				pf.getFile(),
@@ -188,9 +188,7 @@ public class ServiceForJava extends Service {
 		}
 
 		AStyleWrapper.formatFileAsync(pf.getFile(), aStyleFile.getAbsolutePath(),
-				String.format("--style=java --indent=spaces=%d",
-						prism.getConfig().getInt(ConfigKey.TAB_SIZE, 4)
-				),
+				AStyleWrapper.getOptionsFromConfig("java"),
 				new AStyleWrapper.Callback() {
 					@Override
 					public void onSuccess(String formattedText) {
