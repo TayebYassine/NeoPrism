@@ -29,18 +29,23 @@ public class ServiceForJava extends Service {
 		PrismFile pf = prism.getTextAreaTabbedPane().getCurrentFile();
 		File file = pf.getFile();
 
-		JMenuItem buildAndRunExternalThreadItem = new JMenuItem("Java: Build & Run");
-		buildAndRunExternalThreadItem.addActionListener(e -> {
+		JMenuItem buildItem = new JMenuItem("Java: Build");
+		buildItem.addActionListener(e -> {
 			FileManager.saveFile(pf);
 
-			buildAndRunExternalThreadFile(file);
+			buildFile(file);
+		});
+
+		JMenuItem runItem = new JMenuItem("Java: Run");
+		runItem.addActionListener(e -> {
+			runFile(file);
 		});
 
 		JMenuItem buildAndRunItem = new JMenuItem("Java: Build & Run");
 		buildAndRunItem.addActionListener(e -> {
 			FileManager.saveFile(pf);
 
-			buildAndRunInternalThreadFile(file);
+			buildAndRunFile(file);
 		});
 
 		JMenuItem formatSourceWithGoogleItem = new JMenuItem("Format Source Code (Google)");
@@ -53,8 +58,9 @@ public class ServiceForJava extends Service {
 			formatSourceCodeAStyle(pf);
 		});
 
-		add(buildAndRunExternalThreadItem);
-		//add(buildAndRunItem);
+		add(buildItem);
+		add(runItem);
+		add(buildAndRunItem);
 		addSeparator();
 		add(formatSourceWithGoogleItem);
 		add(formatSourceWithAStyleItem);
@@ -113,7 +119,47 @@ public class ServiceForJava extends Service {
 				});
 	}
 
-	private void buildAndRunExternalThreadFile(File file) {
+	private void buildFile(File file) {
+		File dir = file.getParentFile();
+		String base = file.getName().replaceFirst("[.][^.]+$", "");
+
+		String cmdLine = String.format(
+				"cmd /c start \"Running %s\" cmd /c \"(javac \"%s.java\") & exit\"",
+				base, base);
+
+		ThreadsManager.submitAndTrackThread("Java Build " + file.getName(), () -> {
+			try {
+				new ProcessBuilder("cmd", "/c", cmdLine)
+						.directory(dir)
+						.inheritIO()
+						.start();
+			} catch (Exception ex) {
+				new WarningDialog(prism, ex);
+			}
+		});
+	}
+
+	private void runFile(File file) {
+		File dir = file.getParentFile();
+		String base = file.getName().replaceFirst("[.][^.]+$", "");
+
+		String cmdLine = String.format(
+				"cmd /c start \"Running %s\" cmd /c \"(java \"%s\") & pause & exit\"",
+				base, base);
+
+		ThreadsManager.submitAndTrackThread("Java Build " + file.getName(), () -> {
+			try {
+				new ProcessBuilder("cmd", "/c", cmdLine)
+						.directory(dir)
+						.inheritIO()
+						.start();
+			} catch (Exception ex) {
+				new WarningDialog(prism, ex);
+			}
+		});
+	}
+
+	private void buildAndRunFile(File file) {
 		File dir = file.getParentFile();
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 
@@ -131,26 +177,6 @@ public class ServiceForJava extends Service {
 				new WarningDialog(prism, ex);
 			}
 		});
-	}
-
-	private void buildAndRunInternalThreadFile(File file) {
-		Terminal terminal = prism.getTerminalTabbedPane().getCurrentTerminal();
-
-		if (terminal == null) {
-			return;
-		}
-
-		prism.getLowerSidebar().setSelectedIndex(1);
-
-		terminal.closeProcess();
-
-		String base = file.getName().replaceFirst("[.][^.]+$", "");
-
-		String cmdLine = String.format(
-				"javac \"%s.java\" && java \"%s\"",
-				base, base);
-
-		terminal.executeCommandSync(cmdLine);
 	}
 
 	private void formatSourceCodeAStyle(PrismFile pf) {

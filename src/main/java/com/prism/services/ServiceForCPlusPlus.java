@@ -28,18 +28,23 @@ public class ServiceForCPlusPlus extends Service {
 		PrismFile pf = prism.getTextAreaTabbedPane().getCurrentFile();
 		File file = pf.getFile();
 
-		JMenuItem buildAndRunExternalThreadItem = new JMenuItem("C++: Build & Run");
-		buildAndRunExternalThreadItem.addActionListener(e -> {
+		JMenuItem buildItem = new JMenuItem("C++: Build");
+		buildItem.addActionListener(e -> {
 			FileManager.saveFile(pf);
 
-			buildAndRunExternalThreadFile(file);
+			buildFile(file);
+		});
+
+		JMenuItem runItem = new JMenuItem("C++: Run");
+		runItem.addActionListener(e -> {
+			runFile(file);
 		});
 
 		JMenuItem buildAndRunItem = new JMenuItem("C++: Build & Run");
 		buildAndRunItem.addActionListener(e -> {
 			FileManager.saveFile(pf);
 
-			buildAndRunInternalThreadFile(file);
+			buildAndRunFile(file);
 		});
 
 		JMenuItem formatSourceWithAStyleItem = new JMenuItem("Format Source Code (AStyle)");
@@ -47,8 +52,9 @@ public class ServiceForCPlusPlus extends Service {
 			formatSourceCodeAStyle(pf);
 		});
 
-		add(buildAndRunExternalThreadItem);
-		//add(buildAndRunItem);
+		add(buildItem);
+		add(runItem);
+		add(buildAndRunItem);
 		addSeparator();
 		add(formatSourceWithAStyleItem);
 	}
@@ -110,7 +116,61 @@ public class ServiceForCPlusPlus extends Service {
 				});
 	}
 
-	private void buildAndRunExternalThreadFile(File file) {
+	private void buildFile(File file) {
+		File dir = file.getParentFile();
+		String base = file.getName().replaceFirst("[.][^.]+$", "");
+
+		String exePath;
+
+		if (prism.getConfig().getBoolean(ConfigKey.LANGUAGE_CPP_GNU_GPP_COMPILER_PROVIDED_IN_PATH_ENV, true)) {
+			exePath = "g++";
+		} else {
+			exePath = Paths.get(prism.getConfig().getString(ConfigKey.LANGUAGE_CPP_GNU_GPP_COMPILER_PATH, "")).toAbsolutePath().toString();
+		}
+
+		String cmdLine = String.format(
+				"cmd /c start \"Running %s\" cmd /c \"(%s \"%s\" -o \"%s\") & exit\"",
+				base, exePath, file.getName(), base);
+
+		ThreadsManager.submitAndTrackThread("C++ Build " + file.getName() , () -> {
+			try {
+				Process p = new ProcessBuilder("cmd", "/c", cmdLine)
+						.directory(dir)
+						.redirectError(ProcessBuilder.Redirect.DISCARD)
+						.redirectOutput(ProcessBuilder.Redirect.DISCARD)
+						.start();
+				p.waitFor();
+				p.destroyForcibly();
+			} catch (Exception ex) {
+				new WarningDialog(prism, ex);
+			}
+		});
+	}
+
+	private void runFile(File file) {
+		File dir = file.getParentFile();
+		String base = file.getName().replaceFirst("[.][^.]+$", "");
+
+		String cmdLine = String.format(
+				"cmd /c start \"Running %s\" cmd /c \"(\"%s\") & pause & exit\"",
+				base, base);
+
+		ThreadsManager.submitAndTrackThread("C++ Run " + file.getName() , () -> {
+			try {
+				Process p = new ProcessBuilder("cmd", "/c", cmdLine)
+						.directory(dir)
+						.redirectError(ProcessBuilder.Redirect.DISCARD)
+						.redirectOutput(ProcessBuilder.Redirect.DISCARD)
+						.start();
+				p.waitFor();
+				p.destroyForcibly();
+			} catch (Exception ex) {
+				new WarningDialog(prism, ex);
+			}
+		});
+	}
+
+	private void buildAndRunFile(File file) {
 		File dir = file.getParentFile();
 		String base = file.getName().replaceFirst("[.][^.]+$", "");
 
@@ -126,7 +186,7 @@ public class ServiceForCPlusPlus extends Service {
 				"cmd /c start \"Running %s\" cmd /c \"(%s \"%s\" -o \"%s\" && \"%s\") & pause & exit\"",
 				base, exePath, file.getName(), base, base);
 
-		ThreadsManager.submitAndTrackThread("C++ Build " + file.getName() , () -> {
+		ThreadsManager.submitAndTrackThread("C++ Build and Run " + file.getName() , () -> {
 			try {
 				Process p = new ProcessBuilder("cmd", "/c", cmdLine)
 						.directory(dir)
@@ -139,35 +199,6 @@ public class ServiceForCPlusPlus extends Service {
 				new WarningDialog(prism, ex);
 			}
 		});
-	}
-
-	private void buildAndRunInternalThreadFile(File file) {
-		Terminal terminal = prism.getTerminalTabbedPane().getCurrentTerminal();
-
-		if (terminal == null) {
-			return;
-		}
-
-		prism.getLowerSidebar().setSelectedIndex(1);
-
-		terminal.closeProcess();
-
-		String base = file.getName().replaceFirst("[.][^.]+$", "");
-
-		String exePath;
-
-		if (prism.getConfig().getBoolean(ConfigKey.LANGUAGE_CPP_GNU_GPP_COMPILER_PROVIDED_IN_PATH_ENV, true)) {
-			exePath = "g++";
-		} else {
-			exePath = Paths.get(prism.getConfig().getString(ConfigKey.LANGUAGE_CPP_GNU_GPP_COMPILER_PATH, "")).toAbsolutePath().toString();
-		}
-
-		String cmdLine = String.format(
-				"cmd /c \"%s \"%s\" -o \"%s\" & start \"\" \"%s\" & pause & exit\"",
-				exePath, file.getName(), base, base
-		);
-
-		terminal.executeCommandSync(cmdLine);
 	}
 
 	private void formatSourceCodeAStyle(PrismFile pf) {
