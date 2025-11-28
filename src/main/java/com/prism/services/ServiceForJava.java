@@ -77,38 +77,6 @@ public class ServiceForJava extends Service {
 	}
 
 	@Override
-	public boolean createNewProject(File projectDir) {
-		File mainFile = new File(projectDir, "Main.java");
-
-		if (!mainFile.exists()) {
-			try {
-				mainFile.createNewFile();
-			} catch (IOException e) {
-				return false;
-			}
-		}
-
-		try (FileWriter fw = new FileWriter(mainFile)) {
-			fw.write(getSample());
-
-			return true;
-		} catch (IOException e) {
-			return false;
-		}
-	}
-
-	@Override
-	public String getSample() {
-		return """
-				public class Main {
-				    public static void main(String[] args) {
-				        System.out.println("Hello World!");
-				    }
-				}
-				""";
-	}
-
-	@Override
 	public void installSyntaxChecker(PrismFile pf, TextArea textArea) {
 		if (!(prism.getConfig().getBoolean(ConfigKey.ALLOW_SERVICES, true) && prism.getConfig().getBoolean(ConfigKey.ALLOW_SERVICE_SYNTAX_CHECKER, true))) {
 			return;

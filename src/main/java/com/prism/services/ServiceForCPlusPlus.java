@@ -70,39 +70,6 @@ public class ServiceForCPlusPlus extends Service {
 	}
 
 	@Override
-	public boolean createNewProject(File projectDir) {
-		File mainFile = new File(projectDir, "main.cpp");
-
-		if (!mainFile.exists()) {
-			try {
-				mainFile.createNewFile();
-			} catch (IOException e) {
-				return false;
-			}
-		}
-
-		try (FileWriter fw = new FileWriter(mainFile)) {
-			fw.write(getSample());
-
-			return true;
-		} catch (IOException e) {
-			return false;
-		}
-	}
-
-	@Override
-	public String getSample() {
-		return """
-				#include <iostream>
-				
-				int main() {
-				    std::cout << "Hello World!" << std::endl;
-				    return 0;
-				}
-				""";
-	}
-
-	@Override
 	public void installSyntaxChecker(PrismFile pf, TextArea textArea) {
 		if (!(prism.getConfig().getBoolean(ConfigKey.ALLOW_SERVICES, true) && prism.getConfig().getBoolean(ConfigKey.ALLOW_SERVICE_SYNTAX_CHECKER, true))) {
 			return;

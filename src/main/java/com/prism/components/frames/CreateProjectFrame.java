@@ -2,7 +2,6 @@ package com.prism.components.frames;
 
 import com.prism.Prism;
 import com.prism.managers.FileManager;
-import com.prism.projects.ProjectsGridFrame;
 import com.prism.utils.ProjectNameGenerator;
 import com.prism.utils.ResourceUtil;
 
@@ -161,7 +160,7 @@ public class CreateProjectFrame extends JFrame {
 			return;
 		}
 
-		new ProjectsGridFrame(projectDir);
+		new TemplatesFrame(projectDir);
 
 		dispose();
 	}

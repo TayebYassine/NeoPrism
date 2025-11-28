@@ -19,14 +19,6 @@ public class Service extends JPopupMenu {
 		return null;
 	}
 
-	public boolean createNewProject(File projectDir) {
-		return false;
-	}
-
-	public String getSample() {
-		return null;
-	}
-
 	public void installSyntaxChecker(PrismFile pf, TextArea textArea) {
 		return;
 	}

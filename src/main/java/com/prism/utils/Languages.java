@@ -29,6 +29,7 @@ public class Languages {
             case "f90", "for", "f" -> "Fortran";
             case "go" -> "Golang";
             case "groovy" -> "Groovy";
+            case "h" -> "Header File (C)";
             case "htm", "html", "ejs" -> "HTML";
             case "ini", "properties", "prop", "config" -> "Properties";
             case "java" -> "Java";
@@ -67,7 +68,7 @@ public class Languages {
         return switch (extension) {
             case "as" -> SyntaxConstants.SYNTAX_STYLE_ACTIONSCRIPT;
             case "asm", "s", "inc" -> SyntaxConstants.SYNTAX_STYLE_ASSEMBLER_X86;
-            case "c" -> SyntaxConstants.SYNTAX_STYLE_C;
+            case "c", "h" -> SyntaxConstants.SYNTAX_STYLE_C;
             case "clj", "cljs", "cljc" -> SyntaxConstants.SYNTAX_STYLE_CLOJURE;
             case "cpp" -> SyntaxConstants.SYNTAX_STYLE_CPLUSPLUS;
             case "cs" -> SyntaxConstants.SYNTAX_STYLE_CSHARP;
@@ -371,6 +372,7 @@ public class Languages {
                 "f",
                 "go",
                 "groovy",
+                "h",
                 "htm",
                 "html",
                 "ejs",
