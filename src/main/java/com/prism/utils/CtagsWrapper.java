@@ -10,25 +10,21 @@ import java.util.concurrent.TimeUnit;
 
 public class CtagsWrapper {
 
-	public static void extractSymbolsAsync(File source,
-										   String ctagsExePath,
-										   String[] options,
-										   Callback callback) {
-		new SwingWorker<Map<String, List<String>>, Void>() {
-			@Override
-			protected Map<String, List<String>> doInBackground() throws Exception {
-				return extractSymbols(source, ctagsExePath, options);
-			}
+	public static void extractSymbolsAsync(final File source,
+										   final String ctagsExePath,
+										   final String[] options,
+										   final Callback callback) {
 
-			@Override
-			protected void done() {
-				try {
-					callback.onSuccess(get());
-				} catch (Exception ex) {
-					callback.onError(ex.getMessage());
-				}
+		Runnable task = () -> {
+			try {
+				Map<String, List<String>> result = extractSymbols(source, ctagsExePath, options);
+				callback.onSuccess(result);
+			} catch (Exception ex) {
+				callback.onError(ex.getMessage());
 			}
-		}.execute();
+		};
+
+		new Thread(task, "Ctags-Extractor").start();
 	}
 
 	private static Map<String, List<String>> extractSymbols(File src,

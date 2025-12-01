@@ -25,6 +25,9 @@ import java.util.Map;
 public class ServiceForJava extends Service {
 	private static final Prism prism = Prism.getInstance();
 
+	private long lastUpdateTime = 0;
+	private static final long DEBOUNCE_MS = 3000;
+
 	public ServiceForJava() {
 		PrismFile pf = prism.getTextAreaTabbedPane().getCurrentFile();
 		File file = pf.getFile();
@@ -93,6 +96,12 @@ public class ServiceForJava extends Service {
 
 	@Override
 	public void updateSymbolsTree(PrismFile pf, TextArea textArea) {
+		long now = System.currentTimeMillis();
+		if (now - lastUpdateTime < DEBOUNCE_MS) {
+			return;
+		}
+		lastUpdateTime = now;
+
 		File ctagsFile = new File("Ctags/ctags.exe");
 
 		if (ctagsFile == null || !ctagsFile.exists() || !ctagsFile.isFile()) {
